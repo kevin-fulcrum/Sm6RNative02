@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ButtonDefault = ({variant, label, onPress}) => {
+const Button = ({variant, label, onPress}) => {
   const backgroundColor =
     variant === 'primary' ? '#2CB9B0' : 'rgba(12,13,52, 0.05)';
   const color = variant === 'primary' ? '#ffffff' : '#0C0D34';
@@ -28,4 +28,4 @@ const ButtonDefault = ({variant, label, onPress}) => {
   );
 };
 
-export default ButtonDefault;
+export default Button;

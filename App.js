@@ -8,7 +8,7 @@
 
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import Button from './src/components/core/Buttons/Button';
+import Onboarding from './src/screens/Authentication/Onboarding/Onboarding'
 
 const App = () => {
   const onPress = () => {
@@ -16,8 +16,7 @@ const App = () => {
   }
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hola a todos!</Text>
-      <Button variant={'primary'} label={'Bienvenidos'} onPress={onPress}/>
+      <Onboarding />
     </View>
   );
 };
