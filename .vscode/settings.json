@@ -1,0 +1,8 @@
+{
+    "cSpell.enableFiletypes": [
+        "jest-snapshot",
+        "jsx",
+        "jsx-attr",
+        "jsx-tags"
+    ]
+}
