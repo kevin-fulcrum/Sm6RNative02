@@ -1,9 +1,14 @@
 import React, {useRef} from 'react';
 import {View, StyleSheet, Dimensions} from 'react-native';
-import {useScrollHandler, interpolateColor} from 'react-native-redash/lib/module/v1';
+import {
+  useScrollHandler,
+  interpolateColor,
+  translateZ,
+} from 'react-native-redash/lib/module/v1';
 import Animated, {multiply} from 'react-native-reanimated';
 
 import Slide, {SLIDE_HEIGHT} from './Slide';
+import SubSlide from './SubSlide';
 
 const BORDER_RADIUS = 75;
 const {width} = Dimensions.get('window');
@@ -82,11 +87,28 @@ const Onboarding = () => {
           ))}
         </Animated.ScrollView>
       </Animated.View>
-      {/* <View style={styles.footer}>
+      <View style={styles.footer}>
         <Animated.View
           style={{...StyleSheet.absoluteFillObject, backgroundColor}}
         />
-      </View> */}
+        <Animated.View
+          style={[
+            styles.footerContent,
+            {
+              width: width * slides.length,
+              flex: 1,
+              transform: [{translateX: multiply(x, -1)}],
+            },
+          ]}>
+          {slides.map(({subtitle, description}, index) => (
+            <SubSlide
+              key={index}
+              last={index === slides.length - 1}
+              {...{subtitle, description}}
+            />
+          ))}
+        </Animated.View>
+      </View>
     </View>
   );
 };
