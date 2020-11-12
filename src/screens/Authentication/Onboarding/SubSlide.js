@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SubSlide = ({subtitle, description, last}) => {
+const SubSlide = ({subtitle, description, last, onPress}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.subtitle}>{subtitle}</Text>
@@ -33,6 +33,7 @@ const SubSlide = ({subtitle, description, last}) => {
       <Button
         label={last ? "Let's get started" : 'Next'}
         variant={last ? 'primary' : 'default'}
+        {...{onPress}}
       />
     </View>
   );
