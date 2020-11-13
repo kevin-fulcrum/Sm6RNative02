@@ -8,14 +8,16 @@
 
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import Onboarding from './src/screens/Authentication/Onboarding/Onboarding'
-import Welcome from './src/screens/Authentication/Welcome'
+import Onboarding from './src/screens/Authentication/Onboarding/Onboarding';
+import Welcome from './src/screens/Authentication/Welcome';
+import Login from './src/screens/Authentication/Login';
 
 const App = () => {
   return (
     <View style={styles.container}>
       {/* <Onboarding /> */}
-      <Welcome />
+      {/* <Welcome /> */}
+      <Login />
     </View>
   );
 };
