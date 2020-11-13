@@ -69,14 +69,6 @@ const slides = [
 ];
 
 const Onboarding = () => {
-  console.warn(
-    'slides.length',
-    slides.length,
-    'width',
-    width,
-    'width * slides.length',
-    width * slides.length,
-  );
   const scroll = useRef(null);
   const {scrollHandler, x} = useScrollHandler();
   const backgroundColor = interpolateColor(x, {

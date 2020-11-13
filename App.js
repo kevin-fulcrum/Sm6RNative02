@@ -9,14 +9,13 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Onboarding from './src/screens/Authentication/Onboarding/Onboarding'
+import Welcome from './src/screens/Authentication/Welcome'
 
 const App = () => {
-  const onPress = () => {
-    console.warn('onPress')
-  }
   return (
     <View style={styles.container}>
-      <Onboarding />
+      {/* <Onboarding /> */}
+      <Welcome />
     </View>
   );
 };
