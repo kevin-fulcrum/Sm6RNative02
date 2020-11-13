@@ -1,11 +1,11 @@
-import React, {useRef, useState} from 'react';
+import React, {Component} from 'react';
 import {TextInput, StyleSheet, View, Text} from 'react-native';
 import Validator from '../../../resource/functions/Validator';
+import Label from './Label';
 
 const styles = StyleSheet.create({
-  textInput: {
-    flex: 1,
-    flexDirection: 'row',
+  container: {
+    marginVertical: 10,
   },
   helperTextStyle: {
     fontSize: 12,
@@ -23,81 +23,87 @@ const styles = StyleSheet.create({
   },
 });
 
-const Input = ({
-  editable,
-  children,
-  value,
-  onChange,
-  TextInputStyle,
-  maxLength,
-  placeholder,
-  placeholderTextColor,
-  onBlur,
-  onFocus,
-  TextInputRef,
-  type,
-  ...props
-}) => {
-  const [error, setError] = useState('');
-  const [inputValue, setInputValue] = useState('');
-  const [defaultValue, setDefaultValue] = useState('');
-  const [validate, setValidate] = useState('');
-  const input = useRef(null);
+export default class Input extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: '',
+      value: '',
+      defaultValue: '',
+      validate: false,
+    };
+  }
 
-  const ofRef = (ref) => {
-    input.current = ref;
-    TextInputRef && TextInputRef(ref);
+  ofRef = (ref) => {
+    this.input = ref;
+    this.props.textInputRef && this.props.textInputRef(ref);
   };
-  const onBlurInput = () => {
-    onBlur && onBlur();
+  blurInput = () => {
+    this.props.onBlur && this.props.onBlur();
   };
-  const onFocusInput = () => {
-    onFocus && onFocus();
+  focusInput = () => {
+    this.props.onFocusInput && this.props.onFocusInput();
   };
-  const onChangeInput = (value) => {
+  onChangeInput = (value) => {
+    const {type} = this.props;
     if (type) {
       if (value.trim() !== '') {
         if (Validator(type, value).error !== '') {
-          setInputValue(value);
-          setError(Validator(type, value).error);
-          setValidate(false);
+          this.state.value = value;
+          this.state.error = Validator(type, value).error;
+          this.state.validate = false;
         } else {
-          setInputValue(value);
-          setError('');
-          setValidate(true);
+          this.state.value = value;
+          this.state.error = '';
+          this.state.validate = true;
         }
       } else {
-        setInputValue(value);
-        setError('');
-        setValidate(false);
+        this.state.value = value;
+        this.state.error = '';
+        this.state.validate = false;
       }
     }
-    onChange && onChange(value);
+    this.props.onChangeInput && this.props.onChangeInput(value);
   };
-  return (
-    <View
-      style={editable ? styles.opacity : styles.input}
-      pointerEvents={editable ? 'none' : 'auto'}>
-      <TextInput
-        {...props}
-        ref={ofRef}
-        value={value}
-        placeholder={placeholder}
-        onChange={onChangeInput}
-        onBlur={onBlurInput}
-        editable={editable}
-        onFocus={onFocusInput}
-        style={[TextInputStyle, styles.textInput]}
-        maxLength={maxLength}
-        placeholderTextColor={placeholderTextColor}
-      />
-      {error !== '' ? (
-        <View style={styles.message}>
-          <Text style={styles.helperTextStyle}>Error del campo</Text>
-        </View>
-      ) : null}
-    </View>
-  );
-};
 
-export default Input;
+  render() {
+    const {
+      editable,
+      children,
+      value,
+      onChange,
+      textInputStyle,
+      onFocusInput,
+      maxLength,
+      placeholder,
+      placeholderTextColor,
+      ...props
+    } = this.props;
+    return (
+      <View
+        pointerEvents={editable ? 'none' : 'auto'}
+        styles={editable ? styles.opacity : styles.input}>
+        <Label {...this.props}>
+          <TextInput
+            {...props}
+            ref={this.ofRef}
+            value={this.state.value}
+            onChangeText={this.onChangeInput}
+            onBlur={this.blurInput}
+            editable={!editable}
+            onFocus={this.focusInput}
+            style={[textInputStyle, styles.container]}
+            maxLength={maxLength}
+            placeholder={placeholder}
+            placeholderTextColor={placeholderTextColor}
+          />
+        </Label>
+        {this.state.error !== '' ? (
+          <View style={styles.message}>
+            <Text style={styles.helperTextStyle}>{this.state.error}</Text>
+          </View>
+        ) : null}
+      </View>
+    );
+  }
+}
