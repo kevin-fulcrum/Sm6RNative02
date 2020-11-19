@@ -7,11 +7,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const Label = ({children, label, labelStyle}) => {
+const Label = ({children, label, labelStyle, subLabel, subLabelStyle}) => {
   return (
     <View style={styles.container}>
       <Text style={labelStyle}>{label}</Text>
       {children}
+      {subLabel && <Text style={subLabelStyle}>{subLabel}</Text>}
     </View>
   );
 };
