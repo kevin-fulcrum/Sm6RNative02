@@ -53,7 +53,7 @@ const Carousel = ({data}) => {
           data={data}
           keyExtractor={(item, index) => 'key' + index}
           horizontal
-          pagingEnabled
+           
           scrollEnabled
           snapToAlignment="center"
           scrollEventThrottle={16}

@@ -1,18 +1,12 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import Dashboard from './src/screens/Home/Dashboard';
-const App = () => {
+import {carouselData} from '../../resource/functions/data/carouselData';
+import Carousel from '../../components/Carousel/Carousel';
+
+const Dashboard = () => {
   return (
     <View style={styles.container}>
-      <Dashboard />
+      <Carousel data={carouselData} />
     </View>
   );
 };
@@ -28,4 +22,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default Dashboard;

@@ -70,24 +70,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const Login = () => {
+const ForgotPassword = () => {
   const [disable, setDisable] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const usernameInput = useRef();
-  const passwordInput = useRef();
+  const [email, setEmail] = useState('');
+  const emailInput = useRef();
   const onChange = (value, type) => {
-    if (type === 'username') {
-      if (usernameInput.current.state.validate) {
+    if (type === 'email') {
+      if (emailInput.current.state.validate) {
         setDisable(false);
       }
-      setUsername(value);
-    }
-    if (type === 'password') {
-      if (passwordInput.current.state.validate) {
-        setDisable(false);
-      }
-      setPassword(value);
+      setEmail(value);
     }
   };
   return (
@@ -104,28 +96,17 @@ const Login = () => {
       <View style={{flex: 1, borderTopLeftRadius: 20}}>
         <View style={styles.border} />
         <View style={styles.welcome}>
-          <Text style={styles.title}>Login</Text>
+          <Text style={styles.title}>Forgot Password</Text>
           <ScrollView style={{flex: 1}}>
             <Input
-              ref={usernameInput}
-              label={'Username'}
+              ref={emailInput}
+              label={'Email'}
               labelStyle={styles.labelStyle}
-              value={username}
-              type={'username'}
-              placeholder={'myuser2020'}
+              value={email}
+              type={'email'}
+              placeholder={'example@gmail.com'}
               textInputStyle={styles.textInput}
-              onChangeInput={(value) => onChange(value, 'username')}
-            />
-            <Input
-              ref={passwordInput}
-              label={'Password'}
-              labelStyle={styles.labelStyle}
-              value={password}
-              type={'password'}
-              placeholder={'********'}
-              textInputStyle={styles.textInput}
-              secureTextEntry
-              onChangeInput={(value) => onChange(value, 'password')}
+              onChangeInput={(value) => onChange(value, 'email')}
             />
             <View style={styles.buttonContainer}>
               <Button variant="primary" label="Continue" />
@@ -137,4 +118,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

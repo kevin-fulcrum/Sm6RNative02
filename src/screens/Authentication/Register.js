@@ -70,26 +70,38 @@ const styles = StyleSheet.create({
   },
 });
 
-const Login = () => {
+const Register = () => {
   const [disable, setDisable] = useState(false);
+  const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
+  const [country, setCountry] = useState('');
+  const [isEnabled, setIsEnabled] = useState(false);
+  const emailInput = useRef();
   const usernameInput = useRef();
-  const passwordInput = useRef();
+  const phoneInput = useRef();
+  const countryInput = useRef();
   const onChange = (value, type) => {
+    if (type === 'email') {
+      if (emailInput.current.state.validate) {
+        setDisable(false);
+      }
+      setEmail(value);
+    }
     if (type === 'username') {
       if (usernameInput.current.state.validate) {
         setDisable(false);
       }
       setUsername(value);
     }
-    if (type === 'password') {
-      if (passwordInput.current.state.validate) {
+    if (type === 'phone') {
+      if (phoneInput.current.state.validate) {
         setDisable(false);
       }
-      setPassword(value);
+      setPhone(value);
     }
   };
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -104,7 +116,7 @@ const Login = () => {
       <View style={{flex: 1, borderTopLeftRadius: 20}}>
         <View style={styles.border} />
         <View style={styles.welcome}>
-          <Text style={styles.title}>Login</Text>
+          <Text style={styles.title}>Register</Text>
           <ScrollView style={{flex: 1}}>
             <Input
               ref={usernameInput}
@@ -117,18 +129,50 @@ const Login = () => {
               onChangeInput={(value) => onChange(value, 'username')}
             />
             <Input
-              ref={passwordInput}
-              label={'Password'}
+              ref={emailInput}
+              label={'Email'}
               labelStyle={styles.labelStyle}
-              value={password}
-              type={'password'}
-              placeholder={'********'}
+              value={email}
+              type={'email'}
+              placeholder={'example@gmail.com'}
+              keyboardType="email-address"
               textInputStyle={styles.textInput}
-              secureTextEntry
-              onChangeInput={(value) => onChange(value, 'password')}
+              onChangeInput={(value) => onChange(value, 'email')}
+            />
+            <Input
+              ref={phoneInput}
+              label={'Phone Number'}
+              labelStyle={styles.labelStyle}
+              value={phone}
+              type={'phone'}
+              placeholder={'+5199999999'}
+              keyboardType="phone-pad"
+              textInputStyle={styles.textInput}
+              onChangeInput={(value) => onChange(value, 'phone')}
+            />
+            <Switch
+              label={'gender'}
+              trackColor={{false: 'rgba(12,13,52, 0.05)', true: '#2CB9B0'}}
+              thumbColor={'#f4f3f4'}
+              iosBackgroundColor="#3e3e3e"
+              onValueChange={toggleSwitch}
+              labelStyle={styles.labelStyle}
+              subLabelStyle={styles.subLabelStyle}
+              value={isEnabled}
+              subLabel={isEnabled ? 'Male' : 'Female'}
+            />
+            <Input
+              ref={countryInput}
+              label={'Country'}
+              labelStyle={styles.labelStyle}
+              value={country}
+              type={'country'}
+              placeholder={'Peru'}
+              textInputStyle={styles.textInput}
+              onChangeInput={(value) => onChange(value, 'country')}
             />
             <View style={styles.buttonContainer}>
-              <Button variant="primary" label="Continue" />
+              <Button variant="primary" label="Register Now!" />
             </View>
           </ScrollView>
         </View>
@@ -137,4 +181,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
