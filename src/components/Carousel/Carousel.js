@@ -23,14 +23,16 @@ const infiniteScroll = (datalist) => {
       scrolled = 0;
     }
     this.flatList.scrollToOffset({animated: true, offset: scrollValue});
-  }, 3000);
+  }, 5000);
 };
 const {height, width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   dot: {
+    flex: 0.05,
     flexDirection: 'row',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 
@@ -45,15 +47,15 @@ const Carousel = ({data}) => {
   }, []);
   if (data && data.length) {
     return (
-      <View style={{flex: 0.4}}>
+      <View style={{flex: 1}}>
         <FlatList
           ref={(flatList) => {
             this.flatList = flatList;
           }}
+          style={{flex: 0.95}}
           data={data}
           keyExtractor={(item, index) => 'key' + index}
           horizontal
-          pagingEnabled
           scrollEnabled
           snapToAlignment="center"
           scrollEventThrottle={16}
