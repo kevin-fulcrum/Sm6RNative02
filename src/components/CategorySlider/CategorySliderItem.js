@@ -6,52 +6,38 @@ const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: width - 20,
-    height: height / 4,
+    width: width / 3.5,
+    height: height / 10,
     backgroundColor: 'white',
     margin: 10,
     borderRadius: 10,
-    shadowColor: '#000000',
-    shadowOffset: {width: 0.5, height: 0.5},
-    shadowOpacity: 0.5,
-    shadowRadius: 3,
-    elevation: 5,
   },
   textView: {
     position: 'absolute',
-    bottom: 10,
+    bottom: 25,
     margin: 10,
-    left: 5,
+    left: 7,
   },
   image: {
-    width: width - 20,
-    height: height / 4,
+    width: width / 3.5,
+    height: height / 12,
     borderRadius: 10,
   },
   itemTitle: {
     color: 'white',
-    fontSize: 22,
+    fontSize: 16,
     shadowColor: '#000000',
     shadowOffset: {width: 0.8, height: 0.8},
+    textAlign: 'center',
     shadowOpacity: 1,
     shadowRadius: 3,
     marginBottom: 5,
     fontWeight: 'bold',
     elevation: 5,
   },
-  itemDescription: {
-    color: 'white',
-    fontSize: 12,
-    shadowColor: '#000000',
-    shadowOffset: {width: 0.8, height: 0.8},
-    shadowOpacity: 1,
-    shadowRadius: 3,
-    marginBottom: 5,
-    elevation: 5,
-  },
 });
 
-const CarouselItem = ({item}) => {
+const CategorySliderItem = ({item}) => {
   return (
     <View style={styles.container}>
       <Image
@@ -62,10 +48,9 @@ const CarouselItem = ({item}) => {
       />
       <View style={styles.textView}>
         <Text style={styles.itemTitle}>{item.title}</Text>
-        <Text style={styles.itemDescription}>{item.description}</Text>
       </View>
     </View>
   );
 };
 
-export default CarouselItem;
+export default CategorySliderItem;
