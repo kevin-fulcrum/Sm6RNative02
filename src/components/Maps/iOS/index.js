@@ -11,19 +11,15 @@ const styles = StyleSheet.create({
 
 const MapIOS = () => {
   return (
-    <SafeAreaView>
-      <View style={styles.maps}>
-        <MapView
-          style={styles.container}
-          initialRegion={{
-            latitude: 37.78825,
-            longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
-          }}
-        />
-      </View>
-    </SafeAreaView>
+    <MapView
+      style={styles.maps}
+      initialRegion={{
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      }}
+    />
   );
 };
 
