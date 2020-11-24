@@ -9,10 +9,12 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Dashboard from './src/screens/Home/Dashboard';
+import MapIOS from './src/components/Maps/iOS';
 const App = () => {
   return (
     <View style={styles.container}>
-      <Dashboard />
+      {/* <Dashboard /> */}
+      <MapIOS />
     </View>
   );
 };
