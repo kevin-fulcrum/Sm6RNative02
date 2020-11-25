@@ -11,12 +11,14 @@ import {View, Text, StyleSheet} from 'react-native';
 import Dashboard from './src/screens/Home/Dashboard';
 import MapIOS from './src/components/Maps/iOS';
 import GoogleMaps from './src/components/Maps/Android';
+import TrackUserLocationMap from './src/components/Maps/TrackUserLocationMap';
 const App = () => {
   return (
     <View style={styles.container}>
       {/* <Dashboard /> */}
       {/* <MapIOS /> */}
-      <GoogleMaps />
+      {/* <GoogleMaps /> */}
+      <TrackUserLocationMap />
     </View>
   );
 };
