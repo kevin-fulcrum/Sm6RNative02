@@ -15,8 +15,8 @@ const App = () => {
   return (
     <View style={styles.container}>
       {/* <Dashboard /> */}
-      <MapIOS />
-      {/* <GoogleMaps /> */}
+      {/* <MapIOS /> */}
+      <GoogleMaps />
     </View>
   );
 };

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Platform} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 
@@ -11,9 +11,12 @@ const styles = StyleSheet.create({
 });
 
 const GoogleMaps = () => {
-  const [location, setLocation] = useState({});
+  const [location, setLocation] = useState();
   useEffect(() => {
     console.warn('useEffect');
+    if (Platform.OS === 'ios') {
+      Geolocation.requestAuthorization('always');
+    }
     Geolocation.getCurrentPosition(
       (position) => {
         console.warn('position', position);
