@@ -10,11 +10,13 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Dashboard from './src/screens/Home/Dashboard';
 import MapIOS from './src/components/Maps/iOS';
+import GoogleMaps from './src/components/Maps/Android';
 const App = () => {
   return (
     <View style={styles.container}>
       {/* <Dashboard /> */}
-      <MapIOS />
+      {/* <MapIOS /> */}
+      <GoogleMaps />
     </View>
   );
 };
