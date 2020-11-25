@@ -14,7 +14,6 @@ const TrackUserLocationMap = () => {
   const [locations, setLocations] = useState([]);
   let _watchId;
   useEffect(() => {
-    console.warn('useEffect');
     if (Platform.OS === 'ios') {
       Geolocation.requestAuthorization('always');
     }
@@ -23,8 +22,8 @@ const TrackUserLocationMap = () => {
         const {latitude, longitude} = position.coords;
         setLocations([...locations, {latitude, longitude}]);
       },
-      (errror) => {
-        console.warn('error');
+      (error) => {
+        console.warn('error', error);
       },
       {
         enableHighAccuracy: true,
