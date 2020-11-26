@@ -15,12 +15,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const Button = ({variant, label, onPress}) => {
+const Button = ({variant, label, onPress, disabled}) => {
   const backgroundColor =
-    variant === 'primary' ? '#2CB9B0' : 'rgba(12,13,52, 0.05)';
+    variant === 'primary' && !disabled ? '#2CB9B0' : 'rgba(12,13,52, 0.05)';
   const color = variant === 'primary' ? '#ffffff' : '#0C0D34';
   return (
     <TouchableOpacity
+      disabled={disabled}
       style={[styles.container, {backgroundColor}]}
       {...{onPress}}>
       <Text style={[styles.label, {color}]}>{label}</Text>

@@ -1,4 +1,5 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
+import {AuthContext} from '../../navigation/AuthProvider';
 import {
   View,
   Image,
@@ -9,7 +10,7 @@ import {
 } from 'react-native';
 import Button from '../../components/core/Buttons/Button';
 import Input from '../../components/core/Form/TextInput';
-import Switch from '../../components/core/Form/SwitchCustom';
+// import Switch from '../../components/core/Form/SwitchCustom';
 
 const {width} = Dimensions.get('window');
 
@@ -71,37 +72,56 @@ const styles = StyleSheet.create({
 });
 
 const Register = () => {
-  const [disable, setDisable] = useState(false);
+  const {register} = useContext(AuthContext);
+  const [isNotValid, setIsNotValid] = useState(true);
   const [email, setEmail] = useState('');
-  const [username, setUsername] = useState('');
-  const [phone, setPhone] = useState('');
-  const [country, setCountry] = useState('');
-  const [isEnabled, setIsEnabled] = useState(false);
+  const [password, setPassword] = useState('');
+  const passwordInput = useRef();
+  // const [username, setUsername] = useState('');
+  // const [phone, setPhone] = useState('');
+  // const [country, setCountry] = useState('');
+  // const [isEnabled, setIsEnabled] = useState(false);
   const emailInput = useRef();
-  const usernameInput = useRef();
-  const phoneInput = useRef();
-  const countryInput = useRef();
+  // const usernameInput = useRef();
+  // const phoneInput = useRef();
+  // const countryInput = useRef();
   const onChange = (value, type) => {
     if (type === 'email') {
       if (emailInput.current.state.validate) {
-        setDisable(false);
+        setIsNotValid(false);
       }
       setEmail(value);
     }
-    if (type === 'username') {
-      if (usernameInput.current.state.validate) {
-        setDisable(false);
+    if (type === 'password') {
+      if (passwordInput.current.state.validate) {
+        setIsNotValid(false);
       }
-      setUsername(value);
+      setPassword(value);
     }
-    if (type === 'phone') {
-      if (phoneInput.current.state.validate) {
-        setDisable(false);
-      }
-      setPhone(value);
+    if (
+      passwordInput.current.state.validate &&
+      emailInput.current.state.validate
+    ) {
+      setIsNotValid(false);
     }
+    // if (type === 'username') {
+    //   if (usernameInput.current.state.validate) {
+    //     setIsNotValid(false);
+    //   }
+    //   setUsername(value);
+    // }
+    // if (type === 'phone') {
+    //   if (phoneInput.current.state.validate) {
+    //     setIsNotValid(false);
+    //   }
+    //   setPhone(value);
+    // }
   };
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  // const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const submitRegister = () => {
+    register(email, password);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -118,7 +138,7 @@ const Register = () => {
         <View style={styles.welcome}>
           <Text style={styles.title}>Register</Text>
           <ScrollView style={{flex: 1}}>
-            <Input
+            {/* <Input
               ref={usernameInput}
               label={'Username'}
               labelStyle={styles.labelStyle}
@@ -127,7 +147,7 @@ const Register = () => {
               placeholder={'myuser2020'}
               textInputStyle={styles.textInput}
               onChangeInput={(value) => onChange(value, 'username')}
-            />
+            /> */}
             <Input
               ref={emailInput}
               label={'Email'}
@@ -140,6 +160,18 @@ const Register = () => {
               onChangeInput={(value) => onChange(value, 'email')}
             />
             <Input
+              ref={passwordInput}
+              editable={isNotValid}
+              label={'Password'}
+              labelStyle={styles.labelStyle}
+              value={password}
+              type={'password'}
+              placeholder={'********'}
+              textInputStyle={styles.textInput}
+              secureTextEntry
+              onChangeInput={(value) => onChange(value, 'password')}
+            />
+            {/* <Input
               ref={phoneInput}
               label={'Phone Number'}
               labelStyle={styles.labelStyle}
@@ -170,9 +202,14 @@ const Register = () => {
               placeholder={'Peru'}
               textInputStyle={styles.textInput}
               onChangeInput={(value) => onChange(value, 'country')}
-            />
+            /> */}
             <View style={styles.buttonContainer}>
-              <Button variant="primary" label="Register Now!" />
+              <Button
+                variant="primary"
+                label="Register Now!"
+                onPress={() => submitRegister()}
+                disabled={isNotValid}
+              />
             </View>
           </ScrollView>
         </View>
