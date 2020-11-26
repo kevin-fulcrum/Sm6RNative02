@@ -13,6 +13,7 @@ import MapIOS from './src/components/Maps/iOS';
 import GoogleMaps from './src/components/Maps/Android';
 import TrackUserLocationMap from './src/components/Maps/TrackUserLocationMap';
 import Register from './src/screens/Authentication/Register';
+import Login from './src/screens/Authentication/Login';
 import {AuthProvider} from './src/navigation/AuthProvider';
 const App = () => {
   return (
@@ -22,7 +23,8 @@ const App = () => {
         {/* <MapIOS /> */}
         {/* <GoogleMaps /> */}
         {/* <TrackUserLocationMap /> */}
-        <Register />
+        {/* <Register /> */}
+        <Login />
       </View>
     </AuthProvider>
   );
