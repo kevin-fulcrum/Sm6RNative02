@@ -12,14 +12,19 @@ import Dashboard from './src/screens/Home/Dashboard';
 import MapIOS from './src/components/Maps/iOS';
 import GoogleMaps from './src/components/Maps/Android';
 import TrackUserLocationMap from './src/components/Maps/TrackUserLocationMap';
+import Register from './src/screens/Authentication/Register';
+import {AuthProvider} from './src/navigation/AuthProvider';
 const App = () => {
   return (
-    <View style={styles.container}>
-      {/* <Dashboard /> */}
-      {/* <MapIOS /> */}
-      {/* <GoogleMaps /> */}
-      <TrackUserLocationMap />
-    </View>
+    <AuthProvider>
+      <View style={styles.container}>
+        {/* <Dashboard /> */}
+        {/* <MapIOS /> */}
+        {/* <GoogleMaps /> */}
+        {/* <TrackUserLocationMap /> */}
+        <Register />
+      </View>
+    </AuthProvider>
   );
 };
 
