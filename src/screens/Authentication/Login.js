@@ -1,4 +1,5 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
+import {AuthContext} from '../../navigation/AuthProvider';
 import {
   View,
   Image,
@@ -9,7 +10,6 @@ import {
 } from 'react-native';
 import Button from '../../components/core/Buttons/Button';
 import Input from '../../components/core/Form/TextInput';
-import Switch from '../../components/core/Form/SwitchCustom';
 
 const {width} = Dimensions.get('window');
 
@@ -71,24 +71,28 @@ const styles = StyleSheet.create({
 });
 
 const Login = () => {
-  const [disable, setDisable] = useState(false);
-  const [username, setUsername] = useState('');
+  const {login} = useContext(AuthContext);
+  const [isNotValid, setIsNotValid] = useState(true);
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const usernameInput = useRef();
+  const emailInput = useRef();
   const passwordInput = useRef();
   const onChange = (value, type) => {
-    if (type === 'username') {
-      if (usernameInput.current.state.validate) {
-        setDisable(false);
-      }
-      setUsername(value);
+    if (type === 'email') {
+      setEmail(value);
     }
     if (type === 'password') {
-      if (passwordInput.current.state.validate) {
-        setDisable(false);
-      }
       setPassword(value);
     }
+    if (
+      passwordInput.current.state.validate &&
+      emailInput.current.state.validate
+    ) {
+      setIsNotValid(false);
+    }
+  };
+  const submitLogin = () => {
+    login(email, password);
   };
   return (
     <View style={styles.container}>
@@ -107,14 +111,14 @@ const Login = () => {
           <Text style={styles.title}>Login</Text>
           <ScrollView style={{flex: 1}}>
             <Input
-              ref={usernameInput}
-              label={'Username'}
+              ref={emailInput}
+              label={'Email'}
               labelStyle={styles.labelStyle}
-              value={username}
-              type={'username'}
-              placeholder={'myuser2020'}
+              value={email}
+              type={'email'}
+              placeholder={'example@email.com'}
               textInputStyle={styles.textInput}
-              onChangeInput={(value) => onChange(value, 'username')}
+              onChangeInput={(value) => onChange(value, 'email')}
             />
             <Input
               ref={passwordInput}
@@ -128,7 +132,12 @@ const Login = () => {
               onChangeInput={(value) => onChange(value, 'password')}
             />
             <View style={styles.buttonContainer}>
-              <Button variant="primary" label="Continue" />
+              <Button
+                variant="primary"
+                label="Continue"
+                onPress={() => submitLogin()}
+                disabled={isNotValid}
+              />
             </View>
           </ScrollView>
         </View>

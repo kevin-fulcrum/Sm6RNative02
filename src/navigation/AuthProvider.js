@@ -12,21 +12,30 @@ export const AuthProvider = ({children}) => {
         setUser,
         login: async (email, password) => {
           try {
-            await auth().signInWithEmailAndPassword(email, password);
+            const data = await auth().signInWithEmailAndPassword(
+              email,
+              password,
+            );
+            console.warn('data login', data);
           } catch (e) {
             console.warn(e);
           }
         },
         register: async (email, password) => {
           try {
-            await auth().createUserWithEmailAndPassword(email, password);
+            const data = await auth().createUserWithEmailAndPassword(
+              email,
+              password,
+            );
+            console.warn('data register', data);
           } catch (e) {
             console.warn(e);
           }
         },
         logout: async () => {
           try {
-            await auth().signOut();
+            const data = await auth().signOut();
+            console.warn('data signOut', data);
           } catch (e) {
             console.warn(e);
           }

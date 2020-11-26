@@ -13,7 +13,8 @@ const Validator = (type, value) => {
         value,
       };
     case 'password':
-      if (value > minPassword) {
+      console.warn('length', value.length);
+      if (value.length >= minPassword) {
         return {
           error: '',
         };

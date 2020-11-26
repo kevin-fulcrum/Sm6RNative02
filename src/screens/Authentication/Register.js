@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
 const Register = () => {
   const {register} = useContext(AuthContext);
   const [isNotValid, setIsNotValid] = useState(true);
+  const [isNotValidEmail, setIsNotValidEmail] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const passwordInput = useRef();
@@ -88,14 +89,11 @@ const Register = () => {
   const onChange = (value, type) => {
     if (type === 'email') {
       if (emailInput.current.state.validate) {
-        setIsNotValid(false);
+        setIsNotValidEmail(false);
       }
       setEmail(value);
     }
     if (type === 'password') {
-      if (passwordInput.current.state.validate) {
-        setIsNotValid(false);
-      }
       setPassword(value);
     }
     if (
@@ -161,7 +159,7 @@ const Register = () => {
             />
             <Input
               ref={passwordInput}
-              editable={isNotValid}
+              editable={isNotValidEmail}
               label={'Password'}
               labelStyle={styles.labelStyle}
               value={password}
