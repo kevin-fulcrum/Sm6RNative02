@@ -316,7 +316,7 @@ PODS:
     - React
   - react-native-maps (0.27.1):
     - React
-  - react-native-safe-area-context (3.1.8):
+  - react-native-safe-area-context (3.1.9):
     - React-Core
   - React-RCTActionSheet (0.63.3):
     - React-Core/RCTActionSheetHeaders (= 0.63.3)
@@ -387,11 +387,11 @@ PODS:
     - Firebase/Auth (~> 7.1.0)
     - React-Core
     - RNFBApp
-  - RNGestureHandler (1.8.0):
-    - React
-  - RNReanimated (1.13.1):
-    - React
-  - RNScreens (2.14.0):
+  - RNGestureHandler (1.9.0):
+    - React-Core
+  - RNReanimated (1.13.2):
+    - React-Core
+  - RNScreens (2.15.0):
     - React-Core
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -603,7 +603,7 @@ SPEC CHECKSUMS:
   react-native-geolocation-service: 141e33bdb179bcba10b216ee13962611e21f2be4
   react-native-google-maps: 0a989abda71059db2caa98b9dacca7a8f38a47d0
   react-native-maps: f4b89da81626ad7f151a8bfcb79733295d31ce5c
-  react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
+  react-native-safe-area-context: b6e0e284002381d2ff29fa4fff42b4d8282e3c94
   React-RCTActionSheet: 53ea72699698b0b47a6421cb1c8b4ab215a774aa
   React-RCTAnimation: 1befece0b5183c22ae01b966f5583f42e69a83c2
   React-RCTBlob: 0b284339cbe4b15705a05e2313a51c6d8b51fa40
@@ -617,9 +617,9 @@ SPEC CHECKSUMS:
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNFBApp: dd793eec42bce8d09391bd95e42f2ed7511e7fef
   RNFBAuth: 55efed3bceda1d53196bb1671a446ec4f0a7bfd7
-  RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
-  RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
-  RNScreens: 2e278a90eb15092ed261d4f2271e3fc9b60d08d4
+  RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
+  RNReanimated: e03f7425cb7a38dcf1b644d680d1bfc91c3337ad
+  RNScreens: 2ad555d4d9fa10b91bb765ca07fe9b29d59573f0
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
