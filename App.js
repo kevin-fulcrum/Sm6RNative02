@@ -15,6 +15,7 @@ import TrackUserLocationMap from './src/components/Maps/TrackUserLocationMap';
 import Register from './src/screens/Authentication/Register';
 import Login from './src/screens/Authentication/Login';
 import {AuthProvider} from './src/navigation/AuthProvider';
+import UseCamera from './src/screens/UseCamera';
 const App = () => {
   return (
     <AuthProvider>
@@ -24,7 +25,8 @@ const App = () => {
         {/* <GoogleMaps /> */}
         {/* <TrackUserLocationMap /> */}
         {/* <Register /> */}
-        <Login />
+        {/* <Login /> */}
+        <UseCamera />
       </View>
     </AuthProvider>
   );
