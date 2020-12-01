@@ -8,7 +8,6 @@
 
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
 import {NavigationContainer} from '@react-navigation/native';
 import Dashboard from './src/screens/Home/Dashboard';
 import MapIOS from './src/components/Maps/iOS';
@@ -19,16 +18,9 @@ import Login from './src/screens/Authentication/Login';
 import {AuthProvider} from './src/navigation/AuthProvider';
 import UseCamera from './src/screens/UseCamera';
 
-const Stack = createStackNavigator();
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Dashboard"
-          component={Dashboard}
-          options={{header: () => null}}
-        />
         {/* <AuthProvider> */}
         {/* <View style={styles.container}> */}
         {/* <Dashboard /> */}
@@ -40,7 +32,6 @@ const App = () => {
         {/* <UseCamera /> */}
         {/* </View> */}
         {/* </AuthProvider> */}
-      </Stack.Navigator>
     </NavigationContainer>
   );
 };
