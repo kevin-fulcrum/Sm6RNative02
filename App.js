@@ -9,6 +9,7 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
+import Providers from './src/navigation/';
 import Dashboard from './src/screens/Home/Dashboard';
 import MapIOS from './src/components/Maps/iOS';
 import GoogleMaps from './src/components/Maps/Android';
@@ -19,32 +20,7 @@ import {AuthProvider} from './src/navigation/AuthProvider';
 import UseCamera from './src/screens/UseCamera';
 
 const App = () => {
-  return (
-    <NavigationContainer>
-        {/* <AuthProvider> */}
-        {/* <View style={styles.container}> */}
-        {/* <Dashboard /> */}
-        {/* <MapIOS /> */}
-        {/* <GoogleMaps /> */}
-        {/* <TrackUserLocationMap /> */}
-        {/* <Register /> */}
-        {/* <Login /> */}
-        {/* <UseCamera /> */}
-        {/* </View> */}
-        {/* </AuthProvider> */}
-    </NavigationContainer>
-  );
+  return <Providers />;
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 40,
-  },
-});
 
 export default App;
