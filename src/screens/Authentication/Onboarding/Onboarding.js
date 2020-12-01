@@ -68,7 +68,7 @@ const slides = [
   },
 ];
 
-const Onboarding = () => {
+const Onboarding = ({navigation}) => {
   const scroll = useRef(null);
   const {scrollHandler, x} = useScrollHandler();
   const backgroundColor = interpolateColor(x, {
@@ -122,6 +122,9 @@ const Onboarding = () => {
                       scroll.current
                         .getNode()
                         .scrollTo({x: width * (index + 1), animated: true});
+                    }
+                    if (index === slides.length - 1) {
+                      navigation.navigate('Welcome');
                     }
                   }}
                 />
