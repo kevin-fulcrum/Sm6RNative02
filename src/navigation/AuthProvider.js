@@ -16,9 +16,22 @@ export const AuthProvider = ({children}) => {
               email,
               password,
             );
-            console.warn('data login', data);
-          } catch (e) {
-            console.warn(e);
+            return data;
+          } catch (err) {
+            console.warn('err', err.message);
+            switch (err.code) {
+              case 'auth/invalid-email':
+              case 'auth/user-disabled':
+              case 'auth/user-not-found':
+                return {
+                  message: 'Invalid Email, try with another email address',
+                  isError: true,
+                };
+              case 'auth/wrong-password':
+                return err.message;
+              default:
+                return 'Something went wrong!';
+            }
           }
         },
         register: async (email, password) => {
