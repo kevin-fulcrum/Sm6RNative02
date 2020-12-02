@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image, Dimensions} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -30,19 +37,21 @@ const styles = StyleSheet.create({
   },
 });
 
-const ProductSliderItem = ({item}) => {
+const ProductSliderItem = ({item, onPress}) => {
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: item.image,
-        }}
-      />
-      <View style={styles.textView}>
-        <Text style={styles.itemTitle}>{item.title}</Text>
-        <Text style={styles.itemPrice}>{item.price}</Text>
-      </View>
+      <TouchableOpacity onPress={onPress}>
+        <Image
+          style={styles.image}
+          source={{
+            uri: item.image,
+          }}
+        />
+        <View style={styles.textView}>
+          <Text style={styles.itemTitle}>{item.title}</Text>
+          <Text style={styles.itemPrice}>{item.price}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -1,5 +1,12 @@
 import React, {useContext} from 'react';
-import {View, Text, StyleSheet, SafeAreaView} from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  SafeAreaView,
+  FlatList,
+  Animated,
+} from 'react-native';
 import {carouselData} from '../../resource/functions/data/carouselData';
 import Button from '../../components/core/Buttons/Button';
 import Carousel from '../../components/Carousel/Carousel';
@@ -8,12 +15,17 @@ import {productSliderData} from '../../resource/functions/data/productSliderData
 import {categorySliderData} from '../../resource/functions/data/categorySliderData';
 import {AuthContext} from '../../navigation/AuthProvider';
 import CategorySlider from '../../components/CategorySlider/CategorySlider';
-
-const Dashboard = () => {
+import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
+const Dashboard = ({navigation}) => {
+  const scrollX = new Animated.Value(0);
   const {logout} = useContext(AuthContext);
 
   const submitLogOut = () => {
     logout();
+  };
+  const productDetail = (item) => {
+    console.warn('Product Detail', item);
+    navigation.navigate('ProductDetails', item);
   };
   return (
     <SafeAreaView style={styles.container}>
@@ -22,7 +34,28 @@ const Dashboard = () => {
       </View>
       <View style={{flex: 1}}>
         <Text style={styles.title}>T-Shirt</Text>
-        <ProductSlider data={productSliderData} />
+        {/* <ProductSlider data={productSliderData} onPress={() => productDetail} /> */}
+        <FlatList
+          data={productSliderData}
+          keyExtractor={(item, index) => 'key' + index}
+          horizontal
+          scrollEnabled
+          snapToAlignment="center"
+          scrollEventThrottle={16}
+          decelerationRate="fast"
+          showsHorizontalScrollIndicator={false}
+          renderItem={(item) => {
+            return (
+              <ProductSliderItem
+                item={item.item}
+                onPress={() => productDetail(item.item)}
+              />
+            );
+          }}
+          onScroll={Animated.event([
+            {nativeEvent: {contentOffset: {x: scrollX}}},
+          ])}
+        />
       </View>
       <View style={{flex: 1}}>
         <Text style={styles.title}>Categories</Text>
@@ -46,6 +79,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginHorizontal: 20,
     fontWeight: 'bold',
+  },
+  dot: {
+    flexDirection: 'row',
+    justifyContent: 'center',
   },
 });
 

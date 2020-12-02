@@ -2,7 +2,7 @@ export const productSliderData = [
   {
     title: 'SHELLEY',
     image:
-      'https://cdn.shopify.com/s/files/1/0259/8515/products/27_06fbb56f-9135-43cc-a919-9ec5e9f486be.jpg?v=1604484454',
+      'https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0008_Layer17.jpg?v=1606406520',
     id: 1,
     price: '$80',
   },
