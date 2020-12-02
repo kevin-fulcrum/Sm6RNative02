@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Login = () => {
+const Login = ({navigation}) => {
   const {login} = useContext(AuthContext);
   const [isNotValid, setIsNotValid] = useState(true);
   const [email, setEmail] = useState('');
@@ -91,8 +91,9 @@ const Login = () => {
       setIsNotValid(false);
     }
   };
-  const submitLogin = () => {
-    login(email, password);
+  const submitLogin = async () => {
+    const response = await login(email, password);
+    console.warn('response', response);
   };
   return (
     <View style={styles.container}>
@@ -138,6 +139,9 @@ const Login = () => {
                 onPress={() => submitLogin()}
                 disabled={isNotValid}
               />
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button label="Volver" onPress={() => navigation.goBack()} />
             </View>
           </ScrollView>
         </View>

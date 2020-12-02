@@ -8,9 +8,18 @@ import Onboarding from '../screens/Authentication/Onboarding/Onboarding';
 
 const Stack = createStackNavigator();
 
+const forFade = ({current}) => ({
+  cardStyle: {
+    opacity: current.progress,
+  },
+});
 const AuthStack = () => {
   return (
-    <Stack.Navigator initialRouteName="Onboarding">
+    <Stack.Navigator
+      initialRouteName="Onboarding"
+      screenOptions={{
+        cardStyleInterpolator: forFade,
+      }}>
       <Stack.Screen
         name="Onboarding"
         component={Onboarding}

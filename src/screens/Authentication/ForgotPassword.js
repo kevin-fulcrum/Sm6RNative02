@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const ForgotPassword = () => {
+const ForgotPassword = ({navigation}) => {
   const [disable, setDisable] = useState(false);
   const [email, setEmail] = useState('');
   const emailInput = useRef();
@@ -110,6 +110,9 @@ const ForgotPassword = () => {
             />
             <View style={styles.buttonContainer}>
               <Button variant="primary" label="Continue" />
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button label="Volver" onPress={() => navigation.goBack()} />
             </View>
           </ScrollView>
         </View>
