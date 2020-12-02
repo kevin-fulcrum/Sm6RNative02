@@ -1,31 +1,25 @@
-import React, {useState, useEffect} from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  FlatList,
-  Animated,
-} from 'react-native';
+import React from 'react';
+import {View, StyleSheet, Dimensions, FlatList, Animated} from 'react-native';
 import CarouselItem from './CarouselItem';
 
-let flatList;
-const infiniteScroll = (datalist) => {
-  const numberOfData = datalist.length;
-  let scrollValue = 0;
-  let scrolled = 0;
-  setInterval(() => {
-    scrolled++;
-    if (scrolled < numberOfData) {
-      scrollValue = scrollValue + width;
-    } else {
-      scrollValue = 0;
-      scrolled = 0;
-    }
-    this.flatList.scrollToOffset({animated: true, offset: scrollValue});
-  }, 5000);
-};
-const {height, width} = Dimensions.get('window');
+// let flatList;
+// const infiniteScroll = (datalist) => {
+//   const numberOfData = datalist.length;
+//   let scrollValue = 0;
+//   let scrolled = 0;
+//   setInterval(() => {
+//     scrolled++;
+//     if (scrolled < numberOfData) {
+//       scrollValue = scrollValue + width;
+//     } else {
+//       scrollValue = 0;
+//       scrolled = 0;
+//     }
+//     this.flatList &&
+//       this.flatList.scrollToOffset({animated: true, offset: scrollValue});
+//   }, 5000);
+// };
+const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   dot: {
@@ -39,19 +33,16 @@ const styles = StyleSheet.create({
 const Carousel = ({data}) => {
   const scrollX = new Animated.Value(0);
   let position = Animated.divide(scrollX, width);
-  const [dataList, setDataList] = useState(data);
+  // const [dataList, setDataList] = useState(data);
 
-  useEffect(() => {
-    setDataList(data);
-    infiniteScroll(dataList);
-  }, []);
+  // useEffect(() => {
+  //   setDataList(data);
+  //   infiniteScroll(dataList);
+  // }, []);
   if (data && data.length) {
     return (
       <View style={{flex: 1}}>
         <FlatList
-          ref={(flatList) => {
-            this.flatList = flatList;
-          }}
           style={{flex: 0.95}}
           data={data}
           keyExtractor={(item, index) => 'key' + index}
