@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import Button from '../../components/core/Buttons/Button';
 import Input from '../../components/core/Form/TextInput';
+import CustomModal from '../../components/core/Modal';
 
 const {width} = Dimensions.get('window');
 
@@ -72,6 +73,8 @@ const styles = StyleSheet.create({
 
 const Login = ({navigation}) => {
   const {login} = useContext(AuthContext);
+  const [isVisible, setVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [isNotValid, setIsNotValid] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -93,7 +96,10 @@ const Login = ({navigation}) => {
   };
   const submitLogin = async () => {
     const response = await login(email, password);
-    console.warn('response', response);
+    if (response.isError) {
+      setErrorMessage(response.message);
+      setVisible(true);
+    }
   };
   return (
     <View style={styles.container}>
@@ -146,6 +152,11 @@ const Login = ({navigation}) => {
           </ScrollView>
         </View>
       </View>
+      <CustomModal
+        isVisible={isVisible}
+        backdrop={() => setVisible(false)}
+        title={'Something went wrong!'}
+        message={errorMessage}></CustomModal>
     </View>
   );
 };
