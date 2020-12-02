@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Register = () => {
+const Register = ({navigation}) => {
   const {register} = useContext(AuthContext);
   const [isNotValid, setIsNotValid] = useState(true);
   const [isNotValidEmail, setIsNotValidEmail] = useState(true);
@@ -208,6 +208,9 @@ const Register = () => {
                 onPress={() => submitRegister()}
                 disabled={isNotValid}
               />
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button label="Volver" onPress={() => navigation.goBack()} />
             </View>
           </ScrollView>
         </View>

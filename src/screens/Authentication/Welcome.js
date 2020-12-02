@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const Welcome = () => {
+const Welcome = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.imageContainer}>
@@ -74,9 +74,18 @@ const Welcome = () => {
           <Text style={styles.title2}>
             Login to your account below or signup for an amazing experience
           </Text>
-          <Button variant="primary" label="Have an account? Login" />
-          <Button label="Join us, it's free" />
-          <BorderlessButton style={styles.buttonContainer}>
+          <Button
+            variant="primary"
+            label="Have an account? Login"
+            onPress={() => navigation.navigate('Login')}
+          />
+          <Button
+            label="Join us, it's free"
+            onPress={() => navigation.navigate('Register')}
+          />
+          <BorderlessButton
+            style={styles.buttonContainer}
+            onPress={() => navigation.navigate('ForgotPassword')}>
             <Text style={styles.button}>Forgot password</Text>
           </BorderlessButton>
         </View>
