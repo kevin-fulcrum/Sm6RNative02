@@ -5,6 +5,9 @@ export const productSliderData = [
       'https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0008_Layer17.jpg?v=1606406520',
     id: 1,
     price: '$80',
+    category: 'Tops',
+    description:
+      'Short-sleeve tee in black cotton with rib-knit crewneck collar. Regular fit. Large printed Kitty graphic at the front in multicolour. Tonal stitching. ',
   },
   {
     title: 'KHUFU',

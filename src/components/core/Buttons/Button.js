@@ -1,10 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, TouchableOpacity} from 'react-native';
+import {windowWidth} from '../../../resource/functions/Dimensions';
 
 const styles = StyleSheet.create({
   container: {
     borderRadius: 25,
-    width: 245,
+    width: windowWidth / 2,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
