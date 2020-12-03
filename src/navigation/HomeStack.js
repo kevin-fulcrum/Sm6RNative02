@@ -15,7 +15,10 @@ const HomeStack = () => {
       <Stack.Screen
         name="ProductDetails"
         component={ProductDetails}
-        options={{header: () => null}}
+        options={({route}) => ({
+          title: route.params.title,
+          headerBackTitle: '',
+        })}
       />
     </Stack.Navigator>
   );
