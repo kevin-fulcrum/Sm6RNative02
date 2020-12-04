@@ -44,7 +44,7 @@ const ProductSliderItem = ({item, onPress}) => {
         <Image
           style={styles.image}
           source={{
-            uri: item.image,
+            uri: item.image[0].url,
           }}
         />
         <View style={styles.textView}>

@@ -69,7 +69,6 @@ const styles = StyleSheet.create({
 });
 
 const ProductDetails = ({navigation, route}) => {
-  console.warn(route.params);
   const {title, image, id, price, description, category} = route.params;
   return (
     <View style={styles.container}>
