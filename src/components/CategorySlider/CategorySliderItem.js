@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, StyleSheet, Text, Image, Dimensions} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  Dimensions,
+  Platform,
+} from 'react-native';
 
 const {width, height} = Dimensions.get('window');
 
@@ -7,14 +14,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: width / 3.5,
-    height: height / 10,
+    height: Platform.OS === 'ios' ? height / 10 : height / 12,
     backgroundColor: 'white',
     margin: 10,
     borderRadius: 10,
   },
   textView: {
     position: 'absolute',
-    bottom: 25,
+    bottom: Platform.OS === 'ios' ? 25 : 8,
     margin: 10,
     left: 7,
   },
