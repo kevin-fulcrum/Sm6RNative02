@@ -48,31 +48,33 @@ const Dashboard = ({navigation}) => {
       <View style={{flex: 1}}>
         <Carousel data={carouselData} />
       </View>
-      <View style={{flex: 1}}>
-        <Text style={styles.title}>T-Shirt</Text>
-        {/* <ProductSlider data={productSliderData} onPress={() => productDetail} /> */}
-        <FlatList
-          data={productData}
-          keyExtractor={(item, index) => 'key' + index}
-          horizontal
-          scrollEnabled
-          snapToAlignment="center"
-          scrollEventThrottle={16}
-          decelerationRate="fast"
-          showsHorizontalScrollIndicator={false}
-          renderItem={(item) => {
-            return (
-              <ProductSliderItem
-                item={item.item}
-                onPress={() => productDetail(item.item)}
-              />
-            );
-          }}
-          onScroll={Animated.event([
-            {nativeEvent: {contentOffset: {x: scrollX}}},
-          ])}
-        />
-      </View>
+      {productData.length > 0 && (
+        <View style={{flex: 1}}>
+          <Text style={styles.title}>T-Shirt</Text>
+          {/* <ProductSlider data={productSliderData} onPress={() => productDetail} /> */}
+          <FlatList
+            data={productData}
+            keyExtractor={(item, index) => 'key' + index}
+            horizontal
+            scrollEnabled
+            snapToAlignment="center"
+            scrollEventThrottle={16}
+            decelerationRate="fast"
+            showsHorizontalScrollIndicator={false}
+            renderItem={(item) => {
+              return (
+                <ProductSliderItem
+                  item={item.item}
+                  onPress={() => productDetail(item.item)}
+                />
+              );
+            }}
+            onScroll={Animated.event([
+              {nativeEvent: {contentOffset: {x: scrollX}}},
+            ])}
+          />
+        </View>
+      )}
       <View style={{flex: 1}}>
         <Text style={styles.title}>Categories</Text>
         <CategorySlider data={categorySliderData} />
