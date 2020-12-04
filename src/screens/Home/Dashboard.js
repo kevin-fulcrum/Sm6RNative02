@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {
   View,
   Text,
@@ -16,9 +16,19 @@ import {categorySliderData} from '../../resource/functions/data/categorySliderDa
 import {AuthContext} from '../../navigation/AuthProvider';
 import CategorySlider from '../../components/CategorySlider/CategorySlider';
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
+import {getProducts} from '../../resource/database/products';
 const Dashboard = ({navigation}) => {
   const scrollX = new Animated.Value(0);
   const {logout} = useContext(AuthContext);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const products = await getProducts();
+      console.warn('products firebase', products);
+    };
+
+    fetchData();
+  }, []);
 
   const submitLogOut = () => {
     logout();
