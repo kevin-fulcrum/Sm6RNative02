@@ -5,6 +5,7 @@ import {
   windowWidth,
 } from '../../../resource/functions/Dimensions';
 import Button from '../../../components/core/Buttons/Button';
+import {ScrollView} from 'react-native-gesture-handler';
 
 const styles = StyleSheet.create({
   container: {
@@ -93,9 +94,11 @@ const ProductDetails = ({navigation, route}) => {
         <View style={styles.titleContainer}>
           <Text style={styles.title}>{title}</Text>
         </View>
-        <View style={styles.descriptionContainer}>
-          <Text style={styles.description}>{description}</Text>
-        </View>
+        <ScrollView>
+          <View style={styles.descriptionContainer}>
+            <Text style={styles.description}>{description}</Text>
+          </View>
+        </ScrollView>
       </View>
       <View style={styles.footer}>
         <View style={styles.priceContainer}>
