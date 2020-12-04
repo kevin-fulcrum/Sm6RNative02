@@ -25,7 +25,6 @@ const Routes = () => {
   if (loading) {
     return <Loading />;
   }
-  console.warn('user', user);
   return (
     <NavigationContainer>
       {user ? <HomeStack /> : <AuthStack />}

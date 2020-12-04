@@ -3,7 +3,9 @@ import database from '@react-native-firebase/database';
 const reference = database().ref('/products');
 
 export const getProducts = () => {
-  reference.once('value').then((snapshot) => {
-    console.warn('product data: ', snapshot.val());
+   const data = reference.once('value').then((snapshot) => {
+    console.warn('getProducts data: ', snapshot.val());
+    return  snapshot.val();
   });
+  return data;
 };

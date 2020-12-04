@@ -1,30 +1,93 @@
 {
   "products": [
     {
-      "title": "SHELLEY",
-      "image": "https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0008_Layer17.jpg?v=1606406520",
+      "title": "DANCER",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0003_Layer22.jpg?v=1606404595"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0002_Layer23.jpg?v=1606404595"
+        }
+      ],
       "id": 1,
-      "price": "$80",
+      "price": "$60",
       "category": "Tops",
-      "description": "Short-sleeve tee in black cotton with rib-knit crewneck collar. Regular fit. Large printed Kitty graphic at the front in multicolour. Tonal stitching. "
+      "description": "Long sleeve cotton fleece sweatshirt in grey. Printed graphics at the front in white. Rib-knit crewneck collar, cuffs, and hem. Tonal stitching."
     },
     {
-      "title": "KHUFU",
-      "image": "https://cdn.shopify.com/s/files/1/0259/8515/products/14_0538c87c-ec34-4954-8995-08fac7d5b2ee.jpg?v=1604482065",
+      "title": "OLI",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/0.SIZETOBE.jpg?v=1606407520"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/oliback.jpg?v=1606407520"
+        }
+      ],
       "id": 2,
-      "price": "$60"
+      "price": "$30",
+      "category": "Tops",
+      "description": "Short sleeve black tee featuring a large print of a CG Render of Oli on the front. You must have chaos in yourself to give birth to a dancing star"
     },
     {
-      "title": "DOGMA",
-      "image": "https://cdn.shopify.com/s/files/1/0259/8515/products/34_1c28d340-b7e3-47a2-9aee-14ec3bf3fadf.jpg?v=1604336305",
+      "title": "CRYPT CREEPER",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/crypt-creeper-front_e653fc2a-96a2-4e66-b89b-430adfc8e87e.jpg?v=1605280997"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/crypt-creeper-back.jpg?v=1605280997"
+        }
+      ],
       "id": 3,
-      "price": "$70"
+      "price": "$40",
+      "category": "Tops",
+      "description": "Limited edition short sleeve cotton t-shirt hand-dyed by our team with a desert wash. Regular fit. Large printed logo at the front and back in white. Tonal stitching.Each order comes with a collectable Harpocates trading card Due to the nature of this product being individually dyed please be aware each one has a unique appearance and will vary in colours. "
     },
     {
-      "title": "OKUYAMA",
-      "image": "https://cdn.shopify.com/s/files/1/0259/8515/products/20_4cd2b45f-ce58-43a1-a06e-3e713c3f6eb2.jpg?v=1605180247",
+      "title": "HOTLINE",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/0_0001_Layer1.jpg?v=1606408815"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/0_0000_Layer2.jpg?v=1606408815"
+        }
+      ],
       "id": 4,
-      "price": "$45"
+      "price": "$30",
+      "category": "Tops",
+      "description": "Short sleeve cotton jersey tee in black Rib-knit crewneck collar. Printed graphics in red and white at front and back. "
+    },
+    {
+      "title": "DOGMA ",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/11.jpg?v=1606405518"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/11.jpg?v=1606405518"
+        },
+        {
+          "id": 3,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0004_Layer21.jpg?v=1606405518"
+        }
+      ],
+      "id": 5,
+      "price": "$30",
+      "category": "Tops",
+      "description": "Short-sleeve tee in black cotton with rib-knit crewneck collar. Regular fit. Large printed logo at the front and back in white. Tonal stitching. "
     }
   ]
 }

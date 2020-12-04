@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -18,13 +18,19 @@ import CategorySlider from '../../components/CategorySlider/CategorySlider';
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
 import {getProducts} from '../../resource/database/products';
 const Dashboard = ({navigation}) => {
+  const [productData, setProductData] = useState([]);
   const scrollX = new Animated.Value(0);
   const {logout} = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
-      const products = await getProducts();
-      console.warn('products firebase', products);
+      console.warn('warn useEffect');
+      try {
+        const products = await getProducts();
+        setProductData(products);
+      } catch (err) {
+        console.warn(err);
+      }
     };
 
     fetchData();
@@ -34,9 +40,9 @@ const Dashboard = ({navigation}) => {
     logout();
   };
   const productDetail = (item) => {
-    console.warn('Product Detail', item);
     navigation.navigate('ProductDetails', item);
   };
+  console.warn('productData', productData);
   return (
     <SafeAreaView style={styles.container}>
       <View style={{flex: 1}}>
@@ -46,7 +52,7 @@ const Dashboard = ({navigation}) => {
         <Text style={styles.title}>T-Shirt</Text>
         {/* <ProductSlider data={productSliderData} onPress={() => productDetail} /> */}
         <FlatList
-          data={productSliderData}
+          data={productData}
           keyExtractor={(item, index) => 'key' + index}
           horizontal
           scrollEnabled

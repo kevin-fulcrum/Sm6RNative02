@@ -18,7 +18,6 @@ export default class SwitchCustom extends Component {
   }
 
   toggleSwitch = () => {
-    console.warn('toggle', this.props.onValueChange);
     this.props.onValueChange && this.props.onValueChange();
   };
 

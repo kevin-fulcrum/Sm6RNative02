@@ -18,7 +18,6 @@ export const AuthProvider = ({children}) => {
             );
             return data;
           } catch (err) {
-            console.warn('err', err.message);
             switch (err.code) {
               case 'auth/invalid-email':
               case 'auth/user-disabled':
@@ -40,7 +39,6 @@ export const AuthProvider = ({children}) => {
               email,
               password,
             );
-            console.warn('data register', data);
           } catch (e) {
             console.warn(e);
           }
@@ -48,7 +46,6 @@ export const AuthProvider = ({children}) => {
         logout: async () => {
           try {
             const data = await auth().signOut();
-            console.warn('data signOut', data);
           } catch (e) {
             console.warn(e);
           }

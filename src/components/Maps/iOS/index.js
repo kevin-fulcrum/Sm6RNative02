@@ -16,7 +16,6 @@ const MapsIOS = () => {
     Geolocation.requestAuthorization('always');
     Geolocation.getCurrentPosition(
       (position) => {
-        console.warn('position', position);
         const {latitude, longitude} = position.coords;
         setLocation({
           latitude,
