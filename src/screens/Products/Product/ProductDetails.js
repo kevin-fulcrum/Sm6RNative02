@@ -79,13 +79,13 @@ const ProductDetails = ({navigation, route}) => {
         <Image
           style={{width: '30%', height: '100%'}}
           source={{
-            uri: image,
+            uri: image[1].url,
           }}
         />
         <Image
           style={styles.image}
           source={{
-            uri: image,
+            uri: image[0].url,
           }}
         />
       </View>
