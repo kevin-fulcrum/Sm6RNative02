@@ -15,6 +15,7 @@
       "id": 1,
       "price": "$60",
       "category": "Tops",
+      "collections": "halloween",
       "description": "Long sleeve cotton fleece sweatshirt in grey. Printed graphics at the front in white. Rib-knit crewneck collar, cuffs, and hem. Tonal stitching."
     },
     {
@@ -32,6 +33,7 @@
       "id": 2,
       "price": "$30",
       "category": "Tops",
+      "collections": "halloween",
       "description": "Short sleeve black tee featuring a large print of a CG Render of Oli on the front. You must have chaos in yourself to give birth to a dancing star"
     },
     {
@@ -49,6 +51,7 @@
       "id": 3,
       "price": "$40",
       "category": "Tops",
+      "collections": "halloween",
       "description": "Limited edition short sleeve cotton t-shirt hand-dyed by our team with a desert wash. Regular fit. Large printed logo at the front and back in white. Tonal stitching.Each order comes with a collectable Harpocates trading card Due to the nature of this product being individually dyed please be aware each one has a unique appearance and will vary in colours. "
     },
     {
@@ -66,6 +69,7 @@
       "id": 4,
       "price": "$30",
       "category": "Tops",
+      "collections": "other",
       "description": "Short sleeve cotton jersey tee in black Rib-knit crewneck collar. Printed graphics in red and white at front and back. "
     },
     {
@@ -87,7 +91,382 @@
       "id": 5,
       "price": "$30",
       "category": "Tops",
+      "collections": "halloween",
       "description": "Short-sleeve tee in black cotton with rib-knit crewneck collar. Regular fit. Large printed logo at the front and back in white. Tonal stitching. "
+    },
+    {
+      "title": "KITTY LONGSLEEVE ",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/kittylongsleeve_b7d75125-ce67-4850-b081-1b354382dde3.jpg?v=1606409807"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/kitttttttty.jpg?v=1606409807"
+        }
+      ],
+      "id": 6,
+      "price": "$40",
+      "category": "Tops",
+      "collections": "dark hive",
+      "description": "Long sleeve t in black cotton, featuring 34 original pieces of Kitty Brainz artwork created by our fans during the UK’s national lockdown. We wanted to celebrate the talents of our worldwide family by creating a piece exclusively using their work. Each order comes with a sticker pack."
+    },
+    {
+      "title": "SUMMONER",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/summoner-front.jpg?v=1606408872"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/summoner-back.jpg?v=1606408872"
+        },
+        {
+          "id": 3,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/Summoner_Black_Detail_1.jpg?v=1606408872"
+        }
+      ],
+      "id": 7,
+      "price": "$30",
+      "category": "Tops",
+      "collections": "other",
+      "description": "Short sleeve cotton jersey tee in black. Rib-knit crewneck collar. Printed graphics in vintage white at the front and back."
+    },
+    {
+      "title": "KITTY BRAINZ",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/kittybrainz.jpg?v=1606409544"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/kittyback.jpg?v=1606409544"
+        }
+      ],
+      "id": 8,
+      "price": "$30",
+      "category": "Tops",
+      "collections": "dark hive",
+      "description": "Sleeveless cotton jersey tank top in black. Rib-knit crewneck collar. Large printed graphic in multi-colour at the front. Tonal stitching."
+    },
+    {
+      "title": "COLLEGE",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/COLLEGE.jpg?v=1606410334"
+        }
+      ],
+      "id": 9,
+      "price": "$30",
+      "category": "Tops",
+      "collections": "other",
+      "description": "Short sleeve cotton jersey tee in white. Rib-knit crewneck collar. Large printed graphic at the front in red and green. Tonal stitching."
+    },
+    {
+      "title": "CAMBION",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/CAMBION.jpg?v=1606410624"
+        }
+      ],
+      "id": 10,
+      "price": "$30",
+      "category": "Tops",
+      "collections": "other",
+      "description": "Short sleeve cotton jersey tee in black. Rib-knit crewneck collar. Large printed graphic at the front in multicolour. Tonal stitching. "
+    },
+    {
+      "title": "INCARCERATED",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/layer-1.jpg?v=1606334998"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/layer-2.jpg?v=1606334998"
+        },
+        {
+          "id": 3,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/allDETAILSresizedround2_0037_Layer60.jpg?v=1606334998"
+        }
+      ],
+      "id": 11,
+      "price": "$120",
+      "category": "Tops",
+      "collections": "beings ov light",
+      "description": "Long sleeve work jacket made via dual construction. Covered in hand-printed artworks in 3D puff and distressed inks. Featuring concealed zip closures in the built-in pockets just below the raw seam detailing. Adjustable two-button barrel cuffs. Find colour within an otherwise grey prison."
+    },
+    {
+      "title": "DETENTION",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/allresizedJPGS_0004s_0000s_0000_Layer4copy86_41e0defe-9f71-4d6e-a36c-4af1005981b8.jpg?v=1606479587"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/allresizedJPGS_0004s_0000s_0001_Layer4copy85.jpg?v=1606479587"
+        }
+      ],
+      "id": 12,
+      "price": "$70",
+      "category": "Bottoms",
+      "collections": "holiday",
+      "description": "Relaxed fit fleece back sweatpants in black featuring printed logo across the front in white. Elasticised waistband and loose cuffs. Two-pocket styling. Drawstring at waist with embossed branded aglets in black. Tonal stitching."
+    },
+    {
+      "title": "EXODUS",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/exodus-bottoms-edited_6c4bc284-6331-48bc-a2bf-8d64ad1dec1a.jpg?v=1606473424"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/allresizedJPGS_0004s_0001s_0001_Layer4copy83.jpg?v=1606473425"
+        }
+      ],
+      "id": 13,
+      "price": "$70",
+      "category": "Bottoms",
+      "collections": "holiday",
+      "description": "Relaxed fit fleece back sweatpants in washed black. Printed graphics at the front. Elasticised waistband and cuffs. Three pocket styling. Drawstring at waist with embossed branded aglets in black. Tonal stitching."
+    },
+    {
+      "title": "LAGHIMA SHORTS",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/shorts.jpg?v=1606401410"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/allDETAILSresizedround2_0006_Layer89.jpg?v=1606401429"
+        }
+      ],
+      "id": 14,
+      "price": "$40",
+      "category": "Bottoms",
+      "collections": "beings ov light",
+      "description": "Cotton jersey shorts in black with elasticated waist. All over print of an angel (alien) in white. Original Artwork by Bruce Pennington ©Who are these that fly like a cloud, and like doves to their windows?"
+    },
+    {
+      "title": "FALLEN",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/SQUARECOF.psd_0007_Layer5.jpg?v=1606333108"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/naturalselectiontrousers.jpg?v=1606333108"
+        }
+      ],
+      "id": 15,
+      "price": "$80",
+      "category": "Bottoms",
+      "collections": "natural selection",
+      "sale": true,
+      "description": "Straight-leg denim jeans in black. Mid-rise. Five-pocket styling. Belt loops at the waist and at both knees with detachable branded belts in red satin fabric. Printed graphics and applied patches in red, white and black throughout. Black hardware. Tonal stitching."
+    },
+    {
+      "title": "SUZUYA",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/SQUARECOF.psd_0004_Layer8.jpg?v=1606331808"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/Suzuya-Bottoms-Detail1_cf8a930a-681f-440b-ac8a-d5e259203660.jpg?v=1606331808"
+        }
+      ],
+      "id": 16,
+      "price": "$64",
+      "category": "Bottoms",
+      "collections": "natural selection",
+      "sale": true,
+      "description": "Relaxed fit fleece back sweatpants in orange. Printed graphics and patch in white on the front. Embroidered seam detail at the front and back legs in red. Elasticised waistband and cuffs. Three pocket styling. Drawstring at waist with embossed branded aglets in white.  Silver-tone hardware. Tonal stitching."
+    },
+    {
+      "title": "SUZUYA MASK",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/mask_0014_Layer4_e87e7b9a-54e1-41d3-a253-8c725608c75c.jpg?v=1604416523"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/mask_0007_6.jpg?v=1604416523"
+        }
+      ],
+      "id": 17,
+      "price": "$10",
+      "category": "Masks",
+      "collections": "natural selection",
+      "description": "Non-surgical face-covering in black and orange. Logo at the front in white. "
+    },
+    {
+      "title": "TWO SOULS MASK",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/mask_0012_Layer6_504abff1-3064-4858-9008-3a0c1d4ab7ee.jpg?v=1604416575"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/mask_0004_11.jpg?v=1604416578"
+        }
+      ],
+      "id": 18,
+      "price": "$10",
+      "category": "Masks",
+      "collections": "halloween",
+      "description": "Non-surgical face-covering in black and orange. Logo at the front in white. "
+    },
+    {
+      "title": "RESURRECTION MASK",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/mask_0017_Layer1_8d6e7ac3-90ca-46d5-a9cc-450378e0ce40.jpg?v=1604416176"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/mask_0002_15.jpg?v=1604416190"
+        }
+      ],
+      "id": 19,
+      "price": "$10",
+      "category": "Masks",
+      "collections": "halloween",
+      "description": "Non-surgical face-covering in black and orange. Logo at the front in white."
+    },
+    {
+      "title": "HANDS NECKLACE",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/chain3_31004a2f-f820-47a5-b7fa-9248c99ea547.jpg?v=1606489601"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/chain1.jpg?v=1606489601"
+        },
+        {
+          "id": 3,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/chain2.jpg?v=1606489601"
+        }
+      ],
+      "id": 20,
+      "price": "$20",
+      "category": "Accessories",
+      "collections": "holiday",
+      "description": "Flat curb chain necklace in stainless steel with pendant."
+    },
+    {
+      "title": "VOLGIN WALLET",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/VOLGIN1_f6624e91-d224-41a6-b2ac-5c8cb40f5245.jpg?v=1606324380"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/VOLGIN2.jpg?v=1606324389"
+        },
+        {
+          "id": 3,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/VOLGIN3.jpg?v=1606324390"
+        }
+      ],
+      "id": 21,
+      "price": "$30",
+      "category": "Accessories",
+      "collections": "holiday",
+      "description": "Faux leather wallet in black featuring embossed logo. Integrated drawstring-style strap with zip closure. Four card slots, two note slots, and zippered coin compartment at interior. Tonal leather and textile lining. Silver-tone hardware."
+    },
+    {
+      "title": "SMILE BAG SET",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/Smilebagfront_5a381683-fc2d-4632-a8e6-e9a47fc51d3d.jpg?v=1604505184"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/6.jpg?v=1604505184"
+        },
+        {
+          "id": 3,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/8.jpg?v=1604505184"
+        },
+        {
+          "id": 4,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/9.jpg?v=1604505184"
+        }
+      ],
+      "id": 22,
+      "price": "$60",
+      "category": "Accessories",
+      "collections": "halloween",
+      "description": "Canvas bag set in black. Large bag features embroidered graphic at the front in red, white and black. Carry handle at the top. Adjustable padded shoulder straps. Two way zip closure at main compartment. Zippered compartment at the front and internal zippered pocket. Webbing loops at the front to hold detachable small bag.  Small bag features embroidered logo at the front in red, white and black. Zippered main compartment and front pocket with internal mesh divider. Detachable strap to wear as shoulder bag, across body or waist. Tonal lining. Black tone hardware."
+    },
+    {
+      "title": "ROSWELL BEANIE",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/ROSWELL-BEANIE-1.jpg?v=1606322264"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/ROSWELL-BEANIE-2.jpg?v=1606322264"
+        }
+      ],
+      "id": 23,
+      "price": "$20",
+      "category": "Accessories",
+      "collections": "holiday",
+      "description": "Rib-knit beanie in black. Embroidered logo patch in black and white at rolled brim."
+    },
+    {
+      "title": "FIFTEEN PIN",
+      "image": [
+        {
+          "id": 1,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/newpin13_cbd9e7d3-799e-4cb9-b738-137545d16814.jpg?v=1604656620"
+        },
+        {
+          "id": 2,
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/newpin13_af6af844-043e-4f1d-be6d-fe1ff4f068b4.jpg?v=1604656620"
+        }
+      ],
+      "id": 24,
+      "price": "$3",
+      "category": "Accessories",
+      "collections": "halloween",
+      "description": "Fifteen pin badge in silver-tone metal and enamel detailing. Post-stud fastening. "
     }
+  ],
+  "categories": [
+    {"id": 1, "description": "Tops"},
+    {"id": 2, "description": "Bottoms"},
+    {"id": 3, "description": "Masks"},
+    {"id": 4, "description": "Accessories"}
+  ],
+  "collections": [
+    {"id": 1, "description": "holiday"},
+    {"id": 2, "description": "halloween"},
+    {"id": 3, "description": "beings ov light"},
+    {"id": 4, "description": "natural selection"},
+    {"id": 5, "description": "cradle of filth"},
+    {"id": 6, "description": "dark hive"}
   ]
 }
