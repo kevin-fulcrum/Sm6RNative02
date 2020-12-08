@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import Dashboard from '../screens/Home/Dashboard';
 import ProductDetails from '../screens/Products/Product/ProductDetails';
+import ShoppingCart from '../screens/ShoppingCart';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -17,6 +18,14 @@ const HomeStack = () => {
         component={ProductDetails}
         options={({route}) => ({
           title: route.params.title,
+          headerBackTitle: '',
+        })}
+      />
+      <Stack.Screen
+        name="ShoppingCart"
+        component={ShoppingCart}
+        options={() => ({
+          title: 'Shopping Cart',
           headerBackTitle: '',
         })}
       />

@@ -76,6 +76,12 @@ const styles = StyleSheet.create({
 
 const ProductDetails = ({navigation, route}) => {
   const {title, image, id, price, description, category} = route.params;
+
+  const goToShoppingCart = () => {
+    console.warn('...');
+    console.warn('...');
+    navigation.navigate('ShoppingCart', route.params);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.categoryContainer}>
@@ -102,7 +108,7 @@ const ProductDetails = ({navigation, route}) => {
           <Button
             variant="primary"
             label="Add to Cart"
-            onPress={() => console.warn('button')}
+            onPress={() => goToShoppingCart()}
           />
         </View>
       </View>
