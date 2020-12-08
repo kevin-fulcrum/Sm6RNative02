@@ -1,11 +1,29 @@
 import database from '@react-native-firebase/database';
 
-const reference = database().ref('/products');
+const referenceProducts = database().ref('/products');
+const referenceCategories = database().ref('/categories');
+const referenceCollections = database().ref('/collections');
 
 export const getProducts = () => {
-   const data = reference.once('value').then((snapshot) => {
+  const data = referenceProducts.once('value').then((snapshot) => {
     console.warn('getProducts data: ', snapshot.val());
-    return  snapshot.val();
+    return snapshot.val();
+  });
+  return data;
+};
+
+export const getCategories = () => {
+  const data = referenceCategories.once('value').then((snapshot) => {
+    console.warn('getProducts data: ', snapshot.val());
+    return snapshot.val();
+  });
+  return data;
+};
+
+export const getCollections = () => {
+  const data = referenceCollections.once('value').then((snapshot) => {
+    console.warn('getProducts data: ', snapshot.val());
+    return snapshot.val();
   });
   return data;
 };
