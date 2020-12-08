@@ -6,8 +6,8 @@ const {width, height} = Dimensions.get('window');
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: width - 20,
-    height: height / 4,
+    width: width - 40,
+    height: height / 2,
     backgroundColor: 'white',
     margin: 10,
     borderRadius: 10,
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   image: {
-    width: width - 20,
-    height: height / 4,
+    width: width - 40,
+    height: height / 2,
     borderRadius: 10,
   },
 });

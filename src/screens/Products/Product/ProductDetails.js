@@ -68,6 +68,10 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flex: 0.6,
   },
+  sliderContainer: {
+    flex: 0.8,
+    width: windowWidth - 20,
+  },
 });
 
 const ProductDetails = ({navigation, route}) => {
@@ -77,10 +81,8 @@ const ProductDetails = ({navigation, route}) => {
       <View style={styles.categoryContainer}>
         <Text style={styles.category}>{category}</Text>
       </View>
-      <View>
-        <View style={{flex: 1}}>
-          <ProductDetailSlider data={image} />
-        </View>
+      <View style={styles.sliderContainer}>
+        <ProductDetailSlider data={image} />
       </View>
       <View style={styles.content}>
         <View style={styles.titleContainer}>
