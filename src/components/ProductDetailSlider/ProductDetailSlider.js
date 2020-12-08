@@ -21,7 +21,7 @@ const ProductDetailSlider = ({data}) => {
     return (
       <View style={{flex: 1}}>
         <FlatList
-          style={{flex: 0.95}}
+          style={{flex: 1}}
           data={data}
           keyExtractor={(item, index) => 'key' + index}
           horizontal
