@@ -27,7 +27,7 @@ const ProductDetailSlider = ({data}) => {
           horizontal
           scrollEnabled
           snapToAlignment="center"
-          scrollEventThrottle={16}
+          scrollEventThrottle={1}
           decelerationRate="fast"
           showsHorizontalScrollIndicator={false}
           renderItem={(item) => {
