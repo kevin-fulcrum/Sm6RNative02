@@ -6,6 +6,7 @@ import {
 } from '../../../resource/functions/Dimensions';
 import Button from '../../../components/core/Buttons/Button';
 import {ScrollView} from 'react-native-gesture-handler';
+import ProductDetailSlider from '../../../components/ProductDetailSlider/ProductDetailSlider';
 
 const styles = StyleSheet.create({
   container: {
@@ -76,19 +77,10 @@ const ProductDetails = ({navigation, route}) => {
       <View style={styles.categoryContainer}>
         <Text style={styles.category}>{category}</Text>
       </View>
-      <View style={styles.imageContainer}>
-        <Image
-          style={{width: '30%', height: '100%'}}
-          source={{
-            uri: image[1].url,
-          }}
-        />
-        <Image
-          style={styles.image}
-          source={{
-            uri: image[0].url,
-          }}
-        />
+      <View>
+        <View style={{flex: 1}}>
+          <ProductDetailSlider data={image} />
+        </View>
       </View>
       <View style={styles.content}>
         <View style={styles.titleContainer}>
