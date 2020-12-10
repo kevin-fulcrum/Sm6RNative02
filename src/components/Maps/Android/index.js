@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {StyleSheet, Platform} from 'react-native';
+import {StyleSheet, Platform, PermissionsAndroid} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service';
 
@@ -17,6 +17,12 @@ const GoogleMaps = () => {
     if (Platform.OS === 'ios') {
       Geolocation.requestAuthorization('always');
     }
+    if (Platform.OS === 'android') {
+      PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+      );
+    }
+
     Geolocation.getCurrentPosition(
       (position) => {
         console.warn('position', position);
