@@ -8,6 +8,7 @@ import {
   Platform,
 } from 'react-native';
 import CartItem from '../../components/ShoppingCart/CartItem';
+import MenuFooter from '../../components/core/Menu/MenuFooter';
 
 const styles = StyleSheet.create({
   container: {
@@ -52,6 +53,7 @@ const ShoppingCart = ({navigation, route}) => {
           )}
         </View>
       </ScrollView>
+      <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
   );
 };
