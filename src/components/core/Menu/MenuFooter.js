@@ -59,7 +59,7 @@ const MenuFooter = () => {
           <Image
             style={styles.image}
             onPress={() => onPressMenuFooter('Dashboard')}
-            source={require('../../../resource/static/images/icons/030-online shop.png')}
+            source={require('../../../resource/static/images/icons/030-online-shop.png')}
           />
         </TouchableOpacity>
       </View>
@@ -68,7 +68,7 @@ const MenuFooter = () => {
           <Image
             style={styles.image}
             onPress={() => onPressMenuFooter('Dashboard')}
-            source={require('../../../resource/static/images/icons/030-online shop.png')}
+            source={require('../../../resource/static/images/icons/030-online-shop.png')}
           />
         </TouchableOpacity>
       </View>
@@ -77,7 +77,7 @@ const MenuFooter = () => {
           <Image
             style={styles.image}
             onPress={() => onPressMenuFooter('Dashboard')}
-            source={require('../../../resource/static/images/icons/030-online shop.png')}
+            source={require('../../../resource/static/images/icons/030-online-shop.png')}
           />
         </TouchableOpacity>
       </View>
