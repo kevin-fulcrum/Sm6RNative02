@@ -77,7 +77,7 @@ const MenuFooter = ({navigation}) => {
             style={styles.image}
             source={require('../../../resource/static/images/icons/001-address.png')}
           />
-          <Text style={styles.title}>Home</Text>
+          <Text style={styles.title}>Locations</Text>
         </TouchableOpacity>
       </View>
     </View>
