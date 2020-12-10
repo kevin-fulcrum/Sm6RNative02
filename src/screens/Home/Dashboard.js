@@ -17,7 +17,8 @@ import {AuthContext} from '../../navigation/AuthProvider';
 import CategorySlider from '../../components/CategorySlider/CategorySlider';
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
 import {getProducts} from '../../resource/database/products';
-const Dashboard = ({navigation}) => {
+import MenuFooter from '../../components/core/Menu/MenuFooter';
+const Dashboard = ({navigation, route}) => {
   const [productData, setProductData] = useState([]);
   const scrollX = new Animated.Value(0);
   const {logout} = useContext(AuthContext);
@@ -42,7 +43,6 @@ const Dashboard = ({navigation}) => {
   const productDetail = (item) => {
     navigation.navigate('ProductDetails', item);
   };
-  console.warn('productData', productData);
   return (
     <SafeAreaView style={styles.container}>
       <View style={{flex: 1}}>
@@ -50,8 +50,7 @@ const Dashboard = ({navigation}) => {
       </View>
       {productData.length > 0 && (
         <View style={{flex: 1}}>
-          <Text style={styles.title}>T-Shirt</Text>
-          {/* <ProductSlider data={productSliderData} onPress={() => productDetail} /> */}
+          <Text style={styles.title}>Products</Text>
           <FlatList
             data={productData}
             keyExtractor={(item, index) => 'key' + index}
@@ -84,6 +83,7 @@ const Dashboard = ({navigation}) => {
         label="Log out"
         onPress={() => submitLogOut()}
       />
+      <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
   );
 };
