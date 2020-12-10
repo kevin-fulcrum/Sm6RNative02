@@ -14,6 +14,7 @@ import {
 
 const styles = StyleSheet.create({
   box: {
+    display: 'flex',
     flexDirection: 'row',
     borderTopWidth: 1,
     borderTopColor: '#DADADA',
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
     paddingVertical: 4,
   },
-  Image: {
+  image: {
     height: 36,
     width: 36,
   },
@@ -42,45 +43,43 @@ const MenuFooter = () => {
     console.warn('onPressMenuFooter');
   };
   return (
-    <View>
-      <View style={styles.box}>
-        <View style={styles.buttonFooter}>
-          <TouchableOpacity style={styles.buttonFooter}>
-            <Image
-              style={styles.image}
-              onPress={() => onPressMenuFooter('Dashboard')}
-              source={require('../../../resource/static/images/icons/030-online shop.png')}
-            />
-            <Text style={styles.title}>Home</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.buttonFooter}>
-          <TouchableOpacity style={styles.buttonFooter}>
-            <Image
-              style={styles.image}
-              onPress={() => onPressMenuFooter('Dashboard')}
-              source={require('../../../resource/static/images/icons/030-online shop.png')}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.buttonFooter}>
-          <TouchableOpacity style={styles.buttonFooter}>
-            <Image
-              style={styles.image}
-              onPress={() => onPressMenuFooter('Dashboard')}
-              source={require('../../../resource/static/images/icons/030-online shop.png')}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.buttonFooter}>
-          <TouchableOpacity style={styles.buttonFooter}>
-            <Image
-              style={styles.image}
-              onPress={() => onPressMenuFooter('Dashboard')}
-              source={require('../../../resource/static/images/icons/030-online shop.png')}
-            />
-          </TouchableOpacity>
-        </View>
+    <View style={styles.box}>
+      <View style={styles.buttonFooter}>
+        <TouchableOpacity>
+          <Image
+            style={styles.image}
+            onPress={() => onPressMenuFooter('Dashboard')}
+            source={require('../../../resource/static/images/icons/030-online-shop.png')}
+          />
+          <Text style={styles.title}>Home</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.buttonFooter}>
+        <TouchableOpacity>
+          <Image
+            style={styles.image}
+            onPress={() => onPressMenuFooter('Dashboard')}
+            source={require('../../../resource/static/images/icons/030-online shop.png')}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.buttonFooter}>
+        <TouchableOpacity>
+          <Image
+            style={styles.image}
+            onPress={() => onPressMenuFooter('Dashboard')}
+            source={require('../../../resource/static/images/icons/030-online shop.png')}
+          />
+        </TouchableOpacity>
+      </View>
+      <View style={styles.buttonFooter}>
+        <TouchableOpacity>
+          <Image
+            style={styles.image}
+            onPress={() => onPressMenuFooter('Dashboard')}
+            source={require('../../../resource/static/images/icons/030-online shop.png')}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
