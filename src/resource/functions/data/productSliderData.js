@@ -8,8 +8,7 @@ export const productSliderData = [
     category: 'Tops',
     description:
       'Short-sleeve tee in black cotton with rib-knit crewneck collar. Regular fit. Large printed Kitty graphic at the front in multicolour. Tonal stitching. ',
-  },
-  {
+  
     title: 'KHUFU',
     image:
       'https://cdn.shopify.com/s/files/1/0259/8515/products/14_0538c87c-ec34-4954-8995-08fac7d5b2ee.jpg?v=1604482065',

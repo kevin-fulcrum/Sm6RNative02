@@ -38,37 +38,34 @@ const styles = StyleSheet.create({
   },
 });
 
-const MenuFooter = () => {
-  const onPressMenuFooter = ({navigation, route}) => {
+const MenuFooter = ({navigation}) => {
+  const onPressMenuFooter = (route) => {
     console.warn('onPressMenuFooter');
   };
   return (
     <View style={styles.box}>
       <View style={styles.buttonFooter}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onPressMenuFooter('Dashboard')}>
           <Image
             style={styles.image}
-            onPress={() => onPressMenuFooter('Dashboard')}
             source={require('../../../resource/static/images/icons/030-online-shop.png')}
           />
           <Text style={styles.title}>Home</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.buttonFooter}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onPressMenuFooter('ShoppingCart')}>
           <Image
             style={styles.image}
-            onPress={() => onPressMenuFooter('ShoppingCart')}
             source={require('../../../resource/static/images/icons/006-add-to-cart.png')}
           />
-          <Text style={styles.title}>ShoppingCart</Text>
+          <Text style={styles.title}>Cart</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.buttonFooter}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => onPressMenuFooter('Locations')}>
           <Image
             style={styles.image}
-            onPress={() => onPressMenuFooter('Locations')}
             source={require('../../../resource/static/images/icons/001-address.png')}
           />
           <Text style={styles.title}>Home</Text>
