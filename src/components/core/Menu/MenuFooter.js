@@ -40,7 +40,16 @@ const styles = StyleSheet.create({
 
 const MenuFooter = ({navigation}) => {
   const onPressMenuFooter = (route) => {
-    console.warn('onPressMenuFooter');
+    if (route === 'Dashboard') {
+      DeviceEventEmitter.emit('eventDashboard', true);
+    }
+    if (route === 'ShoppingCart') {
+      DeviceEventEmitter.emit('eventShoppingCart', true);
+    }
+    if (route === 'Locations') {
+      DeviceEventEmitter.emit('eventLocations', true);
+    }
+    navigation.navigate(route);
   };
   return (
     <View style={styles.box}>
