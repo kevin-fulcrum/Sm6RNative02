@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Dashboard from '../screens/Home/Dashboard';
 import ProductDetails from '../screens/Products/Product/ProductDetails';
 import ShoppingCart from '../screens/ShoppingCart';
+import Locations from '../screens/Locations';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -26,6 +27,14 @@ const HomeStack = () => {
         component={ShoppingCart}
         options={() => ({
           title: 'Shopping Cart',
+          headerBackTitle: '',
+        })}
+      />
+      <Stack.Screen
+        name="Locations"
+        component={Locations}
+        options={() => ({
+          title: 'Locations',
           headerBackTitle: '',
         })}
       />
