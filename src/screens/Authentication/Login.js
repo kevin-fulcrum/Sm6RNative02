@@ -99,6 +99,8 @@ const Login = ({navigation}) => {
     if (response.isError) {
       setErrorMessage(response.message);
       setVisible(true);
+    } else {
+      navigation.navigate('Dashboard');
     }
   };
   return (

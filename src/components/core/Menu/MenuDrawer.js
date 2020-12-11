@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {View, StyleSheet, Image} from 'react-native';
 import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
+import {AuthContext} from '../../../navigation/AuthProvider';
 
 const styles = StyleSheet.create({
   container: {
@@ -19,6 +20,11 @@ const styles = StyleSheet.create({
 });
 
 const MenuDrawer = (props) => {
+  const {logout} = useContext(AuthContext);
+  const submitLogOut = () => {
+    logout();
+    props.navigation.navigate('AuthStackNavigator');
+  };
   return (
     <View style={styles.container}>
       <DrawerContentScrollView {...props}>
@@ -35,6 +41,16 @@ const MenuDrawer = (props) => {
             onPress={() => {
               props.navigation.navigate('Dashboard');
             }}
+          />
+          <DrawerItem
+            icon={() => (
+              <Image
+                style={styles.image}
+                source={require('../../../resource/static/images/icons/035-logout.png')}
+              />
+            )}
+            label="Logout"
+            onPress={() => submitLogOut()}
           />
         </View>
       </DrawerContentScrollView>
