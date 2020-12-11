@@ -11,8 +11,14 @@ const DrawerStack = (props) => {
   return (
     <Drawer.Navigator
       initialRouteName={user ? 'Dashboard' : 'AuthStackNavigator'}
-      drawerContent={(parameters) => <MenuDrawer {...parameters} />}>
-      <Drawer.Screen name="AuthStackNavigator" component={AuthStack} />
+      drawerContent={(parameters) =>
+        user ? <MenuDrawer {...parameters} /> : null
+      }>
+      <Drawer.Screen
+        name="AuthStackNavigator"
+        component={AuthStack}
+        options={{gestureEnabled: false}}
+      />
       <Drawer.Screen name={'Dashboard'} component={HomeStack} />
     </Drawer.Navigator>
   );
