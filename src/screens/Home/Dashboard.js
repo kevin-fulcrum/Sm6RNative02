@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   View,
   Text,
@@ -10,8 +10,6 @@ import {
 import {carouselData} from '../../resource/functions/data/carouselData';
 import Button from '../../components/core/Buttons/Button';
 import Carousel from '../../components/Carousel/Carousel';
-import ProductSlider from '../../components/ProductSlider/ProductSlider';
-import {productSliderData} from '../../resource/functions/data/productSliderData';
 import {categorySliderData} from '../../resource/functions/data/categorySliderData';
 import {AuthContext} from '../../navigation/AuthProvider';
 import CategorySlider from '../../components/CategorySlider/CategorySlider';
@@ -21,7 +19,6 @@ import MenuFooter from '../../components/core/Menu/MenuFooter';
 const Dashboard = ({navigation, route}) => {
   const [productData, setProductData] = useState([]);
   const scrollX = new Animated.Value(0);
-  const {logout} = useContext(AuthContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,10 +33,6 @@ const Dashboard = ({navigation, route}) => {
 
     fetchData();
   }, []);
-
-  const submitLogOut = () => {
-    logout();
-  };
   const productDetail = (item) => {
     navigation.navigate('ProductDetails', item);
   };
@@ -78,11 +71,6 @@ const Dashboard = ({navigation, route}) => {
         <Text style={styles.title}>Categories</Text>
         <CategorySlider data={categorySliderData} />
       </View>
-      <Button
-        variant="primary"
-        label="Log out"
-        onPress={() => submitLogOut()}
-      />
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
   );
