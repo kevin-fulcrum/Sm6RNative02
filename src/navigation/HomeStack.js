@@ -28,6 +28,8 @@ const HomeStack = () => {
         options={() => ({
           title: 'Shopping Cart',
           headerBackTitle: '',
+          headerLeft: () => null,
+          gestureEnabled: false
         })}
       />
       <Stack.Screen
