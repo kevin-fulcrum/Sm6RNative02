@@ -49,7 +49,7 @@ const ProductSliderItem = ({item, onPress}) => {
         />
         <View style={styles.textView}>
           <Text style={styles.itemTitle}>{item.title}</Text>
-          <Text style={styles.itemPrice}>{item.price}</Text>
+          <Text style={styles.itemPrice}>{`$ ${item.price}`}</Text>
         </View>
       </TouchableOpacity>
     </View>
