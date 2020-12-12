@@ -61,7 +61,7 @@ const CartItem = ({title, image, price, category, collections}) => {
       </View>
       <View style={styles.containerDetail}>
         {title && <Text style={styles.title}>{title}</Text>}
-        {price && <Text style={styles.price}>{price}</Text>}
+        {price && <Text style={styles.price}>{`$ ${price}`}</Text>}
         {category && <Text style={styles.detail}>{category}</Text>}
         {collections && <Text style={styles.detail}>{collections}</Text>}
       </View>
