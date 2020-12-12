@@ -32,6 +32,29 @@ const styles = StyleSheet.create({
   textEmpty: {
     fontSize: 20,
   },
+  shippingContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  action: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#f2f2f2',
+  },
+  title: {
+    color: '#212121',
+    fontWeight: 'bold',
+  },
+  textInput: {
+    marginTop: 5,
+    paddingBottom: 5,
+    color: '#212121',
+  },
+  detailContainer: {
+    position: 'relative',
+    marginVertical: 30,
+  },
 });
 
 const ShoppingCart = ({navigation, route}) => {
