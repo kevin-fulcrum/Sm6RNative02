@@ -93,7 +93,7 @@ const ShoppingCart = ({navigation, route}) => {
     }
   };
 
-  const gotToPayment = () => {
+  const goToPayment = () => {
     const params = {
       products,
       location,
