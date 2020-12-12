@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 20,
     marginVertical: 20,
+    justifyContent: 'space-around',
   },
   containerSafeArea: {
     flex: 1,
@@ -33,10 +34,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   shippingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flex: 0.5,
     marginTop: 20,
+    flexDirection: 'row',
+  },
+  shippingContent: {
+    flex: 0.5,
+    marginHorizontal: 10,
   },
   action: {
     borderBottomWidth: 1,
@@ -52,8 +56,8 @@ const styles = StyleSheet.create({
     color: '#212121',
   },
   detailContainer: {
-    position: 'relative',
-    marginVertical: 30,
+    flex: 1,
+    marginVertical: 10,
   },
 });
 
@@ -75,7 +79,7 @@ const ShoppingCart = ({navigation, route}) => {
     setTotal(total);
   };
 
-  const onChangeText = (value, type) => {
+  const onChange = (value, type) => {
     if (type === 'location') {
       setLocation(value);
     }
@@ -104,10 +108,10 @@ const ShoppingCart = ({navigation, route}) => {
   };
   return (
     <SafeAreaView style={styles.containerSafeArea}>
-      <ScrollView nestedScrollEnabled>
-        <View style={styles.container}>
-          {route.params ? (
-            <>
+      <View style={styles.container}>
+        {route.params ? (
+          <>
+            <ScrollView nestedScrollEnabled style={{flex: 0.1}}>
               <CartItem
                 title={title}
                 image={image}
@@ -115,54 +119,56 @@ const ShoppingCart = ({navigation, route}) => {
                 category={category}
                 collections={collections}
               />
-              <View style={styles.shippingContainer}>
-                <>
-                  <View style={styles.action}>
-                    <Input
-                      label="Location"
-                      labelStyle={styles.title}
-                      vale={location}
-                      ref={inputLocation}
-                      type="name"
-                      placeholder="Lima, Peru"
-                      placeholderTextColer="#cccccc"
-                      textInputStyle={styles.textInput}
-                      maxLength={90}
-                      onChange={(value) => onChangeText(value, 'location')}
-                    />
-                  </View>
-                  <View style={styles.action}>
-                    <Input
-                      label="Message"
-                      labelStyle={styles.title}
-                      vale={message}
-                      ref={inputMessage}
-                      type="name"
-                      placeholder=""
-                      placeholderTextColer="#cccccc"
-                      textInputStyle={styles.textInput}
-                      maxLength={90}
-                      onChange={(value) => onChange(value, 'message')}
-                    />
-                  </View>
-                </>
+            </ScrollView>
+            <View style={styles.shippingContainer}>
+              <View style={styles.shippingContent}>
+                <View style={styles.action}>
+                  <Input
+                    label="Location"
+                    labelStyle={styles.title}
+                    vale={location}
+                    ref={inputLocation}
+                    type="name"
+                    placeholder="Lima, Peru"
+                    placeholderTextColor="#cccccc"
+                    textInputStyle={styles.textInput}
+                    maxLength={90}
+                    onChangeInput={(value) => onChange(value, 'location')}
+                  />
+                </View>
               </View>
-              <View style={styles.detailContainer}>
-                <CartDetailsPayment
-                  price={total}
-                  shipping={parseInt(8, 10)}
-                  onPress={goToPayment}
-                  disabled={disabledButton}
-                />
+              <View style={styles.shippingContent}>
+                <View style={styles.action}>
+                  <Input
+                    label="Message"
+                    labelStyle={styles.title}
+                    vale={message}
+                    ref={inputMessage}
+                    type="name"
+                    placeholder="Shipping detail"
+                    placeholderTextColor="#cccccc"
+                    textInputStyle={styles.textInput}
+                    maxLength={90}
+                    onChangeInput={(value) => onChange(value, 'message')}
+                  />
+                </View>
               </View>
-            </>
-          ) : (
-            <View style={styles.shoppingCartContainer}>
-              <Text style={styles.textEmpty}>Shopping cart is empty</Text>
             </View>
-          )}
-        </View>
-      </ScrollView>
+            <View style={styles.detailContainer}>
+              <CartDetailsPayment
+                price={total}
+                shipping={parseInt(8, 10)}
+                onPress={goToPayment}
+                disabled={disabledButton}
+              />
+            </View>
+          </>
+        ) : (
+          <View style={styles.shoppingCartContainer}>
+            <Text style={styles.textEmpty}>Shopping cart is empty</Text>
+          </View>
+        )}
+      </View>
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
   );
