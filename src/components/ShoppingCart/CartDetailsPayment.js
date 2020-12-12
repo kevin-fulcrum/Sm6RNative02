@@ -2,7 +2,6 @@ import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Button from '../core/Buttons/Button';
 
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -28,7 +27,7 @@ const styles = StyleSheet.create({
   },
   itemRowEnd: {
     flex: 0.5,
-    alignItems: 'flex-end,',
+    alignItems: 'flex-end',
   },
   description: {
     fontSize: 15,
@@ -36,7 +35,7 @@ const styles = StyleSheet.create({
   },
   value: {
     fontSize: 15,
-    color: '#ccccccc',
+    color: '#cccccc',
     fontWeight: 'bold',
   },
   buyButtonContainer: {
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     color: '#2CB9B0',
-    fontWeight: 'bold,',
+    fontWeight: 'bold',
   },
 });
 
