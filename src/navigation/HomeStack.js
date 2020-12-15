@@ -4,6 +4,7 @@ import Dashboard from '../screens/Home/Dashboard';
 import ProductDetails from '../screens/Products/Product/ProductDetails';
 import ShoppingCart from '../screens/ShoppingCart';
 import Locations from '../screens/Locations';
+import CircularProgress from '../screens/CircularProgress';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -29,7 +30,7 @@ const HomeStack = () => {
           title: 'Shopping Cart',
           headerBackTitle: '',
           headerLeft: () => null,
-          gestureEnabled: false
+          gestureEnabled: false,
         })}
       />
       <Stack.Screen
@@ -37,6 +38,14 @@ const HomeStack = () => {
         component={Locations}
         options={() => ({
           title: 'Locations',
+          headerBackTitle: '',
+        })}
+      />
+      <Stack.Screen
+        name="CircularProgress"
+        component={CircularProgress}
+        options={() => ({
+          title: 'CircularProgress',
           headerBackTitle: '',
         })}
       />

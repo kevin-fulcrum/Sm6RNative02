@@ -46,6 +46,18 @@ const MenuDrawer = (props) => {
             icon={() => (
               <Image
                 style={styles.image}
+                source={require('../../../resource/static/images/icons/030-online-shop.png')}
+              />
+            )}
+            label="Circular Progress"
+            onPress={() => {
+              props.navigation.navigate('CircularProgress');
+            }}
+          />
+          <DrawerItem
+            icon={() => (
+              <Image
+                style={styles.image}
                 source={require('../../../resource/static/images/icons/035-logout.png')}
               />
             )}
