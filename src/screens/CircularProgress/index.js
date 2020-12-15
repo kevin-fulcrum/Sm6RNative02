@@ -30,6 +30,16 @@ const CircularProgressView = () => {
       <View style={styles.overlay}>
         <CircularProgress bg={COLOR_BG} fg={COLOR_FG} {...{progress}} />
       </View>
+      <View style={styles.overlay}>
+        <View
+          style={{
+            width: RADIUS * 2 - STROKE_WIDTH * 2,
+            height: RADIUS * 2 - STROKE_WIDTH * 2,
+            borderRadius: RADIUS - STROKE_WIDTH,
+            backgroundColor: COLOR_BG,
+          }}
+        />
+      </View>
     </View>
   );
 };
