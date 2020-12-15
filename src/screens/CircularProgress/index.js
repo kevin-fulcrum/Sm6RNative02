@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   overlay: {
     ...StyleSheet.absoluteFillObject,
     justifyContent: 'center',
-    alignContent: 'center',
+    alignItems: 'center'
   },
 });
 
@@ -33,9 +33,9 @@ const CircularProgressView = () => {
       <View style={styles.overlay}>
         <View
           style={{
-            width: RADIUS * 2 - STROKE_WIDTH * 2,
-            height: RADIUS * 2 - STROKE_WIDTH * 2,
-            borderRadius: RADIUS - STROKE_WIDTH,
+            width: RADIUS * 2 - STROKE_WIDTH,
+            height: RADIUS * 2 - STROKE_WIDTH,
+            borderRadius: RADIUS - STROKE_WIDTH / 2,
             backgroundColor: COLOR_BG,
           }}
         />
