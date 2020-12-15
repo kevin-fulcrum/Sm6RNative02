@@ -102,7 +102,7 @@ const ProductDetails = ({navigation, route}) => {
       </View>
       <View style={styles.footer}>
         <View style={styles.priceContainer}>
-          <Text style={styles.price}>{price}</Text>
+          <Text style={styles.price}>{`$ ${price}`}</Text>
         </View>
         <View style={styles.buttonContainer}>
           <Button

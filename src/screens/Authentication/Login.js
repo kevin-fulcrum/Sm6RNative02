@@ -149,7 +149,7 @@ const Login = ({navigation}) => {
               />
             </View>
             <View style={styles.buttonContainer}>
-              <Button label="Volver" onPress={() => navigation.goBack()} />
+              <Button label="Back" onPress={() => navigation.goBack()} />
             </View>
           </ScrollView>
         </View>

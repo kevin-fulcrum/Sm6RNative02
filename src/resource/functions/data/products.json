@@ -13,7 +13,7 @@
         }
       ],
       "id": 1,
-      "price": "$60",
+      "price": 60,
       "category": "Tops",
       "collections": "halloween",
       "description": "Long sleeve cotton fleece sweatshirt in grey. Printed graphics at the front in white. Rib-knit crewneck collar, cuffs, and hem. Tonal stitching."
@@ -31,7 +31,7 @@
         }
       ],
       "id": 2,
-      "price": "$30",
+      "price": 30,
       "category": "Tops",
       "collections": "halloween",
       "description": "Short sleeve black tee featuring a large print of a CG Render of Oli on the front. You must have chaos in yourself to give birth to a dancing star"
@@ -49,7 +49,7 @@
         }
       ],
       "id": 3,
-      "price": "$40",
+      "price": 40,
       "category": "Tops",
       "collections": "halloween",
       "description": "Limited edition short sleeve cotton t-shirt hand-dyed by our team with a desert wash. Regular fit. Large printed logo at the front and back in white. Tonal stitching.Each order comes with a collectable Harpocates trading card Due to the nature of this product being individually dyed please be aware each one has a unique appearance and will vary in colours. "
@@ -67,7 +67,7 @@
         }
       ],
       "id": 4,
-      "price": "$30",
+      "price": 30,
       "category": "Tops",
       "collections": "other",
       "description": "Short sleeve cotton jersey tee in black Rib-knit crewneck collar. Printed graphics in red and white at front and back. "
@@ -89,7 +89,7 @@
         }
       ],
       "id": 5,
-      "price": "$30",
+      "price": 30,
       "category": "Tops",
       "collections": "halloween",
       "description": "Short-sleeve tee in black cotton with rib-knit crewneck collar. Regular fit. Large printed logo at the front and back in white. Tonal stitching. "
@@ -107,7 +107,7 @@
         }
       ],
       "id": 6,
-      "price": "$40",
+      "price": 40,
       "category": "Tops",
       "collections": "dark hive",
       "description": "Long sleeve t in black cotton, featuring 34 original pieces of Kitty Brainz artwork created by our fans during the UK’s national lockdown. We wanted to celebrate the talents of our worldwide family by creating a piece exclusively using their work. Each order comes with a sticker pack."
@@ -129,7 +129,7 @@
         }
       ],
       "id": 7,
-      "price": "$30",
+      "price": 30,
       "category": "Tops",
       "collections": "other",
       "description": "Short sleeve cotton jersey tee in black. Rib-knit crewneck collar. Printed graphics in vintage white at the front and back."
@@ -147,7 +147,7 @@
         }
       ],
       "id": 8,
-      "price": "$30",
+      "price": 30,
       "category": "Tops",
       "collections": "dark hive",
       "description": "Sleeveless cotton jersey tank top in black. Rib-knit crewneck collar. Large printed graphic in multi-colour at the front. Tonal stitching."
@@ -161,7 +161,7 @@
         }
       ],
       "id": 9,
-      "price": "$30",
+      "price": 30,
       "category": "Tops",
       "collections": "other",
       "description": "Short sleeve cotton jersey tee in white. Rib-knit crewneck collar. Large printed graphic at the front in red and green. Tonal stitching."
@@ -175,7 +175,7 @@
         }
       ],
       "id": 10,
-      "price": "$30",
+      "price": 30,
       "category": "Tops",
       "collections": "other",
       "description": "Short sleeve cotton jersey tee in black. Rib-knit crewneck collar. Large printed graphic at the front in multicolour. Tonal stitching. "
@@ -197,7 +197,7 @@
         }
       ],
       "id": 11,
-      "price": "$120",
+      "price": 120,
       "category": "Tops",
       "collections": "beings ov light",
       "description": "Long sleeve work jacket made via dual construction. Covered in hand-printed artworks in 3D puff and distressed inks. Featuring concealed zip closures in the built-in pockets just below the raw seam detailing. Adjustable two-button barrel cuffs. Find colour within an otherwise grey prison."
@@ -215,7 +215,7 @@
         }
       ],
       "id": 12,
-      "price": "$70",
+      "price": 70,
       "category": "Bottoms",
       "collections": "holiday",
       "description": "Relaxed fit fleece back sweatpants in black featuring printed logo across the front in white. Elasticised waistband and loose cuffs. Two-pocket styling. Drawstring at waist with embossed branded aglets in black. Tonal stitching."
@@ -233,7 +233,7 @@
         }
       ],
       "id": 13,
-      "price": "$70",
+      "price": 70,
       "category": "Bottoms",
       "collections": "holiday",
       "description": "Relaxed fit fleece back sweatpants in washed black. Printed graphics at the front. Elasticised waistband and cuffs. Three pocket styling. Drawstring at waist with embossed branded aglets in black. Tonal stitching."
@@ -251,7 +251,7 @@
         }
       ],
       "id": 14,
-      "price": "$40",
+      "price": 40,
       "category": "Bottoms",
       "collections": "beings ov light",
       "description": "Cotton jersey shorts in black with elasticated waist. All over print of an angel (alien) in white. Original Artwork by Bruce Pennington ©Who are these that fly like a cloud, and like doves to their windows?"
@@ -269,7 +269,7 @@
         }
       ],
       "id": 15,
-      "price": "$80",
+      "price": 80,
       "category": "Bottoms",
       "collections": "natural selection",
       "sale": true,
@@ -288,7 +288,7 @@
         }
       ],
       "id": 16,
-      "price": "$64",
+      "price": 64,
       "category": "Bottoms",
       "collections": "natural selection",
       "sale": true,
@@ -307,7 +307,7 @@
         }
       ],
       "id": 17,
-      "price": "$10",
+      "price": 10,
       "category": "Masks",
       "collections": "natural selection",
       "description": "Non-surgical face-covering in black and orange. Logo at the front in white. "
@@ -325,7 +325,7 @@
         }
       ],
       "id": 18,
-      "price": "$10",
+      "price": 10,
       "category": "Masks",
       "collections": "halloween",
       "description": "Non-surgical face-covering in black and orange. Logo at the front in white. "
@@ -343,7 +343,7 @@
         }
       ],
       "id": 19,
-      "price": "$10",
+      "price": 10,
       "category": "Masks",
       "collections": "halloween",
       "description": "Non-surgical face-covering in black and orange. Logo at the front in white."
@@ -365,7 +365,7 @@
         }
       ],
       "id": 20,
-      "price": "$20",
+      "price": 20,
       "category": "Accessories",
       "collections": "holiday",
       "description": "Flat curb chain necklace in stainless steel with pendant."
@@ -387,7 +387,7 @@
         }
       ],
       "id": 21,
-      "price": "$30",
+      "price": 30,
       "category": "Accessories",
       "collections": "holiday",
       "description": "Faux leather wallet in black featuring embossed logo. Integrated drawstring-style strap with zip closure. Four card slots, two note slots, and zippered coin compartment at interior. Tonal leather and textile lining. Silver-tone hardware."
@@ -413,7 +413,7 @@
         }
       ],
       "id": 22,
-      "price": "$60",
+      "price": 60,
       "category": "Accessories",
       "collections": "halloween",
       "description": "Canvas bag set in black. Large bag features embroidered graphic at the front in red, white and black. Carry handle at the top. Adjustable padded shoulder straps. Two way zip closure at main compartment. Zippered compartment at the front and internal zippered pocket. Webbing loops at the front to hold detachable small bag.  Small bag features embroidered logo at the front in red, white and black. Zippered main compartment and front pocket with internal mesh divider. Detachable strap to wear as shoulder bag, across body or waist. Tonal lining. Black tone hardware."
@@ -431,7 +431,7 @@
         }
       ],
       "id": 23,
-      "price": "$20",
+      "price": 20,
       "category": "Accessories",
       "collections": "holiday",
       "description": "Rib-knit beanie in black. Embroidered logo patch in black and white at rolled brim."
@@ -449,7 +449,7 @@
         }
       ],
       "id": 24,
-      "price": "$3",
+      "price": 3,
       "category": "Accessories",
       "collections": "halloween",
       "description": "Fifteen pin badge in silver-tone metal and enamel detailing. Post-stud fastening. "
