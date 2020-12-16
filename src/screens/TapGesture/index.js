@@ -1,9 +1,20 @@
 import React from 'react';
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import ButtonPayment from '../../components/core/Buttons/ButtonPayment'
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#E8EDFF'
+    }
+})
 
 const TapGesture = () => {
     return (
-        <View>
+        <View style={styles.container}>
+        <ButtonPayment />
         </View>
     )
 }
