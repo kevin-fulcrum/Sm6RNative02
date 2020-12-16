@@ -25,7 +25,7 @@ const TapGesture = () => {
         <View style={styles.container}>
         <TapGestureHandler  {...gestureHandler}>
             <Animated.View style={{ transform: [{ scale }] }}>
-                <ButtonPayment  {...progress}/>
+                <ButtonPayment  {...{ progress }}/>
             </Animated.View>
         </TapGestureHandler>
         </View>
