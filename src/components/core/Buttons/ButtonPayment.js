@@ -3,10 +3,8 @@ import {View, Image, StyleSheet} from 'react-native';
 import CircularProgress from '../../CircularProgress';
 import {COLOR_BG, COLOR_FG} from '../../CircularProgress/Constans';
 
-import FingerPrint from '../../../resource/static/images/icons/fingerprint.svg';
 const SIZE = 150;
 const STOKE_WIDTH = 10;
-const ICON_SIZE = 96;
 
 const styles = StyleSheet.create({
   iconContainer: {
@@ -31,7 +29,10 @@ const ButtonPayment = ({progress}) => {
         bg={COLOR_BG}
       />
       <View style={styles.iconContainer}>
-        <FingerPrint width={ICON_SIZE} height={ICON_SIZE} fill="#2CB9B0" />
+        <Image
+          style={{width: 80, height: 80}}
+          source={require('../../../resource/static/images/icons/fingerprint.png')}
+        />
       </View>
     </View>
   );
