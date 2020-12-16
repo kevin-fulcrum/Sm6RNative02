@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native'
 import { State, TapGestureHandler} from 'react-native-gesture-handler'
-import Animated, { eq, Value} from 'react-native-reanimated';
+import Animated, { cond, eq, Value} from 'react-native-reanimated';
 import { withTransition, onGestureEvent, mix} from 'react-native-redash/lib/module/v1'
 import ButtonPayment from '../../components/core/Buttons/ButtonPayment'
 
@@ -17,16 +17,17 @@ const styles = StyleSheet.create({
 const TapGesture = () => {
     const state = new Value(State.UNDETERMINED);
     const gestureHandler = onGestureEvent({ state });
-    const progress = withTransition(eq(state, State.BEGAN), { duration: 2000 });
+    const isActive = eq(state, State.BEGAN);
+    const duration = cond(isActive, 2000, 250)
+    const progress = withTransition(isActive, { duration });
     const scale = mix(progress, 1, 1.2);
     return (
         <View style={styles.container}>
         <TapGestureHandler  {...gestureHandler}>
-                <Animated.View style={{ transform: [{ scale }] }}>
+            <Animated.View style={{ transform: [{ scale }] }}>
                 <ButtonPayment  {...progress}/>
-                </Animated.View>
-            </TapGestureHandler>
-        
+            </Animated.View>
+        </TapGestureHandler>
         </View>
     )
 }
