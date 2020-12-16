@@ -28,7 +28,7 @@ const CircularProgressView = () => {
   return (
     <View style={styles.container}>
       <View style={styles.overlay}>
-        <CircularProgress bg={COLOR_BG} fg={COLOR_FG} {...{progress}} />
+        <CircularProgress bg={COLOR_BG} fg={COLOR_FG} {...{progress}} radius={RADIUS}/>
       </View>
       <View style={styles.overlay}>
         <View
