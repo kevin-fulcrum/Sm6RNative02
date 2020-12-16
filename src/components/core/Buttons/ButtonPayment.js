@@ -1,14 +1,16 @@
 import React from 'react'
 import { View } from 'react-native'
+import CircularProgress from '../../CircularProgress'
+import {
+    COLOR_BG,
+    COLOR_FG,
+  } from '../../CircularProgress/Constans';
 
 const SIZE = 150;
 
-const ButtonPayment = () => {
-   
+const ButtonPayment = ({ progress }) => {
     return (
-        <View style={{ width: SIZE, height: SIZE, borderRadius: SIZE / 2, backgroundColor: '#ffffff'}}>
-            
-        </View>
+     <CircularProgress radius={SIZE / 2}  {...{progress}} fg={COLOR_FG} bg={COLOR_BG}/>   
     )
 }
 

@@ -1,16 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
-import {RADIUS} from './Constans';
 
-const HalfCircle = ({color}) => {
+const HalfCircle = ({color, radius}) => {
   return (
-    <View style={{width: RADIUS * 2, height: RADIUS, overflow: 'hidden'}}>
+    <View style={{width: radius * 2, height: radius, overflow: 'hidden'}}>
       <View
         style={{
           backgroundColor: color,
-          width: RADIUS * 2,
-          height: RADIUS * 2,
-          borderRadius: RADIUS,
+          width: radius * 2,
+          height: radius * 2,
+          borderRadius: radius,
         }}
       />
     </View>
