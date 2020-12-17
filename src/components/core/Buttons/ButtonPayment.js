@@ -6,11 +6,11 @@ import {COLOR_BG, COLOR_FG} from '../../CircularProgress/Constans';
 import {mix} from 'react-native-redash/lib/module/v1';
 const SIZE = 150;
 const STROKE_WIDTH = 10;
-const ICON_SIZE = 96;
+const ICON_SIZE = 70;
 const CONTENT_SIZE = SIZE - STROKE_WIDTH * 2;
 
 const styles = StyleSheet.create({
-  IconContainer: {
+  iconContainer: {
     position: 'absolute',
     top: STROKE_WIDTH,
     left: STROKE_WIDTH,
