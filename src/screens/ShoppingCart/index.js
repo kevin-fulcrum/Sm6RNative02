@@ -102,7 +102,7 @@ const ShoppingCart = ({navigation, route}) => {
 
   const goToPayment = () => {
     const params = {
-      products,
+      // products,
       location,
       message,
       total,
