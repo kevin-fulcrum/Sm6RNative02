@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {View, Image, StyleSheet} from 'react-native';
+import Animated, {call, cond, eq, useCode} from 'react-native-reanimated';
 import CircularProgress from '../../CircularProgress';
 import {COLOR_BG, COLOR_FG} from '../../CircularProgress/Constans';
 import {mix} from 'react-native-redash/lib/module/v1';
