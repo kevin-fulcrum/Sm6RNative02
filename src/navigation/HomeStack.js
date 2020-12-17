@@ -5,7 +5,8 @@ import ProductDetails from '../screens/Products/Product/ProductDetails';
 import ShoppingCart from '../screens/ShoppingCart';
 import Locations from '../screens/Locations';
 import CircularProgress from '../screens/CircularProgress';
-import TapGesture from '../screens/TapGesture'
+import TapGesture from '../screens/TapGesture';
+import PaymentMethods from '../screens/PaymentMethods';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -46,7 +47,7 @@ const HomeStack = () => {
         name="CircularProgress"
         component={CircularProgress}
         options={() => ({
-          title: 'CircularProgress',
+          title: 'Circular Progress',
           headerBackTitle: '',
         })}
       />
@@ -54,7 +55,15 @@ const HomeStack = () => {
         name="TapGesture"
         component={TapGesture}
         options={() => ({
-          title: 'TapGesture',
+          title: 'Tap Gesture',
+          headerBackTitle: '',
+        })}
+      />
+      <Stack.Screen
+        name="PaymentMethods"
+        component={PaymentMethods}
+        options={() => ({
+          title: 'Payment Methods',
           headerBackTitle: '',
         })}
       />
