@@ -1,25 +1,47 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Image, StyleSheet} from 'react-native';
+import Animated, {call, cond, eq, useCode} from 'react-native-reanimated';
 import CircularProgress from '../../CircularProgress';
 import {COLOR_BG, COLOR_FG} from '../../CircularProgress/Constans';
-
+import {mix} from 'react-native-redash/lib/module/v1';
 const SIZE = 150;
-const STOKE_WIDTH = 10;
+const STROKE_WIDTH = 10;
+const ICON_SIZE = 70;
+const CONTENT_SIZE = SIZE - STROKE_WIDTH * 2;
 
 const styles = StyleSheet.create({
   iconContainer: {
     position: 'absolute',
-    top: STOKE_WIDTH,
-    left: STOKE_WIDTH,
-    right: STOKE_WIDTH,
-    bottom: STOKE_WIDTH,
-    backgroundColor: '#ffffff',
-    borderRadius: (SIZE - STOKE_WIDTH * 2) / 2,
+    top: STROKE_WIDTH,
+    left: STROKE_WIDTH,
+    right: STROKE_WIDTH,
+    bottom: STROKE_WIDTH,
+    backgroundColor: 'white',
+    borderRadius: CONTENT_SIZE / 2,
     zIndex: 100,
+  },
+  icon: {
+    top: (CONTENT_SIZE - ICON_SIZE) / 2,
+    left: (CONTENT_SIZE - ICON_SIZE) / 2,
+  },
+  activeIcon: {
+    position: 'absolute',
+    top: (CONTENT_SIZE - ICON_SIZE) / 2,
+    left: (CONTENT_SIZE - ICON_SIZE) / 2,
   },
 });
 
 const ButtonPayment = ({progress}) => {
+  const [active, setActive] = useState(false);
+  const height = mix(progress, 0, ICON_SIZE);
+  useCode(
+    () =>
+      cond(
+        eq(progress, 1),
+        call([], () => setActive(true)),
+      ),
+    [progress],
+  );
   return (
     <View>
       <CircularProgress
@@ -30,9 +52,20 @@ const ButtonPayment = ({progress}) => {
       />
       <View style={styles.iconContainer}>
         <Image
-          style={{width: 80, height: 80}}
-          source={require('../../../resource/static/images/icons/fingerprint.png')}
+          style={[styles.icon, {width: ICON_SIZE, height: ICON_SIZE}]}
+          source={
+            active
+              ? require('../../../resource/static/images/icons/check.png')
+              : require('../../../resource/static/images/icons/fingerprint.png')
+          }
         />
+        <Animated.View
+          style={[styles.activeIcon, {height, opacity: active ? 0 : 1}]}>
+          <Image
+            source={require('../../../resource/static/images/icons/fingerprint.png')}
+            style={{width: ICON_SIZE, height: ICON_SIZE}}
+          />
+        </Animated.View>
       </View>
     </View>
   );
