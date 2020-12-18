@@ -7,6 +7,7 @@ import Locations from '../screens/Locations';
 import CircularProgress from '../screens/CircularProgress';
 import TapGesture from '../screens/TapGesture';
 import PaymentMethods from '../screens/PaymentMethods';
+import Checkout from '../screens/Checkout';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -64,6 +65,14 @@ const HomeStack = () => {
         component={PaymentMethods}
         options={() => ({
           title: 'Payment Methods',
+          headerBackTitle: '',
+        })}
+      />
+      <Stack.Screen
+        name="Checkout"
+        component={Checkout}
+        options={() => ({
+          title: 'Checkout',
           headerBackTitle: '',
         })}
       />
