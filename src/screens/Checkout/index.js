@@ -119,6 +119,7 @@ const Checkout = ({navigation, route}) => {
                 keyboardType="numeric"
                 textInputStyle={styles.textInput}
                 maxLength={3}
+                onChangeInput={(value) => onChange(value, 'cvv')}
               />
             </View>
           </View>
