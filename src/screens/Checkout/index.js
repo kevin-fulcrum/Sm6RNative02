@@ -80,7 +80,7 @@ const Checkout = ({navigation, route}) => {
           <View style={styles.action}>
             <Input
               label="Card holder"
-              labelStyle={style.title}
+              labelStyle={styles.title}
               value={cardHolder}
               ref={inputCardHolder}
               type="name"
