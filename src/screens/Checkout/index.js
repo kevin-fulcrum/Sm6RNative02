@@ -12,7 +12,49 @@ import {CardPayment} from '../../components/Payment/CardPayment';
 import {windowHeight, windowWidth} from '../../resource/functions/Dimensions';
 import {onChange} from 'react-native-reanimated';
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginHorizontal: 20,
+  },
+  containerSafeArea: {
+    flex: 1,
+    backgroundColor: '#ffffff',
+  },
+  title: {
+    color: '#212121',
+    fontWeight: 'bold',
+  },
+  action: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#f2f2f2',
+  },
+  textInput: {
+    marginTop: 5,
+    paddingBottom: 5,
+    color: '#212121',
+  },
+  buyButtonContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  secureCardData: {
+    flex: 1,
+    flexDirection: 'row',
+  },
+  expireDate: {
+    flex: 0.5,
+  },
+  dataCvv: {
+    marginLeft: 25,
+    flex: 0.3,
+  },
+  paymentContainer: {
+    marginHorizontal: 20,
+  },
+});
 
 const Checkout = ({navigation, route}) => {
   const [cardNumber, setCardNumber] = useState('');
