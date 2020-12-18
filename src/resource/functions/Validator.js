@@ -2,7 +2,7 @@ const formatEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"
 const minPassword = 6;
 const cvv = 3;
 const minCharacterCard = 15;
-const expireDate = /^(0[1-9]|[0-2])\/?([0-9]{2}|[0-9]{2})$/;
+const expireDate = /^(0[1-9]|1[0-2])\/?([0-9]{2}|[0-9]{2})$/;
 const numbers = /^\d+$/;
 const name = /^[a-zA-ZÀ-ú0-9]+( [a-zA-ZÀ-ú0-9]+)*$/;
 const Validator = (type, value) => {
