@@ -15,11 +15,42 @@ const Checkout = ({ navigation, route }) => {
     const [cardHolder, setCardHolder] = useState('');
     const [expireDate, setExpireDate ] = useState('')
     const [cvv, setCvv] = useState('')
+    const [disabledButton, setDisabledButton] = useState(true)
     const inputExpireDate = useRef();
     const inputCvv = useRef();
     const inputCardHolder = useRef();
     const inputCardNumber = useRef();
-    const { paymentMethods } = route.params
+    const { paymentMethods } = route.params;
+
+    const sendPayment = () => {
+        console.warn('sendPayment')
+    }
+
+    const onChange = (value, type) => {
+        if(type === 'cardNumber') {
+            setCardNumber(inputCardNumber.current.state.value)
+        }
+        if(type === 'cardHolder') {
+            setCardHolder(value)
+        }
+        if(type === 'expireDate') {
+            setExpireDate(value)
+        }
+        if(type === 'cvv') {
+            setCvv(value)
+        }
+        if(
+            value.length > 0 &&
+            inputCardNumber.current.state.validate &&
+            inputCardHolder.current.state.validate &&
+            inputExpireDate.current.state.validate &&
+            inputCvv.current.state.validate
+        ){
+            setDisabledButton(false)
+        } else {
+            setDisabledButton(true);
+        }
+    }
     return(
         <SafeAreaView style={styles.containerSafeArea}>
             <ScrollView>
@@ -92,7 +123,7 @@ const Checkout = ({ navigation, route }) => {
                         onPress={sendPayment}
                         variant="primary"
                         label="Complete Payment"
-                        disabled={disabled}
+                        disabled={disabledButton}
                     />
                     </View>
                 </View>

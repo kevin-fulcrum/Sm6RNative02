@@ -35,7 +35,9 @@ const paymentMethods = [
 
 const PaymentMethods = ({navigation, route}) => {
   const goToPay = (item, index) => {
-    console.warn(item, index);
+    navigation.navigate('Checkout', {
+      paymentMethods: item,
+    });
   };
   const y = new Animated.Value(0);
   const onScroll = Animated.event([{nativeEvent: {contentOffset: {y}}}], {
