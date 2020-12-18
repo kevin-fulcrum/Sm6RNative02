@@ -143,7 +143,6 @@ const Checkout = ({navigation, route}) => {
                 type="expireDate"
                 placeholder="XX/XX"
                 placeholderTextColor="#cccccc"
-                keyboardType="numeric"
                 textInputStyle={styles.textInput}
                 maxLength={5}
                 onChangeInput={(value) => onChange(value, 'expireDate')}
