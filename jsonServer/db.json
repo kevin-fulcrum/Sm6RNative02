@@ -1,5 +1,15 @@
 {
-  "orders": [],
+  "orders": [
+    {
+      "productId": [1],
+      "quantity": 1,
+      "details": "I want a grey color, please",
+      "location": "Lima, Peru",
+      "totalPrice": 50,
+      "paymentMethod": "Visa",
+      "products": ["Dancer Top"]
+    }
+  ],
   "locations": [],
   "carts": []
 }

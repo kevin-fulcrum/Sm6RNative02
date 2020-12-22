@@ -34,9 +34,11 @@ const paymentMethods = [
 ];
 
 const PaymentMethods = ({navigation, route}) => {
+  const parameters = route.params;
   const goToPay = (item, index) => {
     navigation.navigate('Checkout', {
       paymentMethods: item,
+      order: parameters,
     });
   };
   const y = new Animated.Value(0);

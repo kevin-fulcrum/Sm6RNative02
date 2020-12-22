@@ -69,6 +69,7 @@ const ShoppingCart = ({navigation, route}) => {
   const inputMessage = useRef(null);
   const {title, image, id, price, description, category, collections} =
     route.params || {};
+  const parameters = route.params;
   const [location, setLocation] = useState();
   const [message, setMessage] = useState();
   const [disabledButton, setDisabledButton] = useState(true);
@@ -102,7 +103,7 @@ const ShoppingCart = ({navigation, route}) => {
 
   const goToPayment = () => {
     const params = {
-      // products,
+      item: parameters,
       location,
       message,
       total,

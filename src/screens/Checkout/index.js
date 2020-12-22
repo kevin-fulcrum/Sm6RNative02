@@ -66,7 +66,7 @@ const Checkout = ({navigation, route}) => {
   const inputCvv = useRef();
   const inputCardHolder = useRef();
   const inputCardNumber = useRef();
-  const {paymentMethods} = route.params;
+  const {paymentMethods, order} = route.params;
 
   const sendPayment = () => {
     console.warn('sendPayment');
