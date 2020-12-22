@@ -9,6 +9,7 @@ import {
 import Button from '../../components/core/Buttons/Button';
 import Input from '../../components/core/Form/TextInput';
 import {CardPayment} from '../../components/Payment/CardPayment';
+import Api from '../../api';
 import {windowHeight, windowWidth} from '../../resource/functions/Dimensions';
 import {onChange} from 'react-native-reanimated';
 
@@ -69,7 +70,13 @@ const Checkout = ({navigation, route}) => {
   const {paymentMethods, order} = route.params;
 
   const sendPayment = () => {
-    console.warn('sendPayment');
+    console.warn(
+      'sendPayment:',
+      'paymentMethods',
+      paymentMethods,
+      'order',
+      order,
+    );
   };
 
   const onChange = (value, type) => {
