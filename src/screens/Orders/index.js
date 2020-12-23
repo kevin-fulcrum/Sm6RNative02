@@ -55,7 +55,8 @@ const Orders = ({navigation, route}) => {
       });
   }, []);
   const goToOrder = (item) => {
-    console.warn('item');
+    console.warn('goToOrder item', item);
+    navigation.navigate('OrderDetail', item);
   };
   return (
     <SafeAreaView style={styles.containerSafeAreaView}>

@@ -9,6 +9,7 @@ import TapGesture from '../screens/TapGesture';
 import PaymentMethods from '../screens/PaymentMethods';
 import Checkout from '../screens/Checkout';
 import Orders from '../screens/Orders';
+import OrderDetail from '../screens/OrderDetail';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -82,6 +83,14 @@ const HomeStack = () => {
         component={Orders}
         options={() => ({
           title: 'Orders',
+          headerBackTitle: '',
+        })}
+      />
+      <Stack.Screen
+        name="OrderDetail"
+        component={OrderDetail}
+        options={() => ({
+          title: 'Order Detail',
           headerBackTitle: '',
         })}
       />
