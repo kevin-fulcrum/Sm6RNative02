@@ -19,6 +19,19 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 20,
   },
+  containerSafeAreaView: {
+    flex: 1,
+    backgroundColor: '#f9f9f9',
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  ordersContainer: {
+    flex: 1,
+    marginTop: 30,
+  },
 });
 
 const Orders = ({navigation, route}) => {
