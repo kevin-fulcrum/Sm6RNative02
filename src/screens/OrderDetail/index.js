@@ -9,6 +9,29 @@ const styles = StyleSheet.create({
     flex: 1,
     marginHorizontal: 20,
   },
+  containerSafeAreaView: {
+    flex: 1,
+    backgroundColor: '#f9f9f9',
+  },
+  price: {
+    fontSize: 26,
+    fontWeight: 'bold',
+    marginTop: 20,
+  },
+  title: {
+    fontSize: 24,
+    color: '#212121',
+    fontWeight: 'bold',
+    marginTop: 5,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: '#212121',
+    marginTop: 5,
+  },
+  productDetails: {
+    flex: 0.6,
+  },
 });
 
 const OrderDetail = ({navigation, route}) => {
