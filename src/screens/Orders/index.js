@@ -29,12 +29,15 @@ const Orders = ({navigation, route}) => {
       .getOrders()
       .then((data) => {
         if (data.errors) {
+          console.warn('get api order error', data);
           setError(data.errors);
         } else {
+          console.warn('get api order', data);
           setOrders(data);
         }
       })
       .catch((e) => {
+        console.warn('get api order catch', e);
         setError(e.errors);
       });
   }, []);
@@ -57,7 +60,7 @@ const Orders = ({navigation, route}) => {
                   onPress={() => goToOrder(item)}
                 />
               ))}
-            {/* {error && <Text style={styles.title}>{error}</Text>} */}
+            {error ? <Text style={styles.title}>{error}</Text> : null}
           </View>
         </View>
       </ScrollView>
