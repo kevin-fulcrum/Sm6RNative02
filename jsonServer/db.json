@@ -5,117 +5,14 @@
         1
       ],
       "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
+      "details": "Hello",
+      "location": "Lima peru",
       "totalPrice": 60,
+      "paymentMethod": "Visa",
       "products": [
         "DANCER"
       ],
       "id": 1
-    },
-    {
-      "productId": [
-        1
-      ],
-      "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
-      "totalPrice": 60,
-      "products": [
-        "DANCER"
-      ],
-      "id": 2
-    },
-    {
-      "productId": [
-        1
-      ],
-      "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
-      "totalPrice": 60,
-      "products": [
-        "DANCER"
-      ],
-      "id": 3
-    },
-    {
-      "productId": [
-        1
-      ],
-      "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
-      "totalPrice": 60,
-      "products": [
-        "DANCER"
-      ],
-      "id": 4
-    },
-    {
-      "productId": [
-        1
-      ],
-      "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
-      "totalPrice": 60,
-      "products": [
-        "DANCER"
-      ],
-      "id": 5
-    },
-    {
-      "productId": [
-        1
-      ],
-      "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
-      "totalPrice": 60,
-      "products": [
-        "DANCER"
-      ],
-      "id": 6
-    },
-    {
-      "productId": [
-        1
-      ],
-      "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
-      "totalPrice": 60,
-      "products": [
-        "DANCER"
-      ],
-      "id": 7
-    },
-    {
-      "productId": [
-        1
-      ],
-      "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
-      "totalPrice": 60,
-      "products": [
-        "DANCER"
-      ],
-      "id": 8
-    },
-    {
-      "productId": [
-        1
-      ],
-      "quantity": 1,
-      "details": "I want a grey one",
-      "location": "Lima Peru",
-      "totalPrice": 60,
-      "products": [
-        "DANCER"
-      ],
-      "id": 9
     }
   ],
   "locations": [],

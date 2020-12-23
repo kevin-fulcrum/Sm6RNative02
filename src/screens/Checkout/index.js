@@ -81,7 +81,8 @@ const Checkout = ({navigation, route}) => {
       location: order.location,
       totalPrice: order.total,
       paymentMethod: paymentMethods.description,
-      products: [product.title],
+      productsName: [product.title],
+      productImage: product.image,
     };
     Api.orderApi
       .createOrder(parameters)
