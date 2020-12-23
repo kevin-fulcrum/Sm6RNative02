@@ -56,7 +56,7 @@ const Order = ({key, productImage, productName, price, onPress}) => {
         </View>
         <View style={styles.containerDetail}>
           {productName !== 0 && (
-            <Text style={styles.productName}>{productName[0]}</Text>
+            <Text style={styles.productName}>{productName}</Text>
           )}
           {price !== 0 && <Text style={styles.price}>{`$ ${price}`}</Text>}
         </View>

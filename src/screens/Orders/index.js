@@ -51,13 +51,13 @@ const Orders = ({navigation, route}) => {
               orders.map((item, index) => (
                 <Order
                   key={index}
-                  productImage={item.productImage}
-                  productName={item.productsName}
+                  productImage={item.productImage[0].url}
+                  productName={item.productsName[0]}
                   price={item.totalPrice}
                   onPress={() => goToOrder(item)}
                 />
               ))}
-            {error && <Text style={styles.title}>{error}</Text>}
+            {/* {error && <Text style={styles.title}>{error}</Text>} */}
           </View>
         </View>
       </ScrollView>
