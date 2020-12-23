@@ -96,7 +96,7 @@ const Checkout = ({navigation, route}) => {
         }
       })
       .catch((e) => {
-        setErrorMessage(data.errors);
+        setErrorMessage(e.errors);
         setIsVisible(true);
       });
   };

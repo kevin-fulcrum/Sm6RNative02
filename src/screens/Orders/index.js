@@ -12,6 +12,7 @@ import MenuFooter from '../../components/core/Menu/MenuFooter';
 import Button from '../../components/core/Buttons/Button';
 import Order from '../../components/Orders';
 import {windowHeight, windowWidth} from '../../resource/functions/Dimensions';
+import Api from '../../api';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,6 +24,20 @@ const styles = StyleSheet.create({
 const Orders = ({navigation, route}) => {
   const [orders, setOrders] = useState([]);
   const [error, setError] = useState('');
+  useEffect(() => {
+    Api.orderApi
+      .getOrders()
+      .then((data) => {
+        if (data.errors) {
+          setError(data.errors);
+        } else {
+          setOrders(data);
+        }
+      })
+      .catch((e) => {
+        setError(e.errors);
+      });
+  }, []);
   const goToOrder = (item) => {
     console.warn('item');
   };
