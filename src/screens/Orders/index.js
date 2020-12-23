@@ -67,6 +67,7 @@ const Orders = ({navigation, route}) => {
               orders.map((item, index) => (
                 <Order
                   key={index}
+                  index={index}
                   productImage={item.productImage[0].url}
                   productName={item.productsName[0]}
                   price={item.totalPrice}

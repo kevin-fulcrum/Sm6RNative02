@@ -42,12 +42,12 @@ const styles = StyleSheet.create({
   },
 });
 
-const Order = ({key, productImage, productName, price, onPress}) => {
+const Order = ({productImage, productName, price, onPress, index}) => {
   const goToDetails = () => {
     onPress && onPress();
   };
   return (
-    <TouchableOpacity key={key} onPress={goToDetails}>
+    <TouchableOpacity key={index} onPress={goToDetails}>
       <View style={styles.container}>
         <View style={styles.containerImage}>
           {productImage && (
