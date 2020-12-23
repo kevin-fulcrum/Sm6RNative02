@@ -8,6 +8,7 @@ import CircularProgress from '../screens/CircularProgress';
 import TapGesture from '../screens/TapGesture';
 import PaymentMethods from '../screens/PaymentMethods';
 import Checkout from '../screens/Checkout';
+import Orders from '../screens/Orders';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -73,6 +74,14 @@ const HomeStack = () => {
         component={Checkout}
         options={() => ({
           title: 'Checkout',
+          headerBackTitle: '',
+        })}
+      />
+      <Stack.Screen
+        name="Orders"
+        component={Orders}
+        options={() => ({
+          title: 'Orders',
           headerBackTitle: '',
         })}
       />
