@@ -54,7 +54,7 @@ const CategorySliderItem = ({item}) => {
         }}
       />
       <View style={styles.textView}>
-        <Text style={styles.itemTitle}>{item.title}</Text>
+        <Text style={styles.itemTitle}>{item.description}</Text>
       </View>
     </View>
   );
