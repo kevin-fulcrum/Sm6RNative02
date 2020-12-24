@@ -30,7 +30,6 @@ const CategoryDetails = ({navigation, route}) => {
   };
   return (
     <SafeAreaView style={styles.containerSafeAreaView}>
-      <ScrollView nestedScrollEnabled={true}>
         <View style={styles.container}>
           {products.length > 0 && (
             <FlatList
@@ -40,7 +39,7 @@ const CategoryDetails = ({navigation, route}) => {
               snapToAlignment="center"
               scrollEventThrottle={16}
               decelerationRate="fast"
-              showsHorizontalScrollIndicator={false}
+              numColumns={2}
               renderItem={(item) => {
                 return (
                   <ProductSliderItem
@@ -52,7 +51,6 @@ const CategoryDetails = ({navigation, route}) => {
             />
           )}
         </View>
-      </ScrollView>
       <MenuFooter navigation={navigation} />
     </SafeAreaView>
   );
