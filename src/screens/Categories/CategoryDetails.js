@@ -8,6 +8,7 @@ import {
   ScrollView,
 } from 'react-native';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
+import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -31,7 +32,25 @@ const CategoryDetails = ({navigation, route}) => {
     <SafeAreaView style={styles.containerSafeAreaView}>
       <ScrollView nestedScrollEnabled={true}>
         <View style={styles.container}>
-          <Text>Hola</Text>
+          {products.length > 0 && (
+            <FlatList
+              data={products}
+              keyExtractor={(item, index) => 'key' + index}
+              scrollEnabled
+              snapToAlignment="center"
+              scrollEventThrottle={16}
+              decelerationRate="fast"
+              showsHorizontalScrollIndicator={false}
+              renderItem={(item) => {
+                return (
+                  <ProductSliderItem
+                    item={item.item}
+                    onPress={() => productDetail(item.item)}
+                  />
+                );
+              }}
+            />
+          )}
         </View>
       </ScrollView>
       <MenuFooter navigation={navigation} />
