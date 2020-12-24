@@ -44,18 +44,20 @@ const styles = StyleSheet.create({
   },
 });
 
-const CategorySliderItem = ({item}) => {
+const CategorySliderItem = ({item, onPress}) => {
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: item.image,
-        }}
-      />
-      <View style={styles.textView}>
-        <Text style={styles.itemTitle}>{item.description}</Text>
-      </View>
+      <TouchableOpacity onPress={onPress}>
+        <Image
+          style={styles.image}
+          source={{
+            uri: item.image,
+          }}
+        />
+        <View style={styles.textView}>
+          <Text style={styles.itemTitle}>{item.description}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

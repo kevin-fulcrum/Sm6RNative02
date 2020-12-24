@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const CategorySlider = ({data}) => {
+const CategorySlider = ({data, onPress}) => {
   const scrollX = new Animated.Value(0);
 
   if (data && data.length) {
@@ -34,7 +34,12 @@ const CategorySlider = ({data}) => {
           decelerationRate="fast"
           showsHorizontalScrollIndicator={false}
           renderItem={(item) => {
-            return <CategorySliderItem item={item.item} />;
+            return (
+              <CategorySliderItem
+                item={item.item}
+                onPress={onPress(item.item)}
+              />
+            );
           }}
           onScroll={Animated.event([
             {nativeEvent: {contentOffset: {x: scrollX}}},

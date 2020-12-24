@@ -39,6 +39,10 @@ const Dashboard = ({navigation, route}) => {
   const productDetail = (item) => {
     navigation.navigate('ProductDetails', item);
   };
+  const categoryDetail = (item) => {
+    console.warn('categoryDetail item', item);
+    // navigation.navigate('categoryDetails', item);
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={{flex: 0.75}}>
@@ -72,7 +76,10 @@ const Dashboard = ({navigation, route}) => {
       )}
       <View style={{flex: 0.6}}>
         <Text style={styles.title}>Categories</Text>
-        <CategorySlider data={categoriesData} />
+        <CategorySlider
+          data={categoriesData}
+          onPress={() => categoryDetail()}
+        />
       </View>
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
