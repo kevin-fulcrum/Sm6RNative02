@@ -10,6 +10,7 @@ import PaymentMethods from '../screens/PaymentMethods';
 import Checkout from '../screens/Checkout';
 import Orders from '../screens/Orders';
 import OrderDetail from '../screens/OrderDetail';
+import categoryDetails from '../screens/Categories/CategoryDetails';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -91,6 +92,14 @@ const HomeStack = () => {
         component={OrderDetail}
         options={() => ({
           title: 'Order Detail',
+          headerBackTitle: '',
+        })}
+      />
+      <Stack.Screen
+        name="categoryDetails"
+        component={categoryDetails}
+        options={({route}) => ({
+          title: route.params.title,
           headerBackTitle: '',
         })}
       />

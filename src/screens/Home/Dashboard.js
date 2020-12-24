@@ -43,7 +43,10 @@ const Dashboard = ({navigation, route}) => {
     const productCategory = productData.filter(
       (products) => products.category === item.description,
     );
-    navigation.navigate('categoryDetails', productCategory);
+    navigation.navigate('categoryDetails', {
+      products: productCategory,
+      title: item.description,
+    });
   };
   return (
     <SafeAreaView style={styles.container}>
