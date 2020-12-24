@@ -2,23 +2,6 @@ import React from 'react';
 import {View, StyleSheet, Dimensions, FlatList, Animated} from 'react-native';
 import CarouselItem from './CarouselItem';
 
-// let flatList;
-// const infiniteScroll = (datalist) => {
-//   const numberOfData = datalist.length;
-//   let scrollValue = 0;
-//   let scrolled = 0;
-//   setInterval(() => {
-//     scrolled++;
-//     if (scrolled < numberOfData) {
-//       scrollValue = scrollValue + width;
-//     } else {
-//       scrollValue = 0;
-//       scrolled = 0;
-//     }
-//     this.flatList &&
-//       this.flatList.scrollToOffset({animated: true, offset: scrollValue});
-//   }, 5000);
-// };
 const {width} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -33,12 +16,6 @@ const styles = StyleSheet.create({
 const Carousel = ({data}) => {
   const scrollX = new Animated.Value(0);
   let position = Animated.divide(scrollX, width);
-  // const [dataList, setDataList] = useState(data);
-
-  // useEffect(() => {
-  //   setDataList(data);
-  //   infiniteScroll(dataList);
-  // }, []);
   if (data && data.length) {
     return (
       <View style={{flex: 1}}>

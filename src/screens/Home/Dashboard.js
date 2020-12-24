@@ -7,16 +7,20 @@ import {
   FlatList,
   Animated,
 } from 'react-native';
-import {carouselData} from '../../resource/functions/data/carouselData';
 import Carousel from '../../components/Carousel/Carousel';
 import CategorySliderItem from '../../components/CategorySlider//CategorySliderItem';
 
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
-import {getProducts, getCategories} from '../../resource/database/products';
+import {
+  getProducts,
+  getCategories,
+  getCollections,
+} from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
 const Dashboard = ({navigation, route}) => {
   const [productData, setProductData] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
+  const [collectionsData, setCollectionsData] = useState([]);
   const scrollXProducts = new Animated.Value(0);
   const scrollXCategories = new Animated.Value(0);
 
@@ -26,8 +30,10 @@ const Dashboard = ({navigation, route}) => {
       try {
         const products = await getProducts();
         const categories = await getCategories();
+        const collections = await getCollections();
         setProductData(products);
         setCategoriesData(categories);
+        setCollectionsData(collections);
       } catch (err) {
         console.warn(err);
       }
@@ -51,7 +57,7 @@ const Dashboard = ({navigation, route}) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={{flex: 1}}>
-        <Carousel data={carouselData} />
+        <Carousel data={collectionsData} />
       </View>
       {productData.length > 0 && (
         <View style={{flex: 1}}>

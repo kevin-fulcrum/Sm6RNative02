@@ -46,36 +46,12 @@ const MenuDrawer = (props) => {
             icon={() => (
               <Image
                 style={styles.image}
-                source={require('../../../resource/static/images/icons/030-online-shop.png')}
+                source={require('../../../resource/static/images/icons/032-delivery-truck.png')}
               />
             )}
             label="My Orders"
             onPress={() => {
               props.navigation.navigate('Orders');
-            }}
-          />
-          <DrawerItem
-            icon={() => (
-              <Image
-                style={styles.image}
-                source={require('../../../resource/static/images/icons/030-online-shop.png')}
-              />
-            )}
-            label="Circular Progress"
-            onPress={() => {
-              props.navigation.navigate('CircularProgress');
-            }}
-          />
-          <DrawerItem
-            icon={() => (
-              <Image
-                style={styles.image}
-                source={require('../../../resource/static/images/icons/030-online-shop.png')}
-              />
-            )}
-            label="Tap Gesture"
-            onPress={() => {
-              props.navigation.navigate('TapGesture');
             }}
           />
           <DrawerItem
