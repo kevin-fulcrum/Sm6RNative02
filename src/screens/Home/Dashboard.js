@@ -8,18 +8,17 @@ import {
   Animated,
 } from 'react-native';
 import {carouselData} from '../../resource/functions/data/carouselData';
-import Button from '../../components/core/Buttons/Button';
 import Carousel from '../../components/Carousel/Carousel';
-import {categorySliderData} from '../../resource/functions/data/categorySliderData';
-import {AuthContext} from '../../navigation/AuthProvider';
-import CategorySlider from '../../components/CategorySlider/CategorySlider';
+import CategorySliderItem from '../../components/CategorySlider//CategorySliderItem';
+
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
 import {getProducts, getCategories} from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
 const Dashboard = ({navigation, route}) => {
   const [productData, setProductData] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
-  const scrollX = new Animated.Value(0);
+  const scrollXProducts = new Animated.Value(0);
+  const scrollXCategories = new Animated.Value(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,11 +44,11 @@ const Dashboard = ({navigation, route}) => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{flex: 0.75}}>
+      <View style={{flex: 1}}>
         <Carousel data={carouselData} />
       </View>
       {productData.length > 0 && (
-        <View style={{flex: 0.8}}>
+        <View style={{flex: 1}}>
           <Text style={styles.title}>Products</Text>
           <FlatList
             data={productData}
@@ -69,15 +68,37 @@ const Dashboard = ({navigation, route}) => {
               );
             }}
             onScroll={Animated.event([
-              {nativeEvent: {contentOffset: {x: scrollX}}},
+              {nativeEvent: {contentOffset: {x: scrollXProducts}}},
             ])}
           />
         </View>
       )}
-      <View style={{flex: 0.6}}>
-        <Text style={styles.title}>Categories</Text>
-        <CategorySlider data={categoriesData} onPress={categoryDetail} />
-      </View>
+      {categoriesData.length > 0 && (
+        <View style={{flex: 1}}>
+          <Text style={styles.title}>Categories</Text>
+          <FlatList
+            data={categoriesData}
+            keyExtractor={(item, index) => 'key' + index}
+            horizontal
+            scrollEnabled
+            snapToAlignment="center"
+            scrollEventThrottle={16}
+            decelerationRate="fast"
+            showsHorizontalScrollIndicator={false}
+            renderItem={(item) => {
+              return (
+                <CategorySliderItem
+                  item={item.item}
+                  onPress={() => categoryDetail(item.item)}
+                />
+              );
+            }}
+            onScroll={Animated.event([
+              {nativeEvent: {contentOffset: {x: scrollXCategories}}},
+            ])}
+          />
+        </View>
+      )}
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
   );

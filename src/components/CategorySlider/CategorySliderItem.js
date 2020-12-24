@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
 const CategorySliderItem = ({item, onPress}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={onPress && onPress()}>
+      <TouchableOpacity onPress={onPress}>
         <Image
           style={styles.image}
           source={{
