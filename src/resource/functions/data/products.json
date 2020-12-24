@@ -456,17 +456,57 @@
     }
   ],
   "categories": [
-    {"id": 1, "description": "Tops"},
-    {"id": 2, "description": "Bottoms"},
-    {"id": 3, "description": "Masks"},
-    {"id": 4, "description": "Accessories"}
+    {
+      "id": 1,
+      "description": "Tops",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/products/sevenhellssleeveclose.jpg?v=1607607644"
+    },
+    {
+      "id": 2,
+      "description": "Bottoms",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/products/kiriyamajogger1_27dfd6b8-cfe8-4ee6-9b6f-5870d7561fc5.jpg?v=1606484068"
+    },
+    {
+      "id": 3,
+      "description": "Masks",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/products/mask_0002_15.jpg?v=1604416190"
+    },
+    {
+      "id": 4,
+      "description": "Accessories",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/products/FLAGSQUARE.jpg?v=1607605175"
+    }
   ],
   "collections": [
-    {"id": 1, "description": "holiday"},
-    {"id": 2, "description": "halloween"},
-    {"id": 3, "description": "beings ov light"},
-    {"id": 4, "description": "natural selection"},
-    {"id": 5, "description": "cradle of filth"},
-    {"id": 6, "description": "dark hive"}
+    {
+      "id": 1,
+      "description": "holiday",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/collections/Holiday_Collection_Image.jpg?v=1606237691"
+    },
+    {
+      "id": 2,
+      "description": "halloween",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/collections/Hallovveen_Collection_Image.jpg?v=1606237477"
+    },
+    {
+      "id": 3,
+      "description": "beings ov light",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/collections/Beings_Ov_Light_Collection_Image.jpg?v=1606237656"
+    },
+    {
+      "id": 4,
+      "description": "natural selection",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/collections/Natural_Selection_Collection_Image.jpg?v=1606237592"
+    },
+    {
+      "id": 5,
+      "description": "cradle of filth",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/collections/Cradle_Of_Filth_Collection_Image.jpg?v=1606237768"
+    },
+    {
+      "id": 6,
+      "description": "dark hive",
+      "image": "https://cdn.shopify.com/s/files/1/0259/8515/collections/Darkhive_Collection_Image.jpg?v=1606237737"
+    }
   ]
 }

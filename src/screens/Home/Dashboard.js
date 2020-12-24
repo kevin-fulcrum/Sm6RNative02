@@ -14,10 +14,11 @@ import {categorySliderData} from '../../resource/functions/data/categorySliderDa
 import {AuthContext} from '../../navigation/AuthProvider';
 import CategorySlider from '../../components/CategorySlider/CategorySlider';
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
-import {getProducts} from '../../resource/database/products';
+import {getProducts, getCategories} from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
 const Dashboard = ({navigation, route}) => {
   const [productData, setProductData] = useState([]);
+  const [categoriesData, setCategoriesData] = useState([]);
   const scrollX = new Animated.Value(0);
 
   useEffect(() => {
@@ -25,7 +26,9 @@ const Dashboard = ({navigation, route}) => {
       console.warn('warn useEffect');
       try {
         const products = await getProducts();
+        const categories = await getCategories();
         setProductData(products);
+        setCategoriesData(categories);
       } catch (err) {
         console.warn(err);
       }
@@ -69,7 +72,7 @@ const Dashboard = ({navigation, route}) => {
       )}
       <View style={{flex: 1}}>
         <Text style={styles.title}>Categories</Text>
-        <CategorySlider data={categorySliderData} />
+        <CategorySlider data={categoriesData} />
       </View>
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
