@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   textView: {
     position: 'absolute',
     bottom: Platform.OS === 'ios' ? 25 : 8,
-    margin: 10,
+    // margin: 10,
     left: 7,
   },
   image: {

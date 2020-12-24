@@ -41,11 +41,11 @@ const Dashboard = ({navigation, route}) => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{flex: 1}}>
+      <View style={{flex: 0.75}}>
         <Carousel data={carouselData} />
       </View>
       {productData.length > 0 && (
-        <View style={{flex: 1}}>
+        <View style={{flex: 0.8}}>
           <Text style={styles.title}>Products</Text>
           <FlatList
             data={productData}
@@ -70,7 +70,7 @@ const Dashboard = ({navigation, route}) => {
           />
         </View>
       )}
-      <View style={{flex: 1}}>
+      <View style={{flex: 0.6}}>
         <Text style={styles.title}>Categories</Text>
         <CategorySlider data={categoriesData} />
       </View>
