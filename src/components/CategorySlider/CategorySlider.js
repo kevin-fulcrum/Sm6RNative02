@@ -37,7 +37,7 @@ const CategorySlider = ({data, onPress}) => {
             return (
               <CategorySliderItem
                 item={item.item}
-                onPress={onPress && onPress(item.item)}
+                onPress={() => onPress && onPress(item.item)}
               />
             );
           }}

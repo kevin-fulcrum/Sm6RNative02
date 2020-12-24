@@ -76,10 +76,7 @@ const Dashboard = ({navigation, route}) => {
       )}
       <View style={{flex: 0.6}}>
         <Text style={styles.title}>Categories</Text>
-        <CategorySlider
-          data={categoriesData}
-          onPress={() => categoryDetail()}
-        />
+        <CategorySlider data={categoriesData} onPress={categoryDetail} />
       </View>
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
