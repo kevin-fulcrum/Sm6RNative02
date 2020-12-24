@@ -40,7 +40,10 @@ const Dashboard = ({navigation, route}) => {
   };
   const categoryDetail = (item) => {
     console.warn('categoryDetail item', item);
-    // navigation.navigate('categoryDetails', item);
+    const productCategory = productData.filter(
+      (products) => products.category === item.description,
+    );
+    navigation.navigate('categoryDetails', productCategory);
   };
   return (
     <SafeAreaView style={styles.container}>
