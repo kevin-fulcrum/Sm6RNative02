@@ -17,6 +17,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     margin: 10,
     borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   textView: {},
   image: {
