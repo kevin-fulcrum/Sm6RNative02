@@ -33,9 +33,10 @@ const ProductDetailSlider = ({data}) => {
           renderItem={(item) => {
             return <ProductItemSlider item={item} />;
           }}
-          onScroll={Animated.event([
-            {nativeEvent: {contentOffset: {x: scrollX}}},
-          ])}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {x: scrollX}}}],
+            {listener: (event) => console.log(event)},
+          )}
         />
         <View style={styles.dot}>
           {data.map((_, i) => {

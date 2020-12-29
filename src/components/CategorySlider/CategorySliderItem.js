@@ -6,6 +6,7 @@ import {
   Image,
   Dimensions,
   Platform,
+  TouchableOpacity,
 } from 'react-native';
 
 const {width, height} = Dimensions.get('window');
@@ -22,7 +23,7 @@ const styles = StyleSheet.create({
   textView: {
     position: 'absolute',
     bottom: Platform.OS === 'ios' ? 25 : 8,
-    margin: 10,
+    // margin: 10,
     left: 7,
   },
   image: {
@@ -44,18 +45,20 @@ const styles = StyleSheet.create({
   },
 });
 
-const CategorySliderItem = ({item}) => {
+const CategorySliderItem = ({item, onPress}) => {
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: item.image,
-        }}
-      />
-      <View style={styles.textView}>
-        <Text style={styles.itemTitle}>{item.title}</Text>
-      </View>
+      <TouchableOpacity onPress={onPress}>
+        <Image
+          style={styles.image}
+          source={{
+            uri: item.image,
+          }}
+        />
+        <View style={styles.textView}>
+          <Text style={styles.itemTitle}>{item.description}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -9,6 +9,8 @@ import {
 import Button from '../../components/core/Buttons/Button';
 import Input from '../../components/core/Form/TextInput';
 import {CardPayment} from '../../components/Payment/CardPayment';
+import CustomModal from '../../components/core/Modal';
+import Api from '../../api';
 import {windowHeight, windowWidth} from '../../resource/functions/Dimensions';
 import {onChange} from 'react-native-reanimated';
 
@@ -57,6 +59,8 @@ const styles = StyleSheet.create({
 });
 
 const Checkout = ({navigation, route}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const [cardNumber, setCardNumber] = useState('');
   const [cardHolder, setCardHolder] = useState('');
   const [expireDate, setExpireDate] = useState('');
@@ -66,10 +70,35 @@ const Checkout = ({navigation, route}) => {
   const inputCvv = useRef();
   const inputCardHolder = useRef();
   const inputCardNumber = useRef();
-  const {paymentMethods} = route.params;
+  const {paymentMethods, order} = route.params || {};
+  const product = order.item || {};
 
   const sendPayment = () => {
-    console.warn('sendPayment');
+    const parameters = {
+      productId: [product.id],
+      quantity: 1,
+      details: order.message,
+      location: order.location,
+      totalPrice: order.total,
+      paymentMethod: paymentMethods.description,
+      productsName: [product.title],
+      productImage: product.image,
+    };
+    Api.orderApi
+      .createOrder(parameters)
+      .then((data) => {
+        if (data.errors) {
+          setErrorMessage(data.errors);
+          setIsVisible(true);
+        } else {
+          console.warn('Create success Order');
+          console.warn('Payment Api');
+        }
+      })
+      .catch((e) => {
+        setErrorMessage(e.errors);
+        setIsVisible(true);
+      });
   };
 
   const onChange = (value, type) => {
@@ -173,6 +202,12 @@ const Checkout = ({navigation, route}) => {
             />
           </View>
         </View>
+        <CustomModal
+          isVisible={isVisible}
+          backdrop={() => setVisible(false)}
+          title={'Error!'}
+          message={errorMessage}
+        />
       </ScrollView>
     </SafeAreaView>
   );

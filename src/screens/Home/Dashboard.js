@@ -7,25 +7,35 @@ import {
   FlatList,
   Animated,
 } from 'react-native';
-import {carouselData} from '../../resource/functions/data/carouselData';
-import Button from '../../components/core/Buttons/Button';
 import Carousel from '../../components/Carousel/Carousel';
-import {categorySliderData} from '../../resource/functions/data/categorySliderData';
-import {AuthContext} from '../../navigation/AuthProvider';
-import CategorySlider from '../../components/CategorySlider/CategorySlider';
+import CategorySliderItem from '../../components/CategorySlider//CategorySliderItem';
+
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
-import {getProducts} from '../../resource/database/products';
+import {
+  getProducts,
+  getCategories,
+  getCollections,
+} from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
+
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+
 const Dashboard = ({navigation, route}) => {
   const [productData, setProductData] = useState([]);
-  const scrollX = new Animated.Value(0);
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [collectionsData, setCollectionsData] = useState([]);
+  const scrollXProducts = new Animated.Value(0);
+  const scrollXCategories = new Animated.Value(0);
 
   useEffect(() => {
     const fetchData = async () => {
-      console.warn('warn useEffect');
       try {
         const products = await getProducts();
+        const categories = await getCategories();
+        const collections = await getCollections();
         setProductData(products);
+        setCategoriesData(categories);
+        setCollectionsData(collections);
       } catch (err) {
         console.warn(err);
       }
@@ -36,15 +46,25 @@ const Dashboard = ({navigation, route}) => {
   const productDetail = (item) => {
     navigation.navigate('ProductDetails', item);
   };
+  const categoryDetail = (item) => {
+    console.warn('categoryDetail item', item);
+    const productCategory = productData.filter(
+      (products) => products.category === item.description,
+    );
+    navigation.navigate('categoryDetails', {
+      products: productCategory,
+      title: item.description,
+    });
+  };
   return (
     <SafeAreaView style={styles.container}>
       <View style={{flex: 1}}>
-        <Carousel data={carouselData} />
+        <Carousel data={collectionsData} />
       </View>
       {productData.length > 0 && (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Products</Text>
-          <FlatList
+          <AnimatedFlatList
             data={productData}
             keyExtractor={(item, index) => 'key' + index}
             horizontal
@@ -61,16 +81,40 @@ const Dashboard = ({navigation, route}) => {
                 />
               );
             }}
-            onScroll={Animated.event([
-              {nativeEvent: {contentOffset: {x: scrollX}}},
-            ])}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {x: scrollXProducts}}}],
+              {listener: (event) => console.log(event), useNativeDriver: true},
+            )}
           />
         </View>
       )}
-      <View style={{flex: 1}}>
-        <Text style={styles.title}>Categories</Text>
-        <CategorySlider data={categorySliderData} />
-      </View>
+      {categoriesData.length > 0 && (
+        <View style={{flex: 1}}>
+          <Text style={styles.title}>Categories</Text>
+          <AnimatedFlatList
+            data={categoriesData}
+            keyExtractor={(item, index) => 'key' + index}
+            horizontal
+            scrollEnabled
+            snapToAlignment="center"
+            scrollEventThrottle={16}
+            decelerationRate="fast"
+            showsHorizontalScrollIndicator={false}
+            renderItem={(item) => {
+              return (
+                <CategorySliderItem
+                  item={item.item}
+                  onPress={() => categoryDetail(item.item)}
+                />
+              );
+            }}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {x: scrollXCategories}}}],
+              {listener: (event) => console.log(event), useNativeDriver: true},
+            )}
+          />
+        </View>
+      )}
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
   );
