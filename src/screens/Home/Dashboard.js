@@ -17,6 +17,9 @@ import {
   getCollections,
 } from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
+
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
+
 const Dashboard = ({navigation, route}) => {
   const [productData, setProductData] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
@@ -26,7 +29,6 @@ const Dashboard = ({navigation, route}) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.warn('warn useEffect');
       try {
         const products = await getProducts();
         const categories = await getCategories();
@@ -62,7 +64,7 @@ const Dashboard = ({navigation, route}) => {
       {productData.length > 0 && (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Products</Text>
-          <FlatList
+          <AnimatedFlatList
             data={productData}
             keyExtractor={(item, index) => 'key' + index}
             horizontal
@@ -79,16 +81,17 @@ const Dashboard = ({navigation, route}) => {
                 />
               );
             }}
-            onScroll={Animated.event([
-              {nativeEvent: {contentOffset: {x: scrollXProducts}}},
-            ])}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {x: scrollXProducts}}}],
+              {listener: (event) => console.log(event), useNativeDriver: true},
+            )}
           />
         </View>
       )}
       {categoriesData.length > 0 && (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Categories</Text>
-          <FlatList
+          <AnimatedFlatList
             data={categoriesData}
             keyExtractor={(item, index) => 'key' + index}
             horizontal
@@ -105,9 +108,10 @@ const Dashboard = ({navigation, route}) => {
                 />
               );
             }}
-            onScroll={Animated.event([
-              {nativeEvent: {contentOffset: {x: scrollXCategories}}},
-            ])}
+            onScroll={Animated.event(
+              [{nativeEvent: {contentOffset: {x: scrollXCategories}}}],
+              {listener: (event) => console.log(event), useNativeDriver: true},
+            )}
           />
         </View>
       )}

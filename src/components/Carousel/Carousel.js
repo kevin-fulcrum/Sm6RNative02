@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, StyleSheet, Dimensions, FlatList, Animated} from 'react-native';
 import CarouselItem from './CarouselItem';
+const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 const {width} = Dimensions.get('window');
 
@@ -19,7 +20,7 @@ const Carousel = ({data}) => {
   if (data && data.length) {
     return (
       <View style={{flex: 1}}>
-        <FlatList
+        <AnimatedFlatList
           style={{flex: 0.95}}
           data={data}
           keyExtractor={(item, index) => 'key' + index}
@@ -32,9 +33,10 @@ const Carousel = ({data}) => {
           renderItem={(item) => {
             return <CarouselItem item={item.item} />;
           }}
-          onScroll={Animated.event([
-            {nativeEvent: {contentOffset: {x: scrollX}}},
-          ])}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {x: scrollX}}}],
+            {listener: (event) => console.log(event), useNativeDriver: true},
+          )}
         />
         <View style={styles.dot}>
           {data.map((_, i) => {

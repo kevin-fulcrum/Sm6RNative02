@@ -36,9 +36,10 @@ const ProductSlider = ({data, onPress}) => {
           renderItem={(item) => {
             return <ProductSliderItem item={item.item} onPress={onPress} />;
           }}
-          onScroll={Animated.event([
-            {nativeEvent: {contentOffset: {x: scrollX}}},
-          ])}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {x: scrollX}}}],
+            {listener: (event) => console.log(event)},
+          )}
         />
       </View>
     );

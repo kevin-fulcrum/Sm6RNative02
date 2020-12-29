@@ -41,9 +41,10 @@ const CategorySlider = ({data, onPress}) => {
               />
             );
           }}
-          onScroll={Animated.event([
-            {nativeEvent: {contentOffset: {x: scrollX}}},
-          ])}
+          onScroll={Animated.event(
+            [{nativeEvent: {contentOffset: {x: scrollX}}}],
+            {listener: (event) => console.log(event)},
+          )}
         />
       </View>
     );
