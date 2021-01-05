@@ -204,6 +204,7 @@ dependencies {
       exclude group:'com.facebook.fbjni'
     }
     androidTestImplementation('com.wix:detox:+')
+    androidTestImplementation 'junit:junit:4.12'
     implementation(project(':react-native-maps')){
        exclude group: 'com.google.android.gms', module: 'play-services-base'
        exclude group: 'com.google.android.gms', module: 'play-services-maps'
