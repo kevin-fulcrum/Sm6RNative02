@@ -1,15 +1,13 @@
 {
   "specs": "e2e",
-  "testRunner": "jest",
+  "test-runner": "jest",
   "runnerConfig": "e2e/config.json",
   "configurations": {
     "ios.sim.debug": {
       "type": "ios.simulator",
-      "bynaryPath": "ios/build/Build/Products/Debug-iphonesimulator/AwesomeProject.app",
-      "build": "xcodebuild --workspace ios/AwesomeProject.xcworkspace --schema AwesomeProject --configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
-      "device": {
-        "type": "iPhone 12 Pro Max"
-      }
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/AwesomeProject.app",
+      "build": "xcodebuild -workspace ios/AwesomeProject.xcworkspace -configuration Debug -scheme AwesomeProject -sdk iphonesimulator -derivedDataPath ios/build",
+      "name": "iPhone 12 Pro Max"
     },
     "android.emu.debug": {
       "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
