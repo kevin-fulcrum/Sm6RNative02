@@ -12,8 +12,8 @@
     "react-devtool": "react-devtools",
     "detox:build-android-emu-debug": "detox build -c android.emu.debug",
     "detox:test:android-emu-debug": "detox test -c android.emu.debug",
-    "detox:build-ios-sim-debug": "detox build -c ios.sim.debug",
-    "detox:test-ios-sim-debug": "detox test -c ios.sim.debug"
+    "detox:build-ios-sim-debug": "detox build -c ios.sim.debug --cleanup",
+    "detox:test-ios-sim-debug": "detox test -c ios.sim.debug --cleanup"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
@@ -53,6 +53,7 @@
     "husky": "^4.3.6",
     "jest": "^26.6.3",
     "jest-circus": "^26.6.3",
+    "jest-cli": "^26.6.3",
     "jest-enzyme": "^7.1.2",
     "lint-staged": "^10.5.3",
     "metro-react-native-babel-preset": "^0.64.0",
