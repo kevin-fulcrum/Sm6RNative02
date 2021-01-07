@@ -6,7 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "test": "jest",
+    "test": "jest --env=node",
     "test:coverage": "jest --coverage",
     "lint": "eslint .",
     "react-devtool": "react-devtools",
@@ -55,6 +55,8 @@
     "jest-circus": "^26.6.3",
     "jest-cli": "^26.6.3",
     "jest-enzyme": "^7.1.2",
+    "jsdom": "^16.4.0",
+    "jsdom-global": "^3.0.2",
     "lint-staged": "^10.5.3",
     "metro-react-native-babel-preset": "^0.64.0",
     "mocha": "^8.2.1",
@@ -72,8 +74,11 @@
   },
   "jest": {
     "preset": "react-native",
-    "setupFiles": [
-      "./tests/setup.js"
-    ]
+    "setupFilesAfterEnv": [
+      "<rootDir>tests/setup.js"
+    ],
+    "verbose": true,
+    "testURL": "http://localhost/",
+    "testEnvironment": "node"
   }
 }

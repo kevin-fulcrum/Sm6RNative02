@@ -7,7 +7,7 @@ const initialProps = {
   label: 'Continuar',
   variant: 'primary',
 };
-const onPress = jest.fn(() => 'I was Pressed');
+const onPress = jest.fn();
 
 const wrapper = shallow(<Button {...initialProps} onPress={onPress} />);
 describe('Button component', () => {
