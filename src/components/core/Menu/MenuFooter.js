@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   buttonFooter: {
-    width: windowWidth / 3,
+    width: windowWidth / 4,
     alignItems: 'center',
     paddingHorizontal: 2,
     paddingVertical: 4,
@@ -60,6 +60,15 @@ const MenuFooter = ({navigation}) => {
             source={require('../../../resource/static/images/icons/030-online-shop.png')}
           />
           <Text style={styles.title}>Home</Text>
+        </TouchableOpacity>
+      </View>
+      <View style={styles.buttonFooter}>
+        <TouchableOpacity onPress={() => onPressMenuFooter('Search')}>
+          <Image
+            style={styles.image}
+            source={require('../../../resource/static/images/icons/034-search.png')}
+          />
+          <Text style={styles.title}>Search</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.buttonFooter}>

@@ -77,7 +77,7 @@ const Onboarding = ({navigation}) => {
   });
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="onboarding_view">
       <Animated.View style={[styles.slider, {backgroundColor}]}>
         <Animated.ScrollView
           ref={scroll}
@@ -86,9 +86,15 @@ const Onboarding = ({navigation}) => {
           decelerationRate="fast"
           showsHorizontalScrollIndicator={false}
           bounces={false}
-          {...scrollHandler}>
+          {...scrollHandler}
+          testID="slide">
           {slides.map(({title}, index) => (
-            <Slide key={index} right={!!(index % 2)} {...{title}} />
+            <Slide
+              testID="slide_element"
+              key={index}
+              right={!!(index % 2)}
+              {...{title}}
+            />
           ))}
         </Animated.ScrollView>
       </Animated.View>

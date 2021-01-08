@@ -30,7 +30,9 @@ const Slide = ({title, right}) => {
   return (
     <View style={styles.container}>
       <View style={[styles.titleContainer, {transform}]}>
-        <Text style={styles.title}>{title}</Text>
+        <Text testID="slide-text" style={styles.title}>
+          {title}
+        </Text>
       </View>
     </View>
   );
