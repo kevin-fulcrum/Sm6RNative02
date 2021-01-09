@@ -82,8 +82,17 @@ const Dashboard = ({navigation, route}) => {
               );
             }}
             onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {x: scrollXProducts}}}],
-              {listener: (event) => console.log(event), useNativeDriver: true},
+              [
+                {
+                  nativeEvent: {
+                    contentOffset: {x: scrollXProducts},
+                  },
+                },
+              ],
+              {
+                listener: (event) => console.log(event),
+                useNativeDriver: true,
+              },
             )}
           />
         </View>
@@ -109,8 +118,17 @@ const Dashboard = ({navigation, route}) => {
               );
             }}
             onScroll={Animated.event(
-              [{nativeEvent: {contentOffset: {x: scrollXCategories}}}],
-              {listener: (event) => console.log(event), useNativeDriver: true},
+              [
+                {
+                  nativeEvent: {
+                    contentOffset: {x: scrollXCategories},
+                  },
+                },
+              ],
+              {
+                listener: (event) => console.log(event),
+                useNativeDriver: true,
+              },
             )}
           />
         </View>

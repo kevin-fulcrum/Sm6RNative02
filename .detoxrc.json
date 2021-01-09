@@ -1,0 +1,29 @@
+{
+  "specs": "e2e",
+  "test-runner": "jest",
+  "runnerConfig": "e2e/config.json",
+  "configurations": {
+    "ios.sim.debug": {
+      "type": "ios.simulator",
+      "binaryPath": "ios/build/Build/Products/Debug-iphonesimulator/AwesomeProject.app",
+      "build": "xcodebuild -workspace ios/AwesomeProject.xcworkspace -configuration Debug -scheme AwesomeProject -sdk iphonesimulator -derivedDataPath ios/build",
+      "name": "iPhone 12 Pro Max"
+    },
+    "android.emu.debug": {
+      "binaryPath": "android/app/build/outputs/apk/debug/app-debug.apk",
+      "build": "cd android && ./gradlew assembleDebug assembleAndroidTest -DtestBuildType=debug && cd ..",
+      "type": "android.emulator",
+      "device": {
+        "avdName": "Pixel_3_XL_API_29"
+      }
+    },
+    "android.emu.release": {
+      "binaryPath": "android/app/build/outputs/apk/release/app-release.apk",
+      "build": "cd android && ./gradlew assembleRelease assembleAndroidTest -DtestBuildType=release && cd ..",
+      "type": "android.emulator",
+      "device": {
+        "avdName": "Pixel_3_XL_API_29"
+      }
+    }
+  }
+}

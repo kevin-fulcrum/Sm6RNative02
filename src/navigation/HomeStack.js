@@ -11,6 +11,7 @@ import Checkout from '../screens/Checkout';
 import Orders from '../screens/Orders';
 import OrderDetail from '../screens/OrderDetail';
 import categoryDetails from '../screens/Categories/CategoryDetails';
+import Search from '../screens/Search';
 const Stack = createStackNavigator();
 
 const HomeStack = () => {
@@ -19,6 +20,11 @@ const HomeStack = () => {
       <Stack.Screen
         name="Dashboard"
         component={Dashboard}
+        options={{header: () => null}}
+      />
+      <Stack.Screen
+        name="Search"
+        component={Search}
         options={{header: () => null}}
       />
       <Stack.Screen
