@@ -137,36 +137,77 @@ const SearchBar = () => {
   const backButtonOpacity = new Value(0);
   const contentTranslateY = new Value(windowHeight);
   const contentOpacity = new Value(0);
+
+  const handleOnChangeText = (value) => {
+    console.warn('value', value);
+    setKeyword(value);
+  };
   const onFocus = () => {
     console.warn('onFocus');
     setIsFocused(true);
     const inputBoxTranslateXConfig = {
+      toValue: new Value(0),
       duration: 200,
-      toValue: 0,
       easing: Easing.inOut(Easing.ease),
     };
     const backButtonOpacityConfig = {
+      toValue: new Value(1),
       duration: 200,
-      toValue: 1,
+
       easing: Easing.inOut(Easing.ease),
     };
     const contentTranslateYConfig = {
+      toValue: new Value(0),
       duration: 0,
-      toValue: 0,
+
       easing: Easing.inOut(Easing.ease),
     };
     const contentOpacityConfig = {
+      toValue: new Value(1),
       duration: 200,
-      toValue: 1,
+
       easing: Easing.inOut(Easing.ease),
     };
     timing(inputBoxTranslateX, inputBoxTranslateXConfig).start();
     timing(backButtonOpacity, backButtonOpacityConfig).start();
     timing(contentTranslateY, contentTranslateYConfig).start();
     timing(contentOpacity, contentOpacityConfig).start();
+
+    inputRef.current.focus();
   };
   const onBlur = () => {
     console.warn('onBlur');
+    setIsFocused(false);
+    const inputBoxTranslateXConfig = {
+      toValue: new Value(windowWidth),
+      duration: 200,
+
+      easing: Easing.inOut(Easing.ease),
+    };
+    const backButtonOpacityConfig = {
+      toValue: new Value(0),
+      duration: 50,
+
+      easing: Easing.inOut(Easing.ease),
+    };
+    const contentTranslateYConfig = {
+      toValue: new Value(windowHeight),
+      duration: 0,
+
+      easing: Easing.inOut(Easing.ease),
+    };
+    const contentOpacityConfig = {
+      toValue: new Value(0),
+      duration: 200,
+
+      easing: Easing.inOut(Easing.ease),
+    };
+    timing(inputBoxTranslateX, inputBoxTranslateXConfig).start();
+    timing(backButtonOpacity, backButtonOpacityConfig).start();
+    timing(contentTranslateY, contentTranslateYConfig).start();
+    timing(contentOpacity, contentOpacityConfig).start();
+
+    inputRef.current.blur();
   };
   return (
     <>
@@ -208,7 +249,7 @@ const SearchBar = () => {
                 placeholder="search a cool product"
                 clearButtonMode="always"
                 value={keyword}
-                onChangeText={(value) => setKeyword(value)}
+                onChangeText={(value) => handleOnChangeText(value)}
                 style={styles.input}
               />
             </Animated.View>
@@ -226,7 +267,7 @@ const SearchBar = () => {
         <SafeAreaView style={styles.contentSafeArea}>
           <View style={styles.contentInner}>
             <View style={styles.separator} />
-            {keyword === '' ? (
+            {isFocused && keyword === '' ? (
               <View style={styles.imagePlaceholderContainer}>
                 <Image
                   source={require('../../../resource/static/images/icons/kraken.png')}
