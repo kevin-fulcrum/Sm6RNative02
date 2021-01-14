@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import {
   View,
@@ -12,15 +13,19 @@ import CategorySliderItem from '../../components/CategorySlider//CategorySliderI
 
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
 import {
-  getProducts,
+  // getProducts,
   getCategories,
   getCollections,
 } from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
+import {connect} from 'react-redux';
+import productsAction from '../../redux/actions/productsAction';
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
-const Dashboard = ({navigation, route}) => {
+const Dashboard = (props) => {
+  console.warn('props', props);
+  const {navigation, route, getProducts, data} = props;
   const [productData, setProductData] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
   const [collectionsData, setCollectionsData] = useState([]);
@@ -30,10 +35,12 @@ const Dashboard = ({navigation, route}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const products = await getProducts();
+        await getProducts();
+        const result = data;
+        console.warn('products', result.products);
         const categories = await getCategories();
         const collections = await getCollections();
-        setProductData(products);
+        setProductData(result.products);
         setCategoriesData(categories);
         setCollectionsData(collections);
       } catch (err) {
@@ -42,7 +49,7 @@ const Dashboard = ({navigation, route}) => {
     };
 
     fetchData();
-  }, []);
+  }, [data, getProducts]);
   const productDetail = (item) => {
     navigation.navigate('ProductDetails', item);
   };
@@ -155,4 +162,16 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Dashboard;
+const mapStateToProps = (state) => {
+  return {
+    data: state.productReducer,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getProducts: () => dispatch(productsAction.getAllProducts()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
