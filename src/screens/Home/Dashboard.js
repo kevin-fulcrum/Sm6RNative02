@@ -28,7 +28,7 @@ const Dashboard = (props) => {
   const {navigation, route} = props;
   const result = useSelector((state) => state.productReducer);
   const dispatch = useDispatch();
-  const [productData, setProductData] = useState([]);
+  // const [productData, setProductData] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
   const [collectionsData, setCollectionsData] = useState([]);
   const scrollXProducts = new Animated.Value(0);
@@ -38,18 +38,15 @@ const Dashboard = (props) => {
     const fetchData = async () => {
       try {
         // await getProducts();
-        await dispatch(productsAction.getAllProducts());
+        dispatch(productsAction.getAllProducts());
         const categories = await getCategories();
         const collections = await getCollections();
-        console.warn('result', result);
-        setProductData(result.products);
         setCategoriesData(categories);
         setCollectionsData(collections);
       } catch (err) {
         console.warn(err);
       }
     };
-
     fetchData();
   }, [dispatch]);
   const productDetail = (item) => {
@@ -57,7 +54,7 @@ const Dashboard = (props) => {
   };
   const categoryDetail = (item) => {
     console.warn('categoryDetail item', item);
-    const productCategory = productData.filter(
+    const productCategory = result.products.filter(
       (products) => products.category === item.description,
     );
     navigation.navigate('categoryDetails', {
@@ -70,11 +67,11 @@ const Dashboard = (props) => {
       <View style={{flex: 1}}>
         <Carousel data={collectionsData} />
       </View>
-      {productData && productData.length > 0 && (
+      {result.products.length !== 0 && (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Products</Text>
           <AnimatedFlatList
-            data={productData}
+            data={result.products}
             keyExtractor={(item, index) => 'key' + index}
             horizontal
             scrollEnabled
