@@ -19,15 +19,16 @@ import {
   getCollections,
 } from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import productsAction from '../../redux/actions/productsAction';
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 const Dashboard = (props) => {
-  console.warn('props', props);
-  const {navigation, route, getProducts, data} = props;
-  const [productData, setProductData] = useState([]);
+  const {navigation, route} = props;
+  const result = useSelector((state) => state.productReducer);
+  const dispatch = useDispatch();
+  // const [productData, setProductData] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
   const [collectionsData, setCollectionsData] = useState([]);
   const scrollXProducts = new Animated.Value(0);
@@ -36,27 +37,24 @@ const Dashboard = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await getProducts();
-        const result = data;
-        console.warn('products', result.products);
+        // await getProducts();
+        dispatch(productsAction.getAllProducts());
         const categories = await getCategories();
         const collections = await getCollections();
-        setProductData(result.products);
         setCategoriesData(categories);
         setCollectionsData(collections);
       } catch (err) {
         console.warn(err);
       }
     };
-
     fetchData();
-  }, []);
+  }, [dispatch]);
   const productDetail = (item) => {
     navigation.navigate('ProductDetails', item);
   };
   const categoryDetail = (item) => {
     console.warn('categoryDetail item', item);
-    const productCategory = productData.filter(
+    const productCategory = result.products.filter(
       (products) => products.category === item.description,
     );
     navigation.navigate('categoryDetails', {
@@ -69,11 +67,11 @@ const Dashboard = (props) => {
       <View style={{flex: 1}}>
         <Carousel data={collectionsData} />
       </View>
-      {productData.length > 0 && (
+      {result.products.length !== 0 && (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Products</Text>
           <AnimatedFlatList
-            data={productData}
+            data={result.products}
             keyExtractor={(item, index) => 'key' + index}
             horizontal
             scrollEnabled
@@ -163,16 +161,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => {
-  return {
-    data: state.productReducer,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     data: state.productReducer,
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getProducts: () => dispatch(productsAction.getAllProducts()),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getProducts: () => dispatch(productsAction.getAllProducts()),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default Dashboard;
