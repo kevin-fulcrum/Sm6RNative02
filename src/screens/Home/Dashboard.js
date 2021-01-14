@@ -19,14 +19,15 @@ import {
   getCollections,
 } from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import productsAction from '../../redux/actions/productsAction';
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 const Dashboard = (props) => {
-  console.warn('props', props);
-  const {navigation, route, getProducts, data} = props;
+  const {navigation, route} = props;
+  const result = useSelector((state) => state.productReducer);
+  const dispatch = useDispatch();
   const [productData, setProductData] = useState([]);
   const [categoriesData, setCategoriesData] = useState([]);
   const [collectionsData, setCollectionsData] = useState([]);
@@ -36,11 +37,11 @@ const Dashboard = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        await getProducts();
-        const result = data;
-        console.warn('products', result.products);
+        // await getProducts();
+        await dispatch(productsAction.getAllProducts());
         const categories = await getCategories();
         const collections = await getCollections();
+        console.warn('result', result);
         setProductData(result.products);
         setCategoriesData(categories);
         setCollectionsData(collections);
@@ -50,7 +51,7 @@ const Dashboard = (props) => {
     };
 
     fetchData();
-  }, []);
+  }, [dispatch]);
   const productDetail = (item) => {
     navigation.navigate('ProductDetails', item);
   };
@@ -69,7 +70,7 @@ const Dashboard = (props) => {
       <View style={{flex: 1}}>
         <Carousel data={collectionsData} />
       </View>
-      {productData.length > 0 && (
+      {productData && productData.length > 0 && (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Products</Text>
           <AnimatedFlatList
@@ -163,16 +164,16 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => {
-  return {
-    data: state.productReducer,
-  };
-};
+// const mapStateToProps = (state) => {
+//   return {
+//     data: state.productReducer,
+//   };
+// };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getProducts: () => dispatch(productsAction.getAllProducts()),
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     getProducts: () => dispatch(productsAction.getAllProducts()),
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);
+export default Dashboard;
