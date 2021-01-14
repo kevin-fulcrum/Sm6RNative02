@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
 import React, {useEffect, useState} from 'react';
 import {
@@ -49,7 +50,7 @@ const Dashboard = (props) => {
     };
 
     fetchData();
-  }, [data, getProducts]);
+  }, []);
   const productDetail = (item) => {
     navigation.navigate('ProductDetails', item);
   };
