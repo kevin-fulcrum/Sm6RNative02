@@ -1356,23 +1356,23 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/netinfo/-/netinfo-5.9.10.tgz#97d3a9fa62a3a4838ec7a6ec91cfec5a26e365b6"
   integrity sha512-1NPlBA2Hu/KWc3EnQcDRPRX0x8Dg9tuQlQQVWVQjlg+u+PjCq7ANEtbikOFKp5yQqfF8tqzU5+84/IfDO8zpiA==
 
-"@react-native-firebase/app@^10.0.0":
-  version "10.1.0"
-  resolved "https://registry.npmjs.org/@react-native-firebase/app/-/app-10.1.0.tgz"
-  integrity sha512-O8IxJU0K3mmmxaz2EZW+BuC08agr3m2eybxBq+SkcJri1fv95qVsNabABWPS7h4uSHQ5m1qHCtQJnvbnHwMrvA==
+"@react-native-firebase/app@^10.4.0":
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-10.4.0.tgz#f0de2117ac36f58abb690c7b0560207b42d80482"
+  integrity sha512-X+4VS3AlLs1TwQLjFZAfT6SbjeWoSsxf5P+21fJWriHNo3Qv3k8G8TgqXjiNZizWW1FUlhJdVKb+v38yrudjag==
   dependencies:
     opencollective-postinstall "^2.0.1"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^10.0.0":
-  version "10.1.1"
-  resolved "https://registry.npmjs.org/@react-native-firebase/auth/-/auth-10.1.1.tgz"
-  integrity sha512-hAfpqU7fu44sgIzUeFNpWyy6Go/uZmWjEMai81HMDNZ0gNYLajTPmypA9/3TlK4EvZif5VMR/UtDEDUMZT/ixw==
+"@react-native-firebase/auth@^10.4.1":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-10.4.1.tgz#6653000ea659e8f1a17b59419e84d525b1ea2617"
+  integrity sha512-Zle6xJin3u0a0oTrPqmumc7HgANXxJLhKxeJO+KQYp/AdCWU5/JYcxjVuOZjBhr8Vuvs/oVRC/7vt9p+CUasqQ==
 
-"@react-native-firebase/database@^10.1.1":
-  version "10.1.1"
-  resolved "https://registry.npmjs.org/@react-native-firebase/database/-/database-10.1.1.tgz"
-  integrity sha512-ux+7W+l4EP9u72JWUAJdTHNeplDXw6j87g/ux9HY3YAgx603kidifYwtvQS3c+TNyw2Rton4JpyjhAeosehG8Q==
+"@react-native-firebase/database@^10.4.1":
+  version "10.4.1"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/database/-/database-10.4.1.tgz#ef6bcf28db149b5deda247f3bf7c838bbdc30542"
+  integrity sha512-v2IcNn1eR0y521tKncezfwaEl2RmJuFkO+ke0t/AD3fH8Vr92yRBjYaWin8sZio5mH1dbCy0+TY/4DUVUwVtXg==
 
 "@react-navigation/core@^5.14.4":
   version "5.14.4"
@@ -8077,9 +8077,9 @@ react-native-camera@^3.40.0:
   dependencies:
     prop-types "^15.6.2"
 
-react-native-geolocation-service@^5.0.0:
+react-native-geolocation-service@^5.1.1:
   version "5.1.1"
-  resolved "https://registry.npmjs.org/react-native-geolocation-service/-/react-native-geolocation-service-5.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-5.1.1.tgz#21b4aba54c5ce00a2180b2807581131d31bec48b"
   integrity sha512-HrnOW2x3yuMSc5IIHQJ7GOnpKDhMRyk6SxdHTcuUB16tpadusCNCvrGGQtpkWV6WACp3IjJEIUKclxz/84l1Lg==
 
 react-native-gesture-handler@^1.9.0:
