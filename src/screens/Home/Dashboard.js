@@ -28,7 +28,7 @@ const Dashboard = (props) => {
   const {navigation, route} = props;
   const result = useSelector((state) => state.productReducer);
   const dispatch = useDispatch();
-  // const [productData, setProductData] = useState([]);
+  const [productData, setProductData] = useState(result.products);
   const [categoriesData, setCategoriesData] = useState([]);
   const [collectionsData, setCollectionsData] = useState([]);
   const scrollXProducts = new Animated.Value(0);
@@ -37,7 +37,6 @@ const Dashboard = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // await getProducts();
         dispatch(productsAction.getAllProducts());
         const categories = await getCategories();
         const collections = await getCollections();
@@ -160,17 +159,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
-
-// const mapStateToProps = (state) => {
-//   return {
-//     data: state.productReducer,
-//   };
-// };
-
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     getProducts: () => dispatch(productsAction.getAllProducts()),
-//   };
-// };
 
 export default Dashboard;
