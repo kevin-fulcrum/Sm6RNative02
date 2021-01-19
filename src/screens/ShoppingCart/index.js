@@ -1,4 +1,5 @@
-import React, {useRef, useState} from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, {useRef, useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -8,10 +9,13 @@ import {
   Platform,
   KeyboardAvoidingView,
 } from 'react-native';
+import {useSelector, useDispatch} from 'react-redux';
+
 import CartItem from '../../components/ShoppingCart/CartItem';
 import CartDetailsPayment from '../../components/ShoppingCart/CartDetailsPayment';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
 import Input from '../../components/core/Form/TextInput';
+import cartActions from '../../redux/actions/cartAction';
 
 const styles = StyleSheet.create({
   keyboardAvoid: {
@@ -65,6 +69,7 @@ const styles = StyleSheet.create({
 });
 
 const ShoppingCart = ({navigation, route}) => {
+  const cartData = useSelector((state) => state.cartReducer);
   const inputLocation = useRef(null);
   const inputMessage = useRef(null);
   const {title, image, id, price, description, category, collections} =
@@ -74,13 +79,26 @@ const ShoppingCart = ({navigation, route}) => {
   const [message, setMessage] = useState();
   const [disabledButton, setDisabledButton] = useState(true);
   const [total, setTotal] = useState(price);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        dispatch(cartActions.getCartProduct());
+        sumTotal(cartData.cart);
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    fetchData();
+  }, [dispatch]);
 
   const sumTotal = (products) => {
-    const total =
+    const totalPrice =
       products.length > 1
         ? products.reduce((prev, cur) => prev + cur.price, 0)
         : products[0].price;
-    setTotal(total);
+    setTotal(totalPrice);
   };
 
   const onChange = (value, type) => {
@@ -116,16 +134,19 @@ const ShoppingCart = ({navigation, route}) => {
       style={styles.keyboardAvoid}>
       <SafeAreaView style={styles.containerSafeArea}>
         <View style={styles.container}>
-          {route.params ? (
+          {cartData.cart.length > 0 ? (
             <>
               <ScrollView nestedScrollEnabled style={{flex: 0.1}}>
-                <CartItem
-                  title={title}
-                  image={image}
-                  price={price}
-                  category={category}
-                  collections={collections}
-                />
+                {cartData.cart.length !== 0 &&
+                  cartData.cart.map((item, index) => (
+                    <CartItem
+                      title={item.title}
+                      image={item.image}
+                      price={item.price}
+                      category={item.category}
+                      collections={item.collections}
+                    />
+                  ))}
               </ScrollView>
               <View style={styles.shippingContainer}>
                 <View style={styles.shippingContent}>

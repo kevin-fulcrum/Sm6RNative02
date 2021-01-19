@@ -7,6 +7,8 @@ import {
 import Button from '../../../components/core/Buttons/Button';
 import {ScrollView} from 'react-native-gesture-handler';
 import ProductDetailSlider from '../../../components/ProductDetailSlider/ProductDetailSlider';
+import {useDispatch} from 'react-redux';
+import cartAction from '../../../redux/actions/cartAction';
 
 const styles = StyleSheet.create({
   container: {
@@ -76,10 +78,11 @@ const styles = StyleSheet.create({
 
 const ProductDetails = ({navigation, route}) => {
   const {title, image, id, price, description, category} = route.params;
-
+  const products = route.params;
+  const dispatch = useDispatch();
+  console.warn('set cart products', products);
   const goToShoppingCart = () => {
-    console.warn('...');
-    console.warn('...');
+    dispatch(cartAction.setCartProduct(products));
     navigation.navigate('ShoppingCart', route.params);
   };
   return (
