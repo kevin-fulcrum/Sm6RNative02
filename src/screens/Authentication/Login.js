@@ -96,10 +96,13 @@ const Login = ({navigation}) => {
   };
   const submitLogin = async () => {
     const response = await login(email, password);
+    console.warn('response prev', response);
     if (response.isError) {
+      console.warn('response', response.isError);
       setErrorMessage(response.message);
       setVisible(true);
     } else {
+      console.warn('response', response);
       navigation.navigate('Dashboard');
     }
   };
@@ -158,7 +161,8 @@ const Login = ({navigation}) => {
         isVisible={isVisible}
         backdrop={() => setVisible(false)}
         title={'Something went wrong!'}
-        message={errorMessage}></CustomModal>
+        message={errorMessage}
+      />
     </View>
   );
 };
