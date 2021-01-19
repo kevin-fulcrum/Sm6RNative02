@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-native/no-inline-styles */
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
@@ -13,35 +13,30 @@ import Carousel from '../../components/Carousel/Carousel';
 import CategorySliderItem from '../../components/CategorySlider//CategorySliderItem';
 
 import ProductSliderItem from '../../components/ProductSlider/ProductSliderItem';
-import {
-  // getProducts,
-  getCategories,
-  getCollections,
-} from '../../resource/database/products';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
 import {useSelector, useDispatch} from 'react-redux';
 import productsAction from '../../redux/actions/productsAction';
+import categoriesAction from '../../redux/actions/categoriesAction';
+import collectionsAction from '../../redux/actions/collectionsAction';
 
 const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 const Dashboard = (props) => {
   const {navigation, route} = props;
   const result = useSelector((state) => state.productReducer);
+  console.warn('result', result);
+
   const dispatch = useDispatch();
-  const [productData, setProductData] = useState(result.products);
-  const [categoriesData, setCategoriesData] = useState([]);
-  const [collectionsData, setCollectionsData] = useState([]);
   const scrollXProducts = new Animated.Value(0);
   const scrollXCategories = new Animated.Value(0);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        console.warn('fetchData');
         dispatch(productsAction.getAllProducts());
-        const categories = await getCategories();
-        const collections = await getCollections();
-        setCategoriesData(categories);
-        setCollectionsData(collections);
+        // await dispatch(categoriesAction.getAllCategories());
+        // await dispatch(collectionsAction.getAllCollections());
       } catch (err) {
         console.warn(err);
       }
@@ -53,7 +48,7 @@ const Dashboard = (props) => {
   };
   const categoryDetail = (item) => {
     console.warn('categoryDetail item', item);
-    const productCategory = result.products.filter(
+    const productCategory = result.productReducer.products.filter(
       (products) => products.category === item.description,
     );
     navigation.navigate('categoryDetails', {
@@ -63,9 +58,12 @@ const Dashboard = (props) => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{flex: 1}}>
-        <Carousel data={collectionsData} />
-      </View>
+      {/* {result?.collectionsReducer?.collections.length !== 0 ? (
+        <View style={{flex: 1}}>
+          <Carousel data={result.collectionsReducer.collections} />
+        </View>
+      ) : null} */}
+
       {result.products.length !== 0 && (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Products</Text>
@@ -102,11 +100,11 @@ const Dashboard = (props) => {
           />
         </View>
       )}
-      {categoriesData.length > 0 && (
+      {/* {result?.categoriesReducer?.categories.length > 0 ? (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Categories</Text>
           <AnimatedFlatList
-            data={categoriesData}
+            data={result.categoriesReducer.categories}
             keyExtractor={(item, index) => 'key' + index}
             horizontal
             scrollEnabled
@@ -137,7 +135,7 @@ const Dashboard = (props) => {
             )}
           />
         </View>
-      )}
+      ) : null} */}
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
   );
