@@ -34,7 +34,6 @@ const Dashboard = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.warn('fetchData');
         dispatch(productsAction.getAllProducts());
         await dispatch(categoriesAction.getAllCategories());
         await dispatch(collectionsAction.getAllCollections());
