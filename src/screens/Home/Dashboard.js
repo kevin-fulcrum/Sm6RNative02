@@ -23,8 +23,9 @@ const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
 
 const Dashboard = (props) => {
   const {navigation, route} = props;
-  const result = useSelector((state) => state.productReducer);
-  console.warn('result', result);
+  const productsData = useSelector((state) => state.productReducer);
+  const categoriesData = useSelector((state) => state.categoriesReducer);
+  const collectionsData = useSelector((state) => state.collectionsReducer);
 
   const dispatch = useDispatch();
   const scrollXProducts = new Animated.Value(0);
@@ -35,8 +36,8 @@ const Dashboard = (props) => {
       try {
         console.warn('fetchData');
         dispatch(productsAction.getAllProducts());
-        // await dispatch(categoriesAction.getAllCategories());
-        // await dispatch(collectionsAction.getAllCollections());
+        await dispatch(categoriesAction.getAllCategories());
+        await dispatch(collectionsAction.getAllCollections());
       } catch (err) {
         console.warn(err);
       }
@@ -48,7 +49,7 @@ const Dashboard = (props) => {
   };
   const categoryDetail = (item) => {
     console.warn('categoryDetail item', item);
-    const productCategory = result.productReducer.products.filter(
+    const productCategory = productsData.products.filter(
       (products) => products.category === item.description,
     );
     navigation.navigate('categoryDetails', {
@@ -58,17 +59,17 @@ const Dashboard = (props) => {
   };
   return (
     <SafeAreaView style={styles.container}>
-      {/* {result?.collectionsReducer?.collections.length !== 0 ? (
+      {collectionsData.collections.length !== 0 ? (
         <View style={{flex: 1}}>
-          <Carousel data={result.collectionsReducer.collections} />
+          <Carousel data={collectionsData.collections} />
         </View>
-      ) : null} */}
+      ) : null}
 
-      {result.products.length !== 0 && (
+      {productsData.products.length !== 0 && (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Products</Text>
           <AnimatedFlatList
-            data={result.products}
+            data={productsData.products}
             keyExtractor={(item, index) => 'key' + index}
             horizontal
             scrollEnabled
@@ -100,11 +101,11 @@ const Dashboard = (props) => {
           />
         </View>
       )}
-      {/* {result?.categoriesReducer?.categories.length > 0 ? (
+      {categoriesData.categories.length > 0 ? (
         <View style={{flex: 1}}>
           <Text style={styles.title}>Categories</Text>
           <AnimatedFlatList
-            data={result.categoriesReducer.categories}
+            data={categoriesData.categories}
             keyExtractor={(item, index) => 'key' + index}
             horizontal
             scrollEnabled
@@ -135,7 +136,7 @@ const Dashboard = (props) => {
             )}
           />
         </View>
-      ) : null} */}
+      ) : null}
       <MenuFooter navigation={navigation} route={route} />
     </SafeAreaView>
   );
