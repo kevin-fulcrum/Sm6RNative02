@@ -6,7 +6,6 @@ const initialState = {
 };
 
 const productReducer = (state = initialState, action) => {
-  console.warn('productReducer', action.data);
   switch (action.type) {
     case Actions.FETCHING_PRODUCTS_SUCCESS:
       return {
