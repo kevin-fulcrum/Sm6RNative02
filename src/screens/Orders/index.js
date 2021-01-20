@@ -9,6 +9,8 @@ import {
   Platform,
 } from 'react-native';
 import MenuFooter from '../../components/core/Menu/MenuFooter';
+import {useSelector, useDispatch} from 'react-redux';
+import ordersAction from '../../redux/actions/ordersAction';
 import Button from '../../components/core/Buttons/Button';
 import Order from '../../components/Orders';
 import {windowHeight, windowWidth} from '../../resource/functions/Dimensions';
@@ -35,25 +37,23 @@ const styles = StyleSheet.create({
 });
 
 const Orders = ({navigation, route}) => {
-  const [orders, setOrders] = useState([]);
   const [error, setError] = useState('');
+  const ordersData = useSelector((state) => state.ordersReducer);
+  console.warn('ordersData', ordersData);
+
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    Api.orderApi
-      .getOrders()
-      .then((data) => {
-        if (data.errors) {
-          console.warn('get api order error', data);
-          setError(data.errors);
-        } else {
-          console.warn('get api order', data);
-          setOrders(data);
-        }
-      })
-      .catch((e) => {
-        console.warn('get api order catch', e);
-        setError(e.errors);
-      });
-  }, []);
+    const fetchData = async () => {
+      try {
+        await dispatch(ordersAction.getOrders());
+      } catch (err) {
+        console.warn(err);
+        setError(err);
+      }
+    };
+    fetchData();
+  }, [dispatch]);
   const goToOrder = (item) => {
     console.warn('goToOrder item', item);
     navigation.navigate('OrderDetail', item);
@@ -64,8 +64,8 @@ const Orders = ({navigation, route}) => {
         <View style={styles.container}>
           <View style={styles.ordersContainer}>
             <Text style={styles.title}>My Orders</Text>
-            {orders.length !== 0 &&
-              orders.map((item, index) => (
+            {ordersData.orders.length !== 0 &&
+              ordersData.orders.map((item, index) => (
                 <Order
                   key={index}
                   index={index}

@@ -96,6 +96,7 @@ const Checkout = ({navigation, route}) => {
         }
       })
       .catch((e) => {
+        console.warn('e', e);
         setErrorMessage(e.errors);
         setIsVisible(true);
       });
@@ -204,7 +205,7 @@ const Checkout = ({navigation, route}) => {
         </View>
         <CustomModal
           isVisible={isVisible}
-          backdrop={() => setVisible(false)}
+          backdrop={() => setIsVisible(false)}
           title={'Error!'}
           message={errorMessage}
         />

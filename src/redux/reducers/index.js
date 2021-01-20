@@ -4,12 +4,14 @@ import productReducer from './products';
 import categoriesReducer from './categories';
 import collectionsReducer from './collections';
 import cartReducer from './cart';
+import ordersReducer from './orders';
 const getRootReducer = () => {
   return combineReducers({
     productReducer,
     categoriesReducer,
     collectionsReducer,
     cartReducer,
+    ordersReducer,
     network,
   });
 };
