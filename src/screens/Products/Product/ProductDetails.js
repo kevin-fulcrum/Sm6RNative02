@@ -81,8 +81,9 @@ const ProductDetails = ({navigation, route}) => {
   const products = route.params;
   const dispatch = useDispatch();
   console.warn('set cart products', products);
-  const goToShoppingCart = () => {
-    dispatch(cartAction.setCartProduct(products));
+  const goToShoppingCart = async () => {
+    console.warn('products', products);
+    await dispatch(cartAction.setCartProduct(products));
     navigation.navigate('ShoppingCart', route.params);
   };
   return (

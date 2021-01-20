@@ -1,4 +1,3 @@
-import ACTIONS from '../../resource/Actions';
 import Actions from '../../resource/Actions';
 
 const setCartSuccess = (data) => {
@@ -34,7 +33,7 @@ const removeCartProductById = (id) => {
 
 const setCartProduct = (data) => {
   return async (dispatch, getState) => {
-    const product = await getState.cartReducer.cart;
+    const product = await getState().cartReducer.cart;
     if (product.length >= 0) {
       const cartProducts = product.concat(data);
       dispatch(setCartSuccess(cartProducts));
