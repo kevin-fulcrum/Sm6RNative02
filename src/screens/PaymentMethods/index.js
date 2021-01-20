@@ -57,6 +57,7 @@ const PaymentMethods = ({navigation, route}) => {
       data={paymentMethods}
       renderItem={({index, item}) => (
         <CardListPayment
+          key={`payment-type-${index}`}
           onPress={() => goToPay(item, index)}
           item={item}
           y={y}

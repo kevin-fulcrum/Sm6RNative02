@@ -46,14 +46,21 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     fontWeight: 'bold',
   },
-  qty: {
-    flex: 0.1,
+  removeContainer: {
+    flex: 0.2,
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    alignItems: 'center',
+  },
+  icon: {
+    width: 30,
+    height: 30,
   },
 });
 
-const CartItem = ({title, image, price, category, collections}) => {
+const CartItem = ({title, image, price, category, collections, onPress}) => {
+  const removeProduct = (item, index) => {
+    onPress && onPress(item, index);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.containerImage}>
@@ -64,6 +71,14 @@ const CartItem = ({title, image, price, category, collections}) => {
         {price && <Text style={styles.price}>{`$ ${price}`}</Text>}
         {category && <Text style={styles.detail}>{category}</Text>}
         {collections && <Text style={styles.detail}>{collections}</Text>}
+      </View>
+      <View style={styles.removeContainer}>
+        <TouchableOpacity onPress={removeProduct}>
+          <Image
+            source={require('../../resource/static/images/icons/delete.png')}
+            style={styles.icon}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
