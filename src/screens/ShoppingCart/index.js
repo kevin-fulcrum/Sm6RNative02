@@ -182,14 +182,16 @@ const ShoppingCart = ({navigation, route}) => {
                   </View>
                 </View>
               </View>
-              <View style={styles.detailContainer}>
-                <CartDetailsPayment
-                  price={total}
-                  shipping={parseInt(8, 10)}
-                  onPress={goToPayment}
-                  disabled={disabledButton}
-                />
-              </View>
+              {total && (
+                <View style={styles.detailContainer}>
+                  <CartDetailsPayment
+                    price={total}
+                    shipping={parseInt(8, 10)}
+                    onPress={goToPayment}
+                    disabled={disabledButton}
+                  />
+                </View>
+              )}
             </>
           ) : (
             <View style={styles.shoppingCartContainer}>
