@@ -72,28 +72,29 @@ const ShoppingCart = ({navigation, route}) => {
   const cartData = useSelector((state) => state.cartReducer);
   const inputLocation = useRef(null);
   const inputMessage = useRef(null);
-  const {title, image, id, price, description, category, collections} =
+  const {title, image, price, description, category, collections} =
     route.params || {};
   const parameters = route.params;
   const [location, setLocation] = useState();
   const [message, setMessage] = useState();
   const [disabledButton, setDisabledButton] = useState(true);
-  const [total, setTotal] = useState(price);
+  const [total, setTotal] = useState();
   const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         dispatch(cartActions.getCartProduct());
-        sumTotal(cartData.cart);
+        if (cartData.cart.length !== 0) sumTotal(cartData.cart);
       } catch (err) {
         console.warn(err);
       }
     };
     fetchData();
-  }, [dispatch]);
+  }, [dispatch, cartData.cart]);
 
   const sumTotal = (products) => {
+    console.warn('sumTotal');
     const totalPrice =
       products.length > 1
         ? products.reduce((prev, cur) => prev + cur.price, 0)
@@ -119,9 +120,15 @@ const ShoppingCart = ({navigation, route}) => {
     }
   };
 
+  const removeProduct = async (id) => {
+    await dispatch(cartActions.removeCartProductById(id));
+    console.warn('cartData.cart', cartData.cart);
+    if (cartData.cart.length !== 0) await sumTotal(cartData.cart);
+  };
+
   const goToPayment = () => {
     const params = {
-      item: parameters,
+      item: cartData.cart,
       location,
       message,
       total,
@@ -140,11 +147,13 @@ const ShoppingCart = ({navigation, route}) => {
                 {cartData.cart.length !== 0 &&
                   cartData.cart.map((item, index) => (
                     <CartItem
+                      key={`cart-item-${index}`}
                       title={item.title}
                       image={item.image}
                       price={item.price}
                       category={item.category}
                       collections={item.collections}
+                      onPress={() => removeProduct(item.id)}
                     />
                   ))}
               </ScrollView>

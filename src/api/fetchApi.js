@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://192.168.1.106:3000/',
+  baseURL: 'http://192.168.0.10:3000/',
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json',
@@ -91,6 +91,7 @@ const fetchApi = {
         return parseBody(result);
       })
       .catch((error) => {
+        console.warn('catch api fetch error', error);
         try {
           if (error.response.status === 1000) {
             return {
@@ -100,6 +101,7 @@ const fetchApi = {
           }
           return parseError(error.response, error.response.status);
         } catch (e) {
+          console.warn('catch api fetch get error', e);
           return parseError(e.response, e.response.status);
         }
       });
@@ -111,6 +113,7 @@ const fetchApi = {
         return parseBody(result);
       })
       .catch((error) => {
+        console.warn('catch api fetch post  error', error);
         try {
           if (error.response.status === 1000) {
             return {
@@ -120,6 +123,7 @@ const fetchApi = {
           }
           return parseError(error.response, error.response.status);
         } catch (e) {
+          console.warn('catch api fetch post error', e);
           return parseError(e.response, e.response.status);
         }
       });
