@@ -11,13 +11,13 @@ import Providers from './src/navigation/';
 import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import {ReduxNetworkProvider} from 'react-native-offline';
-import {store, persistor} from './src/redux/store';
+import reduxStore from './src/redux/store';
 
-const getStore = store();
+const {store, persistor} = reduxStore();
 
 const App = () => {
   return (
-    <Provider store={getStore}>
+    <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ReduxNetworkProvider>
           <Providers />

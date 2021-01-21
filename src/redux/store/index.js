@@ -21,17 +21,16 @@ const persistedReducer = persistReducer(persistConfig, getRootReducer());
 
 const componseEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const store = () => {
-  return createStore(
+export default () => {
+  const store = createStore(
     persistedReducer,
     undefined,
     componseEnhancer(applyMiddleware(networkMiddleware, createLogger(), thunk)),
   );
-};
 
-const persistor = persistStore(store);
-
-export default {
-  store,
-  persistor,
+  const persistor = persistStore(store);
+  return {
+    store,
+    persistor,
+  };
 };
