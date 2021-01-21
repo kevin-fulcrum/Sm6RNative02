@@ -19,6 +19,18 @@ const ordersReducer = (state = initialState, action) => {
         orders: [],
         errors: action.errors,
       };
+    case Actions.SET_ORDERS_SUCCESS:
+      return {
+        ...state,
+        orders: action.data,
+        errors: '',
+      };
+    case Actions.SET_ORDERS_FAILURE:
+      return {
+        ...state,
+        orders: [],
+        errors: action.errors,
+      };
     default:
       return state;
   }
