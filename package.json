@@ -16,6 +16,7 @@
     "detox:test-ios-sim-debug": "detox test -c ios.sim.debug --cleanup"
   },
   "dependencies": {
+    "@react-native-community/async-storage": "^1.12.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-native-community/netinfo": "^5.9.10",
     "@react-native-firebase/app": "^10.1.0",
@@ -41,6 +42,7 @@
     "react-navigation-redux-helpers": "^4.0.1",
     "react-redux": "^7.2.2",
     "redux": "^4.0.5",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
@@ -72,7 +74,8 @@
     "react-devtools": "^4.10.1",
     "react-dom": "^17.0.1",
     "react-native-svg-transformer": "^0.14.3",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "redux-logger": "^3.0.6"
   },
   "husky": {
     "hooks": {
