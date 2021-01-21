@@ -4,7 +4,7 @@
   "description": "Json server API to React native app",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --host 192.168.0.10 db.json"
+    "start": "json-server --host 192.168.0.4 db.json"
   },
   "author": "",
   "license": "ISC",

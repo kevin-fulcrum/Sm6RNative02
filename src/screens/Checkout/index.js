@@ -1,18 +1,11 @@
 import React, {useState, useRef} from 'react';
-import {
-  View,
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
-  Platform,
-} from 'react-native';
+import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import Button from '../../components/core/Buttons/Button';
 import Input from '../../components/core/Form/TextInput';
 import {CardPayment} from '../../components/Payment/CardPayment';
 import CustomModal from '../../components/core/Modal';
-import Api from '../../api';
-import {windowHeight, windowWidth} from '../../resource/functions/Dimensions';
-import {onChange} from 'react-native-reanimated';
+import Actions from '../../redux/actions/ordersAction';
+import {useDispatch} from 'react-redux';
 
 const styles = StyleSheet.create({
   container: {
@@ -64,6 +57,7 @@ const Checkout = ({navigation, route}) => {
   const [cardNumber, setCardNumber] = useState('');
   const [cardHolder, setCardHolder] = useState('');
   const [expireDate, setExpireDate] = useState('');
+  const dispatch = useDispatch();
   const [cvv, setCvv] = useState('');
   const [disabledButton, setDisabledButton] = useState(true);
   const inputExpireDate = useRef();
@@ -84,8 +78,7 @@ const Checkout = ({navigation, route}) => {
       productsName: [product.title],
       productImage: product.image,
     };
-    Api.orderApi
-      .createOrder(parameters)
+    dispatch(Actions.setOrders(parameters))
       .then((data) => {
         if (data.errors) {
           setErrorMessage(data.errors);
