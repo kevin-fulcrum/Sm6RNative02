@@ -65,18 +65,23 @@ const Checkout = ({navigation, route}) => {
   const inputCardHolder = useRef();
   const inputCardNumber = useRef();
   const {paymentMethods, order} = route.params || {};
-  const product = order.item || {};
+  const products = order.item || {};
 
   const sendPayment = () => {
+    console.warn('product sendPayment', products);
+    const productId = products.map((product) => {
+      return product.id;
+    });
+    console.warn('productId', productId);
     const parameters = {
-      productId: [product.id],
+      productId: productId,
       quantity: 1,
       details: order.message,
       location: order.location,
       totalPrice: order.total,
       paymentMethod: paymentMethods.description,
-      productsName: [product.title],
-      productImage: product.image,
+      productsName: products.title,
+      productImage: products.image,
     };
     dispatch(Actions.setOrders(parameters))
       .then((data) => {

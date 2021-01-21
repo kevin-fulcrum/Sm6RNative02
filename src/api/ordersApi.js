@@ -7,6 +7,7 @@ const orderApi = {
       Authorization: `Bearer ${token}`,
     };
     const data = await fetchApi.post('/orders', parameters, config);
+    console.warn('orderApi', data);
     return data;
   },
   getOrders: async () => {
