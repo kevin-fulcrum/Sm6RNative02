@@ -1,5 +1,5 @@
 {
-  "orders": [
+  "order": [
     {
       "productId": [
         1
@@ -23,62 +23,6 @@
         }
       ],
       "id": 2
-    },
-    {
-      "productId": [
-        null
-      ],
-      "quantity": 1,
-      "details": "Laho",
-      "location": "Lima",
-      "totalPrice": 60,
-      "paymentMethod": "Visa",
-      "productsName": [
-        null
-      ],
-      "id": 3
-    },
-    {
-      "productId": [
-        null
-      ],
-      "quantity": 1,
-      "details": "Laho",
-      "location": "Lima",
-      "totalPrice": 60,
-      "paymentMethod": "Visa",
-      "productsName": [
-        null
-      ],
-      "id": 4
-    },
-    {
-      "productId": [
-        null
-      ],
-      "quantity": 1,
-      "details": "Laho",
-      "location": "Lima",
-      "totalPrice": 60,
-      "paymentMethod": "Visa",
-      "productsName": [
-        null
-      ],
-      "id": 5
-    },
-    {
-      "productId": [
-        null
-      ],
-      "quantity": 1,
-      "details": "Laho",
-      "location": "Lima",
-      "totalPrice": 60,
-      "paymentMethod": "Visa",
-      "productsName": [
-        null
-      ],
-      "id": 6
     }
   ],
   "locations": [],
