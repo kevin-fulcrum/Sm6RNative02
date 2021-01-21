@@ -67,10 +67,16 @@ const Checkout = ({navigation, route}) => {
   const {paymentMethods, order} = route.params || {};
   const products = order.item || {};
 
-  const sendPayment = () => {
+  const sendPayment = async () => {
     console.warn('product sendPayment', products);
     const productId = products.map((product) => {
       return product.id;
+    });
+    const productNames = products.map((product) => {
+      return product.title;
+    });
+    const productImages = products.map((product) => {
+      return product.image;
     });
     console.warn('productId', productId);
     const parameters = {
@@ -80,24 +86,25 @@ const Checkout = ({navigation, route}) => {
       location: order.location,
       totalPrice: order.total,
       paymentMethod: paymentMethods.description,
-      productsName: products.title,
-      productImage: products.image,
+      productsName: productNames,
+      productImage: productImages,
     };
-    dispatch(Actions.setOrders(parameters))
-      .then((data) => {
-        if (data.errors) {
-          setErrorMessage(data.errors);
-          setIsVisible(true);
-        } else {
-          console.warn('Create success Order');
-          console.warn('Payment Api');
-        }
-      })
-      .catch((e) => {
-        console.warn('e', e);
-        setErrorMessage(e.errors);
-        setIsVisible(true);
-      });
+    await dispatch(Actions.setOrders(parameters));
+    // .then((data) => {
+    //   console.warn('data', data);
+    //   if (data.errors) {
+    //     setErrorMessage(data.errors);
+    //     setIsVisible(true);
+    //   } else {
+    //     console.warn('Create success Order');
+    //     console.warn('Payment Api');
+    //   }
+    // })
+    // .catch((e) => {
+    //   console.warn('e', e);
+    //   setErrorMessage(e.errors);
+    //   setIsVisible(true);
+    // });
   };
 
   const onChange = (value, type) => {
