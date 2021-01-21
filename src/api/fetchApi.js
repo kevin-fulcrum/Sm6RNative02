@@ -10,7 +10,6 @@ const instance = axios.create({
 });
 
 const parseBody = async (res) => {
-  console.warn('res', res);
   if (res.status) {
     try {
       if (res.status === 200 || res.status === 201) {
