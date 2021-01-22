@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'http://192.168.0.10:3000/',
+  baseURL: 'http://10.0.2.2:3000',
   timeout: 1000,
   headers: {
     'Content-Type': 'application/json',
@@ -10,7 +10,6 @@ const instance = axios.create({
 });
 
 const parseBody = async (res) => {
-  console.warn('res', res);
   if (res.status) {
     try {
       if (res.status === 200 || res.status === 201) {

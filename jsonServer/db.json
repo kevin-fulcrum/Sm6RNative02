@@ -1,13 +1,17 @@
 {
-  "orders": [
+  "order": [
     {
-      "productId": [1],
+      "productId": [
+        1
+      ],
       "quantity": 1,
       "details": "Hola hola",
       "location": "Lima peru",
       "totalPrice": 60,
       "paymentMethod": "Visa",
-      "productsName": ["DANCER"],
+      "productsName": [
+        "DANCER"
+      ],
       "productImage": [
         {
           "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0003_Layer22.jpg?v=1606404595",

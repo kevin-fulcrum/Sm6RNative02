@@ -1,18 +1,11 @@
 import React, {useState, useRef} from 'react';
-import {
-  View,
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
-  Platform,
-} from 'react-native';
+import {View, StyleSheet, SafeAreaView, ScrollView} from 'react-native';
 import Button from '../../components/core/Buttons/Button';
 import Input from '../../components/core/Form/TextInput';
 import {CardPayment} from '../../components/Payment/CardPayment';
 import CustomModal from '../../components/core/Modal';
-import Api from '../../api';
-import {windowHeight, windowWidth} from '../../resource/functions/Dimensions';
-import {onChange} from 'react-native-reanimated';
+import Actions from '../../redux/actions/ordersAction';
+import {useDispatch} from 'react-redux';
 
 const styles = StyleSheet.create({
   container: {
@@ -64,6 +57,7 @@ const Checkout = ({navigation, route}) => {
   const [cardNumber, setCardNumber] = useState('');
   const [cardHolder, setCardHolder] = useState('');
   const [expireDate, setExpireDate] = useState('');
+  const dispatch = useDispatch();
   const [cvv, setCvv] = useState('');
   const [disabledButton, setDisabledButton] = useState(true);
   const inputExpireDate = useRef();
@@ -71,35 +65,46 @@ const Checkout = ({navigation, route}) => {
   const inputCardHolder = useRef();
   const inputCardNumber = useRef();
   const {paymentMethods, order} = route.params || {};
-  const product = order.item || {};
+  const products = order.item || {};
 
-  const sendPayment = () => {
+  const sendPayment = async () => {
+    console.warn('product sendPayment', products);
+    const productId = products.map((product) => {
+      return product.id;
+    });
+    const productNames = products.map((product) => {
+      return product.title;
+    });
+    const productImages = products.map((product) => {
+      return product.image;
+    });
+    console.warn('productId', productId);
     const parameters = {
-      productId: [product.id],
+      productId: productId,
       quantity: 1,
       details: order.message,
       location: order.location,
       totalPrice: order.total,
       paymentMethod: paymentMethods.description,
-      productsName: [product.title],
-      productImage: product.image,
+      productsName: productNames,
+      productImage: productImages,
     };
-    Api.orderApi
-      .createOrder(parameters)
-      .then((data) => {
-        if (data.errors) {
-          setErrorMessage(data.errors);
-          setIsVisible(true);
-        } else {
-          console.warn('Create success Order');
-          console.warn('Payment Api');
-        }
-      })
-      .catch((e) => {
-        console.warn('e', e);
-        setErrorMessage(e.errors);
-        setIsVisible(true);
-      });
+    await dispatch(Actions.setOrders(parameters));
+    // .then((data) => {
+    //   console.warn('data', data);
+    //   if (data.errors) {
+    //     setErrorMessage(data.errors);
+    //     setIsVisible(true);
+    //   } else {
+    //     console.warn('Create success Order');
+    //     console.warn('Payment Api');
+    //   }
+    // })
+    // .catch((e) => {
+    //   console.warn('e', e);
+    //   setErrorMessage(e.errors);
+    //   setIsVisible(true);
+    // });
   };
 
   const onChange = (value, type) => {
