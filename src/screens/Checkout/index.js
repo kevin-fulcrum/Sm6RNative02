@@ -7,6 +7,16 @@ import CustomModal from '../../components/core/Modal';
 import Actions from '../../redux/actions/ordersAction';
 import {useDispatch} from 'react-redux';
 
+const convertArrayToObject = (array, key) => {
+  const initialValue = {};
+  return array.reduce((obj, item) => {
+    return {
+      ...obj,
+      [item[key]]: item,
+    };
+  }, initialValue);
+};
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -87,7 +97,7 @@ const Checkout = ({navigation, route}) => {
       totalPrice: order.total,
       paymentMethod: paymentMethods.description,
       productsName: productNames,
-      productImage: productImages,
+      productImage: productImages.flat(2),
     };
     await dispatch(Actions.setOrders(parameters));
     // .then((data) => {

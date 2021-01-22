@@ -23,6 +23,50 @@
         }
       ],
       "id": 2
+    },
+    {
+      "productId": [
+        1,
+        2,
+        2
+      ],
+      "quantity": 1,
+      "details": "asdasd",
+      "location": "asdas",
+      "totalPrice": 120,
+      "paymentMethod": "Visa",
+      "productsName": [
+        "DANCER",
+        "OLI",
+        "OLI"
+      ],
+      "productImage": [
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0003_Layer22.jpg?v=1606404595",
+          "id": 1
+        },
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/2.TSHIRTTEMPLATE.psd_0002_Layer23.jpg?v=1606404595",
+          "id": 2
+        },
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/0.SIZETOBE.jpg?v=1606407520",
+          "id": 1
+        },
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/oliback.jpg?v=1606407520",
+          "id": 2
+        },
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/0.SIZETOBE.jpg?v=1606407520",
+          "id": 1
+        },
+        {
+          "url": "https://cdn.shopify.com/s/files/1/0259/8515/products/oliback.jpg?v=1606407520",
+          "id": 2
+        }
+      ],
+      "id": 4
     }
   ],
   "locations": [],

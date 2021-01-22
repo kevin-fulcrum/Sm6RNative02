@@ -25,7 +25,6 @@ const styles = StyleSheet.create({
 });
 
 const ProductItemSlider = ({item}) => {
-  console.warn('item.item.url', item.item.url);
   return (
     <View style={styles.container}>
       <Image
